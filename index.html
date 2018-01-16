@@ -186,7 +186,7 @@
 <li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/ClassifierActivity.java" target="_blank" rel="noopener">TF Classify</a>:使用<a href="https://arxiv.org/abs/1409.4842" target="_blank" rel="noopener">Google Inceptions</a>模型实时分类相机帧，显示在相机图像顶部结果。</li>
 <li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/DetectorActivity.java" target="_blank" rel="noopener">TF Detect</a>:展示一个SSD-Mobilenet模型使用在<a href="https://arxiv.org/abs/1611.10012" target="_blank" rel="noopener">Speed/accuracy trade-offs for modern convolutional object detectors </a>中介绍的<a href="https://github.com/tensorflow/models/tree/master/research/object_detection/" target="_blank" rel="noopener">Tensorflow Object Detection API</a>在摄像头取景器中实时追踪目标。</li>
 <li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/StylizeActivity.java" target="_blank" rel="noopener">TF Stylize</a>:使用一个基于<a href="https://arxiv.org/abs/1610.07629" target="_blank" rel="noopener">A Learned Representation For Artistic Style</a>中用不同的风格风格化摄像头取景器</li>
-<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/SpeechActivity.java" target="_blank" rel="noopener">TF Speech</a>:运行一个通过<a href="https://www.tensorflow.org/versions/master/tutorials/audio_recognition" target="_blank" rel="noopener">audio train tutorial</a>构建的简单的语音识别模型，听一个单词识别后在UI上高亮对应单词。<br><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/stylize1.jpg" alt="示例"><h2 id="预编译组件"><a href="#预编译组件" class="headerlink" title="预编译组件"></a>预编译组件</h2>如果你想最快的舱室示例，你可以在<a href="https://ci.tensorflow.org/view/Nightly/job/nightly-android/" target="_blank" rel="noopener">这里</a>下载快速构建版本。展开”View”然后”out”在”Last Successful Artifacts”下的文件夹找到tensorflow_demo.apk。</li>
+<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/SpeechActivity.java" target="_blank" rel="noopener">TF Speech</a>:运行一个通过<a href="https://www.tensorflow.org/versions/master/tutorials/audio_recognition" target="_blank" rel="noopener">audio train tutorial</a>构建的简单的语音识别模型，听一个单词识别后在UI上高亮对应单词。<br><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/classify1.jpg" width="30%"><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/stylize1.jpg" width="30%"><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/detect1.jpg" width="30%"><h2 id="预编译组件"><a href="#预编译组件" class="headerlink" title="预编译组件"></a>预编译组件</h2>如果你想最快的舱室示例，你可以在<a href="https://ci.tensorflow.org/view/Nightly/job/nightly-android/" target="_blank" rel="noopener">这里</a>下载快速构建版本。展开”View”然后”out”在”Last Successful Artifacts”下的文件夹找到tensorflow_demo.apk。</li>
 </ol>
 <p>也可以在本地库预编译，一个jcenter包放入你的app中，查看<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/README.md" target="_blank" rel="noopener">tensorflow/contrib/android/README.md </a>获取更多详细信息。</p>
 <h2 id="运行Demo"><a href="#运行Demo" class="headerlink" title="运行Demo"></a>运行Demo</h2><p>当APP安装后可以通过”TF Classify”,”TF Detect”,”TF Styleize”和”TF Speech”图标启动，他们都有橙色的TensorFlow Logo图标。</p>
@@ -214,11 +214,11 @@
 <ul>
 <li>Android Studio SDK管理的NDK安装器将安装最新的NDK，这和Bazel不兼容。你将需要下载2建议的老版本<h3 id="编辑WORKSPACE"><a href="#编辑WORKSPACE" class="headerlink" title="编辑WORKSPACE"></a>编辑WORKSPACE</h3>注意:只要你有SDK和NDK安装，<code>./configure</code>脚本将为你创建规则。当脚本要求自动配置<code>./WORKSPACE</code>的时候回答”Yes”。</li>
 </ul>
-<p>Android入口在<a href="workspace_root&gt;/WORKSPACE">https://github.com/tensorflow/tensorflow/blob/master/WORKSPACE#L19-L36</a>中必须被反注释掉NDK和SDK指定安装位置。否则将出现类似”The external label ‘//external:android/sdk’”的错误。</p>
+<p>Android入口在<a href="https://github.com/tensorflow/tensorflow/blob/master/WORKSPACE#L19-L36" target="_blank" rel="noopener"><workspace_root>/WORKSPACE</workspace_root></a>中必须被反注释掉NDK和SDK指定安装位置。否则将出现类似”The external label ‘//external:android/sdk’”的错误。</p>
 <p>编辑API级别用于在WORKSPACE中的SDK高亮你想安装在你的SDK的级别。这必须&gt;=23(这是demo完整的依赖，它定义在AndroidManifest.xml).NDK API level也许保留为14。</p>
 <h3 id="安装模型文件-可选"><a href="#安装模型文件-可选" class="headerlink" title="安装模型文件(可选)"></a>安装模型文件(可选)</h3><p>TensorFlow<code>GraphDef</code>包含模型定义和定义在仓库中没有打包的权重因为他的尺寸问题。他们通过在构建过程中定义在WORKSPACE中的new_http_archive被自动下载通过Bazel结合APK打包。</p>
 <p>可选:如果你希望手动放置模型在你的assets，从<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/BUILD#L92" target="_blank" rel="noopener">BUILD</a>文件中的Tensorflow_demo移除models_files入口。然后下载解压压缩文件到源文件树中的assets目录:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BASE_URL=https://storage.googleapis.com/download.tensorflow.org/models</span><br><span class="line"><span class="keyword">for</span> MODEL_ZIP <span class="keyword">in</span> inception5h.zip ssd_mobilenet_v1_android_export.zip stylize_v1.zip</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  curl -L <span class="variable">$&#123;BASE_URL&#125;</span>/<span class="variable">$&#123;MODEL_ZIP&#125;</span> -o /tmp/<span class="variable">$&#123;MODEL_ZIP&#125;</span></span><br><span class="line">  unzip /tmp/<span class="variable">$&#123;MODEL_ZIP&#125;</span> -d tensorflow/examples/android/assets/</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
-<p>这讲解呀模型和他们的metadata文件到assets/目录。</p>
+<p>这将解压模型和他们的metadata文件到assets/目录。</p>
 <p>如果你使用Gradle，确保你手动下载模型后从build.gradle中移除download-models.gradle；否则gradle也许再次下载模型覆盖你的模型。</p>
 <h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>在编辑你的WORKSPACE文件后更新SDK/NDK配置，你也许构建APK。然后从你的workspace根目录运行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt //tensorflow/examples/android:tensorflow_demo</span><br></pre></td></tr></table></figure></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>确保adb调试在你的Android5.0(API21)或者更新的设备上被打开，然后使用下面的命令在你的workspace根目录中安装APK:<br><code>adb install -r bazel-bin/tensorflow/examples/android/tensorflow_demo.apk</code></p>
@@ -1289,11 +1289,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+                <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,11 +1305,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+                <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
               </li>
             
             <div class="clearfix"></div>
