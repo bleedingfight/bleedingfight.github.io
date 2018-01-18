@@ -19,7 +19,8 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted1.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted2.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted3.png">
-<meta property="og:updated_time" content="2018-01-09T11:58:26.994Z">
+<meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted4.png">
+<meta property="og:updated_time" content="2018-01-18T15:26:32.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="minted使用">
 <meta name="twitter:description" content="Minted介绍Minted是Latex上非常好用的代码高亮工具，可以借助Python包Pygement根据不同的语法高亮。需要安装python，然后使用工具安装pygments。这里假设你已经安装了pip和相关Python。 安装和配置Pygmentspip install Pygments然后在latex导言区使用minted包\usepackage{minted} 通常还需要使用不同的颜色，">
@@ -220,6 +221,11 @@
 </li>
 </ul>
 <p>效果如下:<br><img src="/2018/01/08/minted/../minted/minted3.png" alt="渲染效果"></p>
+<h2 id="定义全局效果"><a href="#定义全局效果" class="headerlink" title="定义全局效果"></a>定义全局效果</h2><ol>
+<li>定义全局单行效果:<br><code>\newmintinline{language}{options}</code><br>比如：定义单行的Python代码效果:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\newmintinline&#123;python&#125;&#123;bgcolor=bg,breaklines,breakanywhere,python3&#125;</span><br><span class="line">\pythoninline&#123;from numpy import sin,cos,tan,exp,pi&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>使用定义的效果:<br><code>\bashinline{内容}</code><br><img src="/2018/01/08/minted/../minted/minted4.png" alt="mathescape"></p>
 
       
 
@@ -514,11 +520,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,11 +536,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+                <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
               </li>
             
             <div class="clearfix"></div>
