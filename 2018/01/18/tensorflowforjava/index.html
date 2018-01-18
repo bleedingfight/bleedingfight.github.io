@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bleedingfight的技术博客">
 <meta property="og:description" content="TensorFlow for Java 警告:TensorFlow Java API当前不支持TensorFlowAPI stability guarantees。对于在Android上使用TensorFlow查看contrib/android,makefile,tensorflow/examples/android/README.md  快速开始 查看Installing TensorFlow">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T09:31:37.628Z">
+<meta property="og:updated_time" content="2018-01-18T09:36:38.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflowforjava">
 <meta name="twitter:description" content="TensorFlow for Java 警告:TensorFlow Java API当前不支持TensorFlowAPI stability guarantees。对于在Android上使用TensorFlow查看contrib/android,makefile,tensorflow/examples/android/README.md  快速开始 查看Installing TensorFlow">
@@ -198,7 +198,7 @@
 <p>这命令将在bazel-bin/tensorflow/java目录生成两个文件:</p>
 <ul>
 <li>一个打包的Java类:<code>libtensorflow.jar</code></li>
-<li>在Linux上一个本地库:<code>libtensorflow_jni.so</code>，在OS X上<code>libtensorflow_jni.dylib</code>，或者在Windows上的<code>tensorflow_jni.dll</code><br>为了使用TensorFlow Java API编译Java代码，包含<code>libtensorflow.jar</code>在路径中。例如:<br><code>javac -cp bazel-bin/tensorflow/java/libtensorflow.jar ...</code><br>为了执行变异的程序，包含<code>libtensorflow.jar</code>在类的路径和本地库到本地库路径。例如:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java -cp bazel-bin/tensorflow/java/libtensorflow.jar \</span><br><span class="line">  -Djava.library.path=bazel-bin/tensorflow/java \</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<li>在Linux上一个本地库:<code>libtensorflow_jni.so</code>，在OS X上<code>libtensorflow_jni.dylib</code>，或者在Windows上的<code>tensorflow_jni.dll</code><br>为了使用TensorFlow Java API编译Java代码，包含<code>libtensorflow.jar</code>在路径中。例如:<br><code>javac -cp bazel-bin/tensorflow/java/libtensorflow.jar ...</code><br>为了执行编译的程序，包含<code>libtensorflow.jar</code>在类的路径和本地库到本地库路径。例如:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java -cp bazel-bin/tensorflow/java/libtensorflow.jar \</span><br><span class="line">  -Djava.library.path=bazel-bin/tensorflow/java \</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><a href="https://bazel.build/versions/master/docs/windows.html" target="_blank" rel="noopener">bazel on Windows</a>在Windows上安装更多是试验性的。这里细节被省略，但是找到脚本中的灵感构建相关的归档:<a href="https://www.tensorflow.org/code/tensorflow/tools/ci_build/windows/libtensorflow_cpu.sh" target="_blank" rel="noopener">tensorflow/tools/ci_build/windows/libtensorflow_cpu.sh</a></p>
