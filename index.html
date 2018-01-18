@@ -159,6 +159,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ubuntu14安装clang" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/17/Ubuntu14安装clang/">Ubuntu14安装clang</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/17/Ubuntu14安装clang/" class="archive-article-date">
+  	<time datetime="2018-01-17T07:22:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装GCC7-2"><a href="#安装GCC7-2" class="headerlink" title="安装GCC7.2"></a>安装GCC7.2</h1><p>需要在Ubuntu上编译TensorFlow，编译出错，有人说gcc版本太旧，用clang比较好，于是下载clang系列套装，编译的时候需要使用cmake，而且要是cmake3.2以上，于是下载编译cmake3，cmake3要求gcc,安装gcc有要求m4,gmp,mpc。无比复杂。</p>
+<p>于是索性全部安装最新版本，为了安装最新版本的gcc7.2，首先要安装m4:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 新建文本filelist，写入下面内容</span><br><span class="line">ftp://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.gz</span><br><span class="line">ftp://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz</span><br><span class="line">ftp://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.zip</span><br><span class="line">ftp://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz</span><br><span class="line">ftp://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.gz</span><br><span class="line"># 一次下载所有需要软件</span><br><span class="line">wget -c -f filelist</span><br></pre></td></tr></table></figure></p>
+<p>安装m4,因为服务器是多用户操作，所以安装的这些软件全部都在单独指定的目录，为此需要新建多个目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设上面的压缩文件全部都在/home目录下的gcc目录下</span></span><br><span class="line"><span class="built_in">cd</span> ~/gcc</span><br><span class="line">tar xzf m4-1.4.18.tar.gz</span><br><span class="line"><span class="built_in">cd</span> xzf m4-1.4.18</span><br><span class="line">mkdir build </span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf m4-1.4.18</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装gmp-6-1-2"><a href="#安装gmp-6-1-2" class="headerlink" title="安装gmp-6.1.2"></a>安装gmp-6.1.2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建gmp-6.1.2文件夹更改用户,所有者和权限。之后的代码假设豌豆按照次操作创建了对应的安装文件夹</span></span><br><span class="line">mkdir /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">sudo chmod 755 /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">sudo chgrp bleedingfight /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">sudo chown bleedingfight /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">tar xJf gmp-6.1.2.tar.xz</span><br><span class="line"><span class="built_in">cd</span> gmp-6.1.2</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf gmp-6.1.2</span><br></pre></td></tr></table></figure>
+<h2 id="安装mpfr-4-0-4-假设按照上面创建了-usr-local-mpfr-4-0-4"><a href="#安装mpfr-4-0-4-假设按照上面创建了-usr-local-mpfr-4-0-4" class="headerlink" title="安装mpfr-4.0.4(假设按照上面创建了/usr/local/mpfr-4.0.4)"></a>安装mpfr-4.0.4(假设按照上面创建了/usr/local/mpfr-4.0.4)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unzip mpfr-4.0.0.zip</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/mpfr-4.0.0/ --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">make -j4</span><br><span class="line">sudo make install </span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf mpfr-4.0.0</span><br></pre></td></tr></table></figure>
+<h2 id="安装-假设按照上面创建-usr-local-mpc-1-1-0"><a href="#安装-假设按照上面创建-usr-local-mpc-1-1-0" class="headerlink" title="安装(假设按照上面创建/usr/local/mpc-1.1.0)"></a>安装(假设按照上面创建/usr/local/mpc-1.1.0)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar xjf mpc-1.1.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mpc-1.1.0</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/mpc-1.1.0 --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0</span><br><span class="line">make -j4</span><br><span class="line">sudo make install </span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf mpc-1.1.0</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/mpc-1.1.0 --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0</span><br></pre></td></tr></table></figure>
+<h2 id="安装GCC（假设按照上面创建-usr-local-gcc7-2）"><a href="#安装GCC（假设按照上面创建-usr-local-gcc7-2）" class="headerlink" title="安装GCC（假设按照上面创建/usr/local/gcc7.2）"></a>安装GCC（假设按照上面创建/usr/local/gcc7.2）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar xzf gcc-7.2.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> gcc-7.2.0.tar.gz</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/mpfr-4.0.0/lib:/usr/<span class="built_in">local</span>/gmp-6.1.2/lib:/usr/<span class="built_in">local</span>/mpc-1.1.0/lib</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/gcc7.2 --<span class="built_in">enable</span>-threads=posix --<span class="built_in">disable</span>-checking --<span class="built_in">disable</span>-multilib --<span class="built_in">enable</span>-languages=c,c++ --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0 --with-mpc=/usr/<span class="built_in">local</span>/mpc-1.1.0</span><br><span class="line">sudo make install </span><br><span class="line">rm ../../</span><br><span class="line">rm -rf gcc</span><br></pre></td></tr></table></figure>
+<h2 id="配置gcc信息"><a href="#配置gcc信息" class="headerlink" title="配置gcc信息"></a>配置gcc信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将下面的内容添加到/etc/profile保证编译器新的库函数可用。</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/gcc7.2/lib:/usr/<span class="built_in">local</span>/gcc7.2/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="comment"># 两新的gcc和g++编译器连接到bin中，方便调用</span></span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/gcc7.2/bin/gcc /usr/<span class="built_in">local</span>/bin/gcc7.2</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/gcc7.2/bin/g++ /usr/<span class="built_in">local</span>/bin/g++7.2</span><br></pre></td></tr></table></figure>
+<h1 id="下载安装cmake3-9-6-假设按照上面创建了-usr-local-cmake3-9-6-安装3-10有错误，应该是boostrap脚本有问题。"><a href="#下载安装cmake3-9-6-假设按照上面创建了-usr-local-cmake3-9-6-安装3-10有错误，应该是boostrap脚本有问题。" class="headerlink" title="下载安装cmake3.9.6(假设按照上面创建了/usr/local/cmake3.9.6)安装3.10有错误，应该是boostrap脚本有问题。"></a>下载安装cmake3.9.6(假设按照上面创建了/usr/local/cmake3.9.6)安装3.10有错误，应该是boostrap脚本有问题。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz</span><br><span class="line">tar xzf cmake-3.9.6.tar.gz</span><br><span class="line"><span class="built_in">cd</span> cmake-3.9.6</span><br><span class="line">./bootstrap --prefix=/usr/<span class="built_in">local</span>/cmake3.9.6</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h1 id="安装LLVM套装"><a href="#安装LLVM套装" class="headerlink" title="安装LLVM套装"></a>安装LLVM套装</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/17/Ubuntu14安装clang/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-TensorFlowACD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -180,7 +273,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="TensorFlow-Android-cammera-Demo"><a href="#TensorFlow-Android-cammera-Demo" class="headerlink" title="TensorFlow Android cammera Demo"></a>TensorFlow Android cammera Demo</h1><p>这个文件夹包含一个使用TensorFlow为Android设备开发的例子。</p>
-<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>这个示例是用用TensorFlow在移动app上创建样本的例子。<br>推理使用<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android" target="_blank" rel="noopener"> TensorFlow Android Inference Interface</a>,如果你想一个单独的库添加到你存在的程序中，对象跟踪和高效的YUV-&gt;RGB通过libtensorflow_demo.so处理。</p>
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>这个示例是使用TensorFlow在移动app上创建样本的例子。<br>推理使用<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android" target="_blank" rel="noopener"> TensorFlow Android Inference Interface</a>,如果你想一个单独的库添加到你存在的程序中，对象跟踪和高效的YUV-&gt;RGB通过libtensorflow_demo.so处理。</p>
 <p>要求运行在Android5.0(API21)或者更高的版本因为使用camera2 API，尽管本地库可以在API&gt;=14的设备上运行。</p>
 <h2 id="当前样例"><a href="#当前样例" class="headerlink" title="当前样例"></a>当前样例</h2><ol>
 <li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/ClassifierActivity.java" target="_blank" rel="noopener">TF Classify</a>:使用<a href="https://arxiv.org/abs/1409.4842" target="_blank" rel="noopener">Google Inceptions</a>模型实时分类相机帧，显示在相机图像顶部结果。</li>
@@ -195,7 +288,7 @@
 <p>然后编辑<code>build.gradle</code>文件改变<code>bativeBuildSystem</code>为<code>none</code>因此工程用最简单的方式构建:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def nativeBuildSystem = <span class="string">'none'</span></span><br></pre></td></tr></table></figure></p>
 <p>尽管这个工程包含完整的TensorFlow构建，这个设置禁用它，使用来自JCenter的TensorFlow推理包。</p>
 <p>注意：当前在这个构建模式,YUV-&gt;RGB使用更少高效的java实现，目标追中在TF Detect活动体中不可用，设置构建系统为<code>cmake</code>当前仅仅构建<code>libtensorflow_demo.so</code>,提供快速的YUV-&gt;RGB转化和对象追踪，当通过下载AAR获取TensorFlow支持后，因此它也许轻量的使用这些特性。</p>
-<p>对于任何工程不包含通常的低级TensorFlow代码，这可能很高效。<br>更多的灌入如何包含JCenter包到你的工程中的细节查看<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/README.md" target="_blank" rel="noopener">tensorflow/contrib/android/README.md</a></p>
+<p>对于任何工程不包含通常的低级TensorFlow代码，这可能很高效。<br>更多的关于如何包含JCenter包到你的工程中的细节查看<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/README.md" target="_blank" rel="noopener">tensorflow/contrib/android/README.md</a></p>
 <h2 id="结合TensorFlow源代码构建Demo"><a href="#结合TensorFlow源代码构建Demo" class="headerlink" title="结合TensorFlow源代码构建Demo"></a>结合TensorFlow源代码构建Demo</h2><p>选择你愿意的方式，我们完全支持Bazel，部分支持gradle，cmake，make和Android Studio。</p>
 <p>构建的第一步是克隆TensorFlow仓库:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/tensorflow/tensorflow.git</span><br></pre></td></tr></table></figure></p>
 <p><strong>注意：–recurse-submodules是为了防止protobuf编译问题而必须的。</strong></p>
@@ -1285,7 +1378,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1293,11 +1386,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,11 +1402,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+                <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
               </li>
             
             <div class="clearfix"></div>
