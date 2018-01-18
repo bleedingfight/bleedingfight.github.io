@@ -181,18 +181,18 @@
       
         <h1 id="TensorFlow-for-Java"><a href="#TensorFlow-for-Java" class="headerlink" title="TensorFlow for Java"></a>TensorFlow for Java</h1><blockquote>
 <p>警告:TensorFlow Java API当前不支持TensorFlow<a href="https://www.tensorflow.org/programmers_guide/version_compat" target="_blank" rel="noopener">API stability guarantees</a>。对于在Android上使用TensorFlow查看<a href="https://www.tensorflow.org/code/tensorflow/contrib/android" target="_blank" rel="noopener">contrib/android</a>,<a href="https://www.tensorflow.org/code/tensorflow/contrib/makefile#android" target="_blank" rel="noopener">makefile</a>,<a href="/2018/01/16/TensorFlowACD/" title="tensorflow/examples/android/README.md">tensorflow/examples/android/README.md</a></p>
+</blockquote>
 <h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><ul>
 <li>查看<a href="https://www.tensorflow.org/install/install_java" target="_blank" rel="noopener">Installing TensorFlow for Java</a></li>
 <li>Javadoc<h2 id="从源代码构建"><a href="#从源代码构建" class="headerlink" title="从源代码构建"></a>从源代码构建</h2>如果上面的快速说明没有work out，TensorFlow Java和本地库将需要从源代码构建。</li>
 </ul>
 <ol>
 <li>安装<a href="https://www.bazel.build/versions/master/docs/install.html" target="_blank" rel="noopener">bazel</a></li>
-<li>建立环境从源代码构建TensorFlow。如果你想条多这些细节不关心GPU支持，尝试下面:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># On Linux</span></span><br><span class="line">sudo apt-get install python swig python-numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># On Mac OS X with homebrew</span></span><br><span class="line">brew install swig</span><br></pre></td></tr></table></figure>
+<li><p>建立环境从源代码构建TensorFlow。如果你想条多这些细节不关心GPU支持，尝试下面:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># On Linux</span></span><br><span class="line">sudo apt-get install python swig python-numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># On Mac OS X with homebrew</span></span><br><span class="line">brew install swig</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-</blockquote>
-<ol>
-<li><a href="https://www.tensorflow.org/install/install_sources#configure_the_installation" target="_blank" rel="noopener">Configure</a>(例如GPU支持)和构建:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">bazel build --config opt \</span><br><span class="line">  //tensorflow/java:tensorflow \</span><br><span class="line">  //tensorflow/java:libtensorflow_jni</span><br></pre></td></tr></table></figure>
+<li><p><a href="https://www.tensorflow.org/install/install_sources#configure_the_installation" target="_blank" rel="noopener">Configure</a>(例如GPU支持)和构建:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">bazel build --config opt \</span><br><span class="line">  //tensorflow/java:tensorflow \</span><br><span class="line">  //tensorflow/java:libtensorflow_jni</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>这命令将在bazel-bin/tensorflow/java目录生成两个文件:</p>
