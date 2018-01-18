@@ -159,6 +159,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-androidtfsupport-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/18/androidtfsupport-1/">androidtfsupport</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/18/androidtfsupport-1/" class="archive-article-date">
+  	<time datetime="2018-01-18T08:10:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/18/androidtfsupport-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-androidtfsupport" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1133,127 +1195,6 @@
 
 
   
-    <article id="post-minted" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/08/minted/">minted使用</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/08/minted/" class="archive-article-date">
-  	<time datetime="2018-01-08T03:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Minted介绍"><a href="#Minted介绍" class="headerlink" title="Minted介绍"></a>Minted介绍</h1><p>Minted是Latex上非常好用的代码高亮工具，可以借助Python包Pygement根据不同的语法高亮。<br>需要安装python，然后使用工具安装pygments。这里假设你已经安装了pip和相关Python。</p>
-<h2 id="安装和配置Pygments"><a href="#安装和配置Pygments" class="headerlink" title="安装和配置Pygments"></a>安装和配置Pygments</h2><p><code>pip install Pygments</code><br>然后在latex导言区使用minted包<br><code>\usepackage{minted}</code></p>
-<p>通常还需要使用不同的颜色，所以需要包含xcolor。<br><code>\usepackage{xcolor}</code></p>
-<h2 id="第一个包含minted的latex文件"><a href="#第一个包含minted的latex文件" class="headerlink" title="第一个包含minted的latex文件"></a>第一个包含minted的latex文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">% 保存文件为test.tex</span><br><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage[space]&#123;ctex&#125;</span><br><span class="line">\usepackage&#123;minted&#125;</span><br><span class="line">\usepackage&#123;xcolor&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\begin&#123;minted&#125;&#123;python&#125;</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt </span><br><span class="line">t = np.linspace(-3,3,200)</span><br><span class="line">y = np.sin(t)</span><br><span class="line">plt.plot(t,y,&apos;r&apos;)</span><br><span class="line">plt.show()</span><br><span class="line">\end&#123;minted&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>使用latex编译的时候需要加上参数–shell-escape。如果你觉得每次输入这个参数有点麻烦，建议你在用户配置文件.bashrc中加上一行<code>alias xelatex=&#39;xelatex --shell-escape&#39;</code></p>
-<p><code>xelatex test.tex # 这里我假设你已经修改了别名，如果没有请带上阐述--shell-escape</code><br>效果如下:<br><img src="/2018/01/08/minted/../minted/minted1.png" alt="渲染效果"></p>
-<h2 id="Pygments常用命令"><a href="#Pygments常用命令" class="headerlink" title="Pygments常用命令"></a>Pygments常用命令</h2><ol>
-<li>查看支持的语言<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pygmentize -L lexers</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="minted包的常用参数"><a href="#minted包的常用参数" class="headerlink" title="minted包的常用参数"></a>minted包的常用参数</h2><ul>
-<li><code>linenos</code>:在代码前设置数字表示代码的第几行，为True或者False，默认不开启，开启使用[linenos=true]或者[linenos=true]</li>
-<li><code>mathescape</code>:用来在代码段中插入公式。因为代码段中的所有文字都当做字符，不受latex语法控制，所以<code>$\Sigma$</code>这样的文字被当做不同字符而不是Latex公式，使用上面的参数就可以在输入公式的时候避免被当做字符。<br>示例:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;minted&#125;[linenos,mathescape]&#123;python&#125;</span><br><span class="line"># $y = sin(t)e^t$</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt </span><br><span class="line">t = np.linspace(-3,3,200)</span><br><span class="line">y = np.sin(t)*np.exp(t)</span><br><span class="line">plt.plot(t,y,&apos;r&apos;)</span><br><span class="line">plt.show()</span><br><span class="line">\end&#123;minted&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>结果如下:<br><img src="/2018/01/08/minted/../minted/minted2.png" alt="mathescape"></p>
-<ul>
-<li>breaklines:在minted环境中自动折断比较长的行，默认自动在供个字符折断。</li>
-<li>bgcolor:设置代码的背景色</li>
-<li>escapeinside:在escape制定的符号里面的内容不受minted环境影响，丽日escapeinside=|$e^x$|表示||里面的内容不被当做minted的字符而是latex的公式</li>
-<li>firstline:整数。显示的第一行默认为1，在插入代码的时候有时候为了方面一行行讲解代码，比如说从第5行代码起为xx功能，这时候可以指定这个。通常也同时在代码前的数字也修改为对应的行（firstnumber）</li>
-<li>firstnumber:(auto|last|integer)指定代码前的数字标号。</li>
-<li>frame:(none|leftline|topline|bottomline|lines|single)代码附近放置的分隔，比如topline将在代码顶端防止一行直线。</li>
-<li>framerule:分隔线的宽度（默认为0.4pt）</li>
-<li>framesep:分割线和代码的距离(默认为\fboxsep)</li>
-<li>hightlightcolor（string）:为highlightlines设置颜色，使用xcolor预定义的颜色或者通过\definecolor指定的颜色设置代码高亮语法。</li>
-<li>highlightlines(字符串)：高亮单行或者某几行例如highlightlines={1,3-4},高亮第一行和3,4行，如果linenos=true,则根据linenos前面的行制定。</li>
-<li>lastline（整数）显示的末行</li>
-<li>python3 为python指定Python3高亮</li>
-<li>rulecolor(颜色命令)：分割线的颜色</li>
-<li>showspace(bool)显示空格为小的U型</li>
-<li>showtabs(bool)显示tab</li>
-<li>spacecolor空白的颜色</li>
-<li>tabcolor tab的颜色(默认为黑色)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;minted&#125;[bgcolor=bg,linenos,breaklines,firstline=2,firstnumber=3]&#123;python&#125;</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt </span><br><span class="line">t = np.linspace(-3,3,200)</span><br><span class="line">y = np.sin(t)*np.exp(t)</span><br><span class="line">plt.plot(t,y,&apos;r&apos;)</span><br><span class="line">plt.show()</span><br><span class="line">\end&#123;minted&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>效果如下:<br><img src="/2018/01/08/minted/../minted/minted3.png" alt="渲染效果"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">代码高亮技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Latex//" class="article-tag-list-link color1">Latex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/08/minted/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1372,10 +1313,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
               </li>
              
@@ -1384,11 +1321,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1397,10 +1342,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
               </li>
              
               <li class="article-tag-list-item">
