@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bleedingfight的技术博客">
 <meta property="og:description" content="安卓TensorFlow支持这个目录定义包含的组件(本地.so库和Java JAR)支持Android上的TensorFlow。包含:  TensorFlow Java API 一个TensorFlowInferenceInterface累提供更小的API surface适合模型执行时的推理和总结性能更多使用查看在TensorFlow Android Demo中的TensorFlowImageCl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T08:07:57.579Z">
+<meta property="og:updated_time" content="2018-01-18T08:45:31.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="androidtfsupport">
 <meta name="twitter:description" content="安卓TensorFlow支持这个目录定义包含的组件(本地.so库和Java JAR)支持Android上的TensorFlow。包含:  TensorFlow Java API 一个TensorFlowInferenceInterface累提供更小的API surface适合模型执行时的推理和总结性能更多使用查看在TensorFlow Android Demo中的TensorFlowImageCl">
@@ -182,7 +182,7 @@
         <h1 id="安卓TensorFlow支持"><a href="#安卓TensorFlow支持" class="headerlink" title="安卓TensorFlow支持"></a>安卓TensorFlow支持</h1><p>这个目录定义包含的组件(本地.so库和Java JAR)支持Android上的TensorFlow。包含:</p>
 <ul>
 <li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md" target="_blank" rel="noopener">TensorFlow Java API</a></li>
-<li>一个<code>TensorFlowInferenceInterface</code>累提供更小的API surface适合模型执行时的推理和总结性能<br>更多使用查看在<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android" target="_blank" rel="noopener">TensorFlow Android Demo</a>中的<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java" target="_blank" rel="noopener">TensorFlowImageClassifier.java </a>。</li>
+<li>一个<code>TensorFlowInferenceInterface</code>累提供更小的API surface适合模型执行时的推理和总结性能<br>更多使用查看在<a href="./TensorFlowACD.md">TensorFlow Android Demo</a>中的<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java" target="_blank" rel="noopener">TensorFlowImageClassifier.java </a>。</li>
 </ul>
 <p>对于预先构建的库，查看<a href="https://ci.tensorflow.org/view/Nightly/job/nightly-android/" target="_blank" rel="noopener">nightly Android build artifacts </a>的最新构建。</p>
 <p>TensorFlow推理接口作为一个<a href="https://bintray.com/google/tensorflow/tensorflow" target="_blank" rel="noopener">JCenter</a>包(查看tensorflow-android目录)是可用的也能结合工程的<code>build.gradle</code>文件包含在你的Android工程中:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">'org.tensorflow:tensorflow-android:+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
