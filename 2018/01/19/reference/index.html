@@ -21,7 +21,13 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/19/reference/ref3.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/19/reference/ref4.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/19/reference/ref5.png">
-<meta property="og:updated_time" content="2018-01-19T05:48:24.815Z">
+<meta property="og:image" content="http://yoursite.com/2018/01/19/reference/NatbibStylesEx2.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/19/reference/NatbibStylesEx3.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/19/reference/NatbibStylesEx4.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/19/reference/NatbibStylesEx5.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/19/reference/NatbibStylesEx6.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/19/reference/NatbibStylesEx7.png">
+<meta property="og:updated_time" content="2018-01-19T05:55:50.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="reference">
 <meta name="twitter:description" content="natbib引用文献当前文件sample.bib,test.tex完整的文章:123456789\documentclass&amp;#123;article&amp;#125;\usepackage[space]&amp;#123;ctex&amp;#125;\usepackage&amp;#123;natbib&amp;#125;\bibliographystyle&amp;#123;unsrtnat&amp;#125;\begin&amp;#123;docume">
@@ -189,8 +195,10 @@
 <p>引用文献内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;DBLP:journals/corr/LongSD14,</span><br><span class="line">  author    = &#123;Jonathan Long and</span><br><span class="line">                 Evan Shelhamer and</span><br><span class="line">                 Trevor Darrell&#125;,</span><br><span class="line">  title     = &#123;Fully Convolutional Networks for Semantic Segmentation&#125;,</span><br><span class="line">  journal   = &#123;CoRR&#125;,</span><br><span class="line">  volume    = &#123;abs/1411.4038&#125;,</span><br><span class="line">  year      = &#123;2014&#125;,</span><br><span class="line">  url       = &#123;http://arxiv.org/abs/1411.4038&#125;,</span><br><span class="line">  timestamp = &#123;Wed, 07 Jun 2017 14:42:28 +0200&#125;,</span><br><span class="line">  biburl    = &#123;http://dblp.uni-trier.de/rec/bib/journals/corr/LongSD14&#125;,</span><br><span class="line">  bibsource = &#123;dblp computer science bibliography, http://dblp.org&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>编译过称为<code>(1)xelatex test.tex-&gt;(2)bibtex test.aux-&gt;(3)xelatex test.tex-&gt;(4)xelatex test.tex</code></p>
 <ol>
-<li>xelatex test.tex生成文件<code>test.aux  test.log  test.pdf</code>,此时的test.pdf文件如下<br><img src="/2018/01/19/reference/../reference/ref1.png" alt="mathescape"><br>然后根据生成的aux使用bibtex编译:<code>bibtex test.aux</code><br>编译过程如下:<br><img src="/2018/01/19/reference/../reference/ref2.png" alt="reference"><br>多出文件<code>test.bbl  test.blg</code>。<br>再次使用xelatex编译:<br><img src="/2018/01/19/reference/../reference/ref3.png" alt="reference"><br>再次使用xelatex编译,结果如下:<br><img src="/2018/01/19/reference/../reference/ref4.png" alt="reference"><br>这里的<code>\bibliographystyle{unsrtnat}</code>是引用的风格，具体风格样式如下:<br><img src="/2018/01/19/reference/../reference/ref5.png" alt="reference"></li>
+<li>xelatex test.tex生成文件<code>test.aux  test.log  test.pdf</code>,此时的test.pdf文件如下<br><img src="/2018/01/19/reference/../reference/ref1.png" alt="mathescape"><br>然后根据生成的aux使用bibtex编译:<code>bibtex test.aux</code><br>编译过程如下:<br><img src="/2018/01/19/reference/../reference/ref2.png" alt="reference"><br>多出文件<code>test.bbl  test.blg</code>。<br>再次使用xelatex编译:<br><img src="/2018/01/19/reference/../reference/ref3.png" alt="reference"><br>再次使用xelatex编译,结果如下:<br><img src="/2018/01/19/reference/../reference/ref4.png" alt="reference"></li>
 </ol>
+<p>这里的<code>\bibliography{sample}</code>表示bib文件本例中bib文件为<code>sample</code>，<code>\bibliographystyle{unsrtnat}</code>是引用的风格，具体风格样式如下:</p>
+<p>|风格|样式|<br>|dinat|<img src="/2018/01/19/reference/../reference/ref5.png" alt="reference">|<br>|humannat|<img src="/2018/01/19/reference/../reference/NatbibStylesEx2.png" alt="reference">|<br>|plainnat|<img src="/2018/01/19/reference/../reference/NatbibStylesEx3.png" alt="reference">|<br>|abbrvnat|<img src="/2018/01/19/reference/../reference/NatbibStylesEx4.png" alt="reference">|<br>|unsrtnat|<img src="/2018/01/19/reference/../reference/NatbibStylesEx5.png" alt="reference">|<br>|rusnat|<img src="/2018/01/19/reference/../reference/NatbibStylesEx6.png" alt="reference">|<br>|ksfh_nat|<img src="/2018/01/19/reference/../reference/NatbibStylesEx7.png" alt="reference">|</p>
 
       
 
