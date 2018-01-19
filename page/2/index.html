@@ -220,7 +220,11 @@
 <li>定义全局单行效果:<br><code>\newmintinline{language}{options}</code><br>比如：定义单行的Python代码效果:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\newmintinline&#123;python&#125;&#123;bgcolor=bg,breaklines,breakanywhere,python3&#125;</span><br><span class="line">\pythoninline&#123;from numpy import sin,cos,tan,exp,pi&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>使用定义的效果:<br><code>\bashinline{内容}</code><br><img src="/2018/01/08/minted/../minted/minted4.png" alt="mathescape"></p>
+<p>使用定义的效果:<code>\languageinline{内容}</code><br><img src="/2018/01/08/minted/../minted/minted4.png" alt="mathescape"></p>
+<h2 id="定义全局代码段"><a href="#定义全局代码段" class="headerlink" title="定义全局代码段"></a>定义全局代码段</h2><p><code>\newminted{language}{options}</code><br>设置全局c++代码风格。<br>使用代码风格<code>\begin{languagecode}\end 内容 {languagecode}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\newminted&#123;cpp&#125;&#123;linenos,bgcolor=bg&#125;</span><br><span class="line">\begin&#123;cppcode&#125;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">\end&#123;cppcode&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/01/08/minted/../minted/minted5.png" alt="mathescape"><br>默认定义的代码风格以下面的格式使用（这里假设定义语言为java）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;javacode&#125;</span><br><span class="line">\end&#123;javacode&#125;</span><br></pre></td></tr></table></figure></p>
+<p>\usemintedstyle{igor}<br>\newenvironment{java}{\VerbatimEnvironment\begin{javacode}}{\end{javacode}}<br>\begin{java}<br>public static void main(String [] aegs){<br>    system.out.println(“hello world”);</p>
+<p>}<br>\end{java}</p>
 
       
 
@@ -510,7 +514,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
+                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,19 +522,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,6 +539,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
               </li>
              
               <li class="article-tag-list-item">
