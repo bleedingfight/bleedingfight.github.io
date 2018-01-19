@@ -159,6 +159,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bazel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/09/bazel/">bazel</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/09/bazel/" class="archive-article-date">
+  	<time datetime="2018-01-09T11:46:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Bazel构建软件"><a href="#使用Bazel构建软件" class="headerlink" title="使用Bazel构建软件"></a>使用Bazel构建软件</h1><p>Bazel安装教程在:<a href="https://docs.bazel.build/versions/master/bazel-overview.html#installing-bazel" target="_blank" rel="noopener">这里</a>，这里简单介绍Bazel构建C++的例子。<br>使用Bazel构建C++程序的时候有固定的格式，首先源代码所在的目录称为工作区域(workspace),为了让Bazel知道项目的根目录需要在项目所在目录添加一个WORKSPACE的空文件，构建的源代码建议按照Bazel说明，单独新建一个文件，取名为main。另外需要在源代码所在目录新建一个BUILD告诉Bazel如何构建程序。典型的目录如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── main</span><br><span class="line">│   ├── BUILD</span><br><span class="line">│   └── hello-world.cc</span><br><span class="line">└── WORKSPACE</span><br></pre></td></tr></table></figure></p>
+<p>其中WORKSPACE用来告诉Bazel根目录在哪里，BUILD用该告诉Bazel构建规则。</p>
+<p>BUILD内容如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cc_binary(</span><br><span class="line">    name = <span class="string">"hello"</span>,</span><br><span class="line">    srcs = [<span class="string">"hello-world.cc"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>name:告诉Bazel构建的名称（强制的，必须有的参数）</li>
+<li>srcs:告诉Bazel构建的源代码</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/09/bazel/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-minted" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -542,6 +622,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">代码高亮技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">引用文献</a>
               </li>
              
               <li class="article-tag-list-item">
