@@ -19,9 +19,14 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted1.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted2.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted3.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/08/minted/">
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted4.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted5.png">
-<meta property="og:updated_time" content="2018-01-19T02:00:46.958Z">
+<meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted6.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted7.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted8.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/08/minted/minted9.png">
+<meta property="og:updated_time" content="2018-01-19T02:47:36.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="minted使用">
 <meta name="twitter:description" content="Minted介绍Minted是Latex上非常好用的代码高亮工具，可以借助Python包Pygement根据不同的语法高亮。需要安装python，然后使用工具安装pygments。这里假设你已经安装了pip和相关Python。 安装和配置Pygmentspip install Pygments然后在latex导言区使用minted包\usepackage{minted} 通常还需要使用不同的颜色，">
@@ -223,14 +228,17 @@
 </ul>
 <p>效果如下:<br><img src="/2018/01/08/minted/../minted/minted3.png" alt="渲染效果"></p>
 <h2 id="定义全局效果"><a href="#定义全局效果" class="headerlink" title="定义全局效果"></a>定义全局效果</h2><ol>
-<li>定义全局单行效果:<br><code>\newmintinline{language}{options}</code><br>比如：定义单行的Python代码效果:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\newmintinline&#123;python&#125;&#123;bgcolor=bg,breaklines,breakanywhere,python3&#125;</span><br><span class="line">\pythoninline&#123;from numpy import sin,cos,tan,exp,pi&#125;</span><br></pre></td></tr></table></figure>
+<li>定义全局单行效果:<br><code>\newmintinline{language}{options}</code><br><img src="/2018/01/08/minted/" alt="设置igor"><br>比如：定义单行的Python代码效果:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\newmintinline&#123;python&#125;&#123;bgcolor=bg,breaklines,breakanywhere,python3&#125;</span><br><span class="line">\pythoninline&#123;from numpy import sin,cos,tan,exp,pi&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>使用定义的效果:<code>\languageinline{内容}</code><br><img src="/2018/01/08/minted/../minted/minted4.png" alt="mathescape"></p>
 <h2 id="定义全局代码段"><a href="#定义全局代码段" class="headerlink" title="定义全局代码段"></a>定义全局代码段</h2><p><code>\newminted{language}{options}</code><br>设置全局c++代码风格。<br>使用代码风格<code>\begin{languagecode}\end 内容 {languagecode}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\newminted&#123;cpp&#125;&#123;linenos,bgcolor=bg&#125;</span><br><span class="line">\begin&#123;cppcode&#125;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">\end&#123;cppcode&#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2018/01/08/minted/../minted/minted5.png" alt="mathescape"><br>默认定义的代码风格以下面的格式使用（这里假设定义语言为java）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;javacode&#125;</span><br><span class="line">\end&#123;javacode&#125;</span><br></pre></td></tr></table></figure></p>
-<p>\usemintedstyle{igor}<br>\newenvironment{java}{\VerbatimEnvironment\begin{javacode}}{\end{javacode}}<br>\begin{java}<br>public static void main(String [] aegs){<br>    system.out.println(“hello world”);</p>
-<p>}<br>\end{java}</p>
+<p>下面设置高亮风格为igor(更多风格查看<code>pygmentize -L styles</code>),同时将自定义的java代替javacode。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\usemintedstyle&#123;igor&#125;</span><br><span class="line">\newenvironment&#123;java&#125;&#123;\VerbatimEnvironment\begin&#123;javacode&#125;&#125;&#123;\end&#123;javacode&#125;&#125;</span><br><span class="line">\begin&#123;java&#125;</span><br><span class="line">public static void main(String [] aegs)&#123;</span><br><span class="line">    system.out.println(&quot;hello world&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">\end&#123;java&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/01/08/minted/../minted/minted6.png" alt="mathescape"></p>
+<p>设置高亮风格为<code>morphy</code>，同时从文件中读取代码高亮。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\usemintedstyle&#123;murphy&#125;</span><br><span class="line">\begin&#123;java&#125;</span><br><span class="line">public static void main(String [] args)</span><br><span class="line">&#123;</span><br><span class="line">    system.out.println(&quot;Hello world&quot;);</span><br><span class="line">&#125;</span><br><span class="line">\end&#123;java&#125;</span><br><span class="line"></span><br><span class="line">\inputminted[bgcolor=bg,breakanywhere]&#123;java&#125;&#123;test.java&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/01/08/minted/../minted/minted7.png" alt="mathescape"><br>定义从文件中读取高亮代码风格:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\newmintedfile&#123;python&#125;&#123;bgcolor=bg,breakanywhere,breaklines&#125;</span><br><span class="line">\pythonfile&#123;test.py&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/01/08/minted/../minted/minted8.png" alt="mathescape"><br>单行代码：\mint{python}|from numpy import *|<br>自己设定风格:\newmint{python}{bgcolor=bg,showspaces}<br>\python/import numpy as np/<br>mint单行注释的效果是代码单独成行:<br><img src="/2018/01/08/minted/../minted/minted9.png" alt="mathescape"></p>
 
       
 
@@ -509,7 +517,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
+                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,15 +525,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
+                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,15 +549,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
               </li>
             
             <div class="clearfix"></div>
