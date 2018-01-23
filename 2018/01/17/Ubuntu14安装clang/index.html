@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bleedingfight的技术博客">
 <meta property="og:description" content="安装GCC7.2需要在Ubuntu上编译TensorFlow，编译出错，有人说gcc版本太旧，用clang比较好，于是下载clang系列套装，编译的时候需要使用cmake，而且要是cmake3.2以上，于是下载编译cmake3，cmake3要求gcc,安装gcc有要求m4,gmp,mpc。无比复杂。 于是索性全部安装最新版本，为了安装最新版本的gcc7.2，首先要安装m4:12345678# 新建">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-17T12:49:29.565Z">
+<meta property="og:updated_time" content="2018-01-23T11:35:00.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu14安装clang">
 <meta name="twitter:description" content="安装GCC7.2需要在Ubuntu上编译TensorFlow，编译出错，有人说gcc版本太旧，用clang比较好，于是下载clang系列套装，编译的时候需要使用cmake，而且要是cmake3.2以上，于是下载编译cmake3，cmake3要求gcc,安装gcc有要求m4,gmp,mpc。无比复杂。 于是索性全部安装最新版本，为了安装最新版本的gcc7.2，首先要安装m4:12345678# 新建">
@@ -188,7 +188,23 @@
 <h2 id="安装GCC（假设按照上面创建-usr-local-gcc7-2）"><a href="#安装GCC（假设按照上面创建-usr-local-gcc7-2）" class="headerlink" title="安装GCC（假设按照上面创建/usr/local/gcc7.2）"></a>安装GCC（假设按照上面创建/usr/local/gcc7.2）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar xzf gcc-7.2.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> gcc-7.2.0.tar.gz</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/mpfr-4.0.0/lib:/usr/<span class="built_in">local</span>/gmp-6.1.2/lib:/usr/<span class="built_in">local</span>/mpc-1.1.0/lib</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/gcc7.2 --<span class="built_in">enable</span>-threads=posix --<span class="built_in">disable</span>-checking --<span class="built_in">disable</span>-multilib --<span class="built_in">enable</span>-languages=c,c++ --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0 --with-mpc=/usr/<span class="built_in">local</span>/mpc-1.1.0</span><br><span class="line">sudo make install </span><br><span class="line">rm ../../</span><br><span class="line">rm -rf gcc</span><br></pre></td></tr></table></figure>
 <h2 id="配置gcc信息"><a href="#配置gcc信息" class="headerlink" title="配置gcc信息"></a>配置gcc信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将下面的内容添加到/etc/profile保证编译器新的库函数可用。</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/gcc7.2/lib:/usr/<span class="built_in">local</span>/gcc7.2/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="comment"># 两新的gcc和g++编译器连接到bin中，方便调用</span></span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/gcc7.2/bin/gcc /usr/<span class="built_in">local</span>/bin/gcc7.2</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/gcc7.2/bin/g++ /usr/<span class="built_in">local</span>/bin/g++7.2</span><br></pre></td></tr></table></figure>
 <h1 id="下载安装cmake3-9-6-假设按照上面创建了-usr-local-cmake3-9-6-安装3-10有错误，应该是boostrap脚本有问题。"><a href="#下载安装cmake3-9-6-假设按照上面创建了-usr-local-cmake3-9-6-安装3-10有错误，应该是boostrap脚本有问题。" class="headerlink" title="下载安装cmake3.9.6(假设按照上面创建了/usr/local/cmake3.9.6)安装3.10有错误，应该是boostrap脚本有问题。"></a>下载安装cmake3.9.6(假设按照上面创建了/usr/local/cmake3.9.6)安装3.10有错误，应该是boostrap脚本有问题。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz</span><br><span class="line">tar xzf cmake-3.9.6.tar.gz</span><br><span class="line"><span class="built_in">cd</span> cmake-3.9.6</span><br><span class="line">./bootstrap --prefix=/usr/<span class="built_in">local</span>/cmake3.9.6</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<h1 id="安装LLVM套装"><a href="#安装LLVM套装" class="headerlink" title="安装LLVM套装"></a>安装LLVM套装</h1>
+<h1 id="安装LLVM套装"><a href="#安装LLVM套装" class="headerlink" title="安装LLVM套装"></a>安装LLVM套装</h1><p>安装LLVM的时候需要预先从LLVM官网获取:</p>
+<ul>
+<li>llvm-5.0.0.src.tar.xz</li>
+<li>cfe-5.0.0.src.tar.xz</li>
+<li>compiler-rt-5.0.0.src.tar.xz</li>
+<li>lldb-5.0.0.src.tar.xz</li>
+<li>lld-5.0.0.src.tar.xz</li>
+<li>clang-tools-extra-5.0.0.src.tar.xz</li>
+<li>polly-5.0.0.src.tar.xz</li>
+<li>openmp-5.0.0.src.tar.xz<br>然后按照如下规则组织:<br>这里假设安装的LLVM源文件目录被重命名为了llvm,默认llvm-5.0.0.src(LLVM5.0)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mv cfe-5.0.0.src llvm-5.0.0.src/tools/clang</span><br><span class="line">mv compiler-rt-5.0.0.src llvm-5.0.0.src/projects/compiler-rt</span><br><span class="line">mv clang-tools-extra-5.0.0.src llvm-5.0.0.src/tools/clang/tools/extra</span><br><span class="line">mv lldb-5.0.0.src llvm-5.0.0.src/tools/lldb</span><br><span class="line">mv openmp-5.0.0.src llvm-5.0.0.src/projects/openmp</span><br><span class="line">mv lld-5.0.0.src llvm-5.0.0.src/tools/lld</span><br><span class="line">mv polly-5.0.0.src llvm-5.0.0.src/tools/polly</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="新建目录编译-LLVM要求的"><a href="#新建目录编译-LLVM要求的" class="headerlink" title="新建目录编译(LLVM要求的)"></a>新建目录编译(LLVM要求的)</h2><p>第一个cmake的时候出现第一个问题:安装<code>libncurses5-dev_5.9+20140118-1ubuntu1_amd64.deb</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake -DLLVM_TARGETS_TO_BUILD=&quot;X86&quot; -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLLVM_LIBDIR_SUFFIX=64  -DLLVM_INCLUDE_TESTS=OFF -DLLVM_INCLUDE_DOCS=OFF -DLLVM_ENABLE_FFI=ON -DLLVM_ENABLE_RTTI=ON -DLLVM_ENABLE_PEDANTIC=OFF -DLLVM_ENABLE_LLD=OFF -DLLVM_INSTALL_UTILS=ON ../llvm</span><br></pre></td></tr></table></figure></p>
+<p>编译出现fatal error: editline/readline.h: No such file or directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## 下载安装两个包</span><br><span class="line">wget http://launchpadlibrarian.net/170117860/libbsd-dev_0.6.0-2ubuntu1_amd64.deb</span><br><span class="line">wget  http://kr.archive.ubuntu.com/ubuntu/pool/main/r/readline6/libreadline-dev_6.3-4ubuntu2_amd64.deb</span><br></pre></td></tr></table></figure></p>
+<p>编译进程:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilFileStd.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilMapIdToVariant.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilString.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilThreadBaseStd.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilVariant.cpp.o</span><br><span class="line">[100%] Linking CXX executable ../../../../bin/lldb-mi</span><br><span class="line">[100%] Built target lldb-mi</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><figcaption><span>xxx不存在</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -466,15 +482,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,7 +490,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+                <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +498,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">代码高亮技巧</a>
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">引用文献</a>
+                <a href="javascript:void(0)" class="js-tag color3">TensorFlow for android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">代码高亮技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +514,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+                <a href="javascript:void(0)" class="js-tag color5">引用文献</a>
               </li>
             
             <div class="clearfix"></div>
