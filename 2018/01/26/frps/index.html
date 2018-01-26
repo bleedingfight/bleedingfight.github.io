@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>bleedingfight的技术博客</title>
+  <title>frps | bleedingfight的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Latex,linux,python,dl相关">
-<meta property="og:type" content="website">
-<meta property="og:title" content="bleedingfight的技术博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="内网穿透frp工具使用使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后，配置本地客户端。然后就可以通过访问服务端访问本地设备。 本文主要用来配置frp穿透内网访问内网中的路由器。如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应的软件:  frps选择你的服务器对应的版本 opkg安装frps  配置服务器1 服务器端配置如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="frps">
+<meta property="og:url" content="http://yoursite.com/2018/01/26/frps/index.html">
 <meta property="og:site_name" content="bleedingfight的技术博客">
-<meta property="og:description" content="Latex,linux,python,dl相关">
+<meta property="og:description" content="内网穿透frp工具使用使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后，配置本地客户端。然后就可以通过访问服务端访问本地设备。 本文主要用来配置frp穿透内网访问内网中的路由器。如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应的软件:  frps选择你的服务器对应的版本 opkg安装frps  配置服务器1 服务器端配置如">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-26T08:32:19.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bleedingfight的技术博客">
-<meta name="twitter:description" content="Latex,linux,python,dl相关">
+<meta name="twitter:title" content="frps">
+<meta name="twitter:description" content="内网穿透frp工具使用使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后，配置本地客户端。然后就可以通过访问服务端访问本地设备。 本文主要用来配置frp穿透内网访问内网中的路由器。如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应的软件:  frps选择你的服务器对应的版本 opkg安装frps  配置服务器1 服务器端配置如">
   
     <link rel="alternative" href="/atom.xml" title="bleedingfight的技术博客" type="application/atom+xml">
   
@@ -157,16 +158,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-frps" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-frps" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/26/frps/">frps</a>
+    <h1 class="article-title" itemprop="name">
+      frps
     </h1>
   
 
@@ -201,6 +200,32 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>多谢你的支持!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/AliPay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -208,16 +233,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/26/frps/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/26/frps/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/19/reference/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">reference</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -237,1093 +321,14 @@
 
 
 
-
-  
-    <article id="post-reference" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/19/reference/">reference</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/19/reference/" class="archive-article-date">
-  	<time datetime="2018-01-19T02:59:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="natbib引用文献"><a href="#natbib引用文献" class="headerlink" title="natbib引用文献"></a>natbib引用文献</h1><p>当前文件<code>sample.bib,test.tex</code><br>完整的文章:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage[space]&#123;ctex&#125;</span><br><span class="line">\usepackage&#123;natbib&#125;</span><br><span class="line">\bibliographystyle&#123;unsrtnat&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">具体信息查看\cite&#123;DBLP:journals/corr/LongSD14&#125;</span><br><span class="line"></span><br><span class="line">\bibliography&#123;sample&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure></p>
-<p>引用文献内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;DBLP:journals/corr/LongSD14,</span><br><span class="line">  author    = &#123;Jonathan Long and</span><br><span class="line">                 Evan Shelhamer and</span><br><span class="line">                 Trevor Darrell&#125;,</span><br><span class="line">  title     = &#123;Fully Convolutional Networks for Semantic Segmentation&#125;,</span><br><span class="line">  journal   = &#123;CoRR&#125;,</span><br><span class="line">  volume    = &#123;abs/1411.4038&#125;,</span><br><span class="line">  year      = &#123;2014&#125;,</span><br><span class="line">  url       = &#123;http://arxiv.org/abs/1411.4038&#125;,</span><br><span class="line">  timestamp = &#123;Wed, 07 Jun 2017 14:42:28 +0200&#125;,</span><br><span class="line">  biburl    = &#123;http://dblp.uni-trier.de/rec/bib/journals/corr/LongSD14&#125;,</span><br><span class="line">  bibsource = &#123;dblp computer science bibliography, http://dblp.org&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编译过称为<code>(1)xelatex test.tex-&gt;(2)bibtex test.aux-&gt;(3)xelatex test.tex-&gt;(4)xelatex test.tex</code></p>
-<ol>
-<li>xelatex test.tex生成文件<code>test.aux  test.log  test.pdf</code>,此时的test.pdf文件如下<br><img src="/2018/01/19/reference/../reference/ref1.png" alt="mathescape"><br>然后根据生成的aux使用bibtex编译:<code>bibtex test.aux</code><br>编译过程如下:<br><img src="/2018/01/19/reference/../reference/ref2.png" alt="reference"><br>多出文件<code>test.bbl  test.blg</code>。<br>再次使用xelatex编译:<br><img src="/2018/01/19/reference/../reference/ref3.png" alt="reference"><br>再次使用xelatex编译,结果如下:<br><img src="/2018/01/19/reference/../reference/ref4.png" alt="reference"></li>
-</ol>
-<p>这里的<code>\bibliography{sample}</code>表示bib文件本例中bib文件为<code>sample</code>，<code>\bibliographystyle{unsrtnat}</code>是引用的风格，具体风格样式如下:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">风格</th>
-<th style="text-align:center">样式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">dinat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/ref5.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">humannat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/NatbibStylesEx2.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">plainnat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/NatbibStylesEx3.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">abbrvnat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/NatbibStylesEx4.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">unsrtnat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/NatbibStylesEx5.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">rusnat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/NatbibStylesEx6.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">ksfh_nat</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/NatbibStylesEx7.png" alt="reference"></td>
-</tr>
-</tbody>
-</table>
-<p>引用风格设置<code>\setcitestyle{authoryear, open={((},close={))}))}}</code>:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">风格</th>
-<th style="text-align:center">样式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">authoryear</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/refstyle1.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">numbers</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/refstyle2.png" alt="reference"></td>
-</tr>
-<tr>
-<td style="text-align:center">super</td>
-<td style="text-align:center"><img src="/2018/01/19/reference/../reference/refstyle3.png" alt="reference"></td>
-</tr>
-</tbody>
-</table>
-<p>下面是各种cite风格:<br><img src="/2018/01/19/reference/../reference/refstyle4.png" alt="reference"></p>
-<p>在引用前添加[number],需要设置<code>\usepackage[square,numbers]{natbib}</code>这时候<code>setcitestyle</code>的存在使得数字标号不能使用。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.sharelatex.com/learn/Natbib_citation_styles" target="_blank" rel="noopener">Natbib citation styles</a><br><a href="https://www.sharelatex.com/learn/Bibliography_management_with_natbib" target="_blank" rel="noopener">Bibliography management with natbib</a></p>
-<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><p><a href="https://github.com/bleedingfight/LaTex/blob/master/ref_demo/test.tex" target="_blank" rel="noopener">源代码</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">引用文献</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/LaTex//" class="article-tag-list-link color1">LaTex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/19/reference/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tensorflowforjava" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/tensorflowforjava/">tensorflowforjava</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/18/tensorflowforjava/" class="archive-article-date">
-  	<time datetime="2018-01-18T09:04:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="TensorFlow-for-Java"><a href="#TensorFlow-for-Java" class="headerlink" title="TensorFlow for Java"></a>TensorFlow for Java</h1><blockquote>
-<p>警告:TensorFlow Java API当前不支持TensorFlow<a href="https://www.tensorflow.org/programmers_guide/version_compat" target="_blank" rel="noopener">API stability guarantees</a>。对于在Android上使用TensorFlow查看<a href="https://www.tensorflow.org/code/tensorflow/contrib/android" target="_blank" rel="noopener">contrib/android</a>,<a href="https://www.tensorflow.org/code/tensorflow/contrib/makefile#android" target="_blank" rel="noopener">makefile</a>,<a href="/2018/01/16/TensorFlowACD/" title="tensorflow/examples/android/README.md">tensorflow/examples/android/README.md</a></p>
-</blockquote>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><ul>
-<li>查看<a href="https://www.tensorflow.org/install/install_java" target="_blank" rel="noopener">Installing TensorFlow for Java</a></li>
-<li>Javadoc<h2 id="从源代码构建"><a href="#从源代码构建" class="headerlink" title="从源代码构建"></a>从源代码构建</h2>如果上面的快速说明没有work out，TensorFlow Java和本地库将需要从源代码构建。</li>
-</ul>
-<ol>
-<li>安装<a href="https://www.bazel.build/versions/master/docs/install.html" target="_blank" rel="noopener">bazel</a></li>
-<li><p>建立环境从源代码构建TensorFlow。如果你想跳过这些细节不关心GPU支持，尝试下面:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># On Linux</span></span><br><span class="line">sudo apt-get install python swig python-numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># On Mac OS X with homebrew</span></span><br><span class="line">brew install swig</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://www.tensorflow.org/install/install_sources#configure_the_installation" target="_blank" rel="noopener">Configure</a>(例如GPU支持)和构建:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">bazel build --config opt \</span><br><span class="line">  //tensorflow/java:tensorflow \</span><br><span class="line">  //tensorflow/java:libtensorflow_jni</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这命令将在bazel-bin/tensorflow/java目录生成两个文件:</p>
-<ul>
-<li>一个打包的Java类:<code>libtensorflow.jar</code></li>
-<li>在Linux上一个本地库:<code>libtensorflow_jni.so</code>，在OS X上<code>libtensorflow_jni.dylib</code>，或者在Windows上的<code>tensorflow_jni.dll</code><br>为了使用TensorFlow Java API编译Java代码，包含<code>libtensorflow.jar</code>在路径中。例如:<br><code>javac -cp bazel-bin/tensorflow/java/libtensorflow.jar ...</code><br>为了执行编译的程序，包含<code>libtensorflow.jar</code>在类的路径和本地库到本地库路径。例如:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java -cp bazel-bin/tensorflow/java/libtensorflow.jar \</span><br><span class="line">  -Djava.library.path=bazel-bin/tensorflow/java \</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="https://bazel.build/versions/master/docs/windows.html" target="_blank" rel="noopener">bazel on Windows</a>在Windows上安装更多是试验性的。这里细节被省略，但是找到脚本中的灵感构建相关的归档:<a href="https://www.tensorflow.org/code/tensorflow/tools/ci_build/windows/libtensorflow_cpu.sh" target="_blank" rel="noopener">tensorflow/tools/ci_build/windows/libtensorflow_cpu.sh</a></p>
-<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p>详细的Maven center释放在<a href="https://www.tensorflow.org/code/tensorflow/java/maven/README.md" target="_blank" rel="noopener">maven/README.md</a>。然而，对于开发，你可以push源代码构建的库到本地Maven仓库:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt //tensorflow/java:pom</span><br><span class="line">mvn install:install-file \</span><br><span class="line">  -Dfile=../../bazel-bin/tensorflow/java/libtensorflow.jar \</span><br><span class="line">  -DpomFile=../../bazel-bin/tensorflow/java/pom.xml</span><br></pre></td></tr></table></figure></p>
-<p>然后在工程的<code>pom.xml</code>调用这个库,使用(替换VERSION用你的TensorFlow版本):<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.tensorflow<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>libtensorflow<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>VERSION<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Bazel"><a href="#Bazel" class="headerlink" title="Bazel"></a>Bazel</h2><p>如果你的工程使用bazel构建，添加依赖在<code>//tensorflow/java:tensorflow</code>到<code>java_binary</code>或者<code>java_library</code>规则。例如:<br><code>bazel run -c opt //tensorflow/java/src/main/java/org/tensorflow/examples:label_image</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow,Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/tensorflowforjava/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-androidtfsupport" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/androidtfsupport/">androidtfsupport</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/18/androidtfsupport/" class="archive-article-date">
-  	<time datetime="2018-01-18T07:51:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安卓TensorFlow支持"><a href="#安卓TensorFlow支持" class="headerlink" title="安卓TensorFlow支持"></a>安卓TensorFlow支持</h1><p>这个目录定义包含的组件(本地.so库和Java JAR)支持Android上的TensorFlow。包含:</p>
-<ul>
-<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/README.md" target="_blank" rel="noopener">TensorFlow Java API</a></li>
-<li>一个<code>TensorFlowInferenceInterface</code>累提供更小的API surface适合模型执行时的推理和总结性能<br>更多使用查看在<a href="./TensorFlowACD.md">TensorFlow Android Demo</a>中的<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java" target="_blank" rel="noopener">TensorFlowImageClassifier.java </a>。</li>
-</ul>
-<p>对于预先构建的库，查看<a href="https://ci.tensorflow.org/view/Nightly/job/nightly-android/" target="_blank" rel="noopener">nightly Android build artifacts </a>的最新构建。</p>
-<p>TensorFlow推理接口作为一个<a href="https://bintray.com/google/tensorflow/tensorflow" target="_blank" rel="noopener">JCenter</a>包(查看tensorflow-android目录)是可用的也能结合工程的<code>build.gradle</code>文件包含在你的Android工程中:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">'org.tensorflow:tensorflow-android:+'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这将告诉Gradle使用来自<a href="https://jcenter.bintray.com/org/tensorflow/tensorflow-android/" target="_blank" rel="noopener">JCenter</a><a href="https://bintray.com/google/tensorflow/tensorflow/_latestVersion" target="_blank" rel="noopener">最新版本的</a>TensorFlow AAR。你可以在你的app用<code>+</code>结合明确的版本标号制定TensorFlow版本代替。</p>
-<h2 id="Bazel"><a href="#Bazel" class="headerlink" title="Bazel"></a>Bazel</h2><p>Bazel的设置说明在<a href="/2018/01/16/TensorFlowACD/" title="tensorflow/examples/android/README.md">tensorflow/examples/android/README.md</a><br>然后构建本地的TF库:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt //tensorflow/contrib/android:libtensorflow_inference.so \</span><br><span class="line">   --crosstool_top=//external:android/crosstool \</span><br><span class="line">   --host_crosstool_top=@bazel_tools//tools/cpp:toolchain \</span><br><span class="line">   --cpu=armeabi-v7a</span><br></pre></td></tr></table></figure></p>
-<p>替换armeabi-v7a用你希望的目标架构。</p>
-<p>库文件将在<code>bazel-bin/tensorflow/contrib/android/libtensorflow_inference.so</code><br>为了构建Javacoutrepart：<br><code>bazel build //tensorflow/contrib/android:android_tensorflow_inference_java</code><br>你将在下面找到JAR文件:<br><code>bazel-bin/tensorflow/contrib/android/libandroid_tensorflow_inference_java.jar</code></p>
-<h2 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h2><p>更多使用cmake构建自我包含的AAR文件的文档，查看<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/cmake" target="_blank" rel="noopener">tensorflow/contrib/android/cmake</a></p>
-<h2 id="AssetManagerFileSystem"><a href="#AssetManagerFileSystem" class="headerlink" title="AssetManagerFileSystem"></a>AssetManagerFileSystem</h2><p>这个目录包含一个TensorFlow文件系统支持Android Asset管理器。当你紧密结合TensorFlow写本地(C++)代码时这很有用。更多典型使用，上面的库将很高效。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Android,TensorFlow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/androidtfsupport/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Ubuntu14安装clang" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/17/Ubuntu14安装clang/">Ubuntu14安装clang</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/17/Ubuntu14安装clang/" class="archive-article-date">
-  	<time datetime="2018-01-17T07:22:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装GCC7-2"><a href="#安装GCC7-2" class="headerlink" title="安装GCC7.2"></a>安装GCC7.2</h1><p>需要在Ubuntu上编译TensorFlow，编译出错，有人说gcc版本太旧，用clang比较好，于是下载clang系列套装，编译的时候需要使用cmake，而且要是cmake3.2以上，于是下载编译cmake3，cmake3要求gcc,安装gcc有要求m4,gmp,mpc。无比复杂。</p>
-<p>于是索性全部安装最新版本，为了安装最新版本的gcc7.2，首先要安装m4:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 新建文本filelist，写入下面内容</span><br><span class="line">ftp://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.gz</span><br><span class="line">ftp://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz</span><br><span class="line">ftp://ftp.gnu.org/gnu/mpfr/mpfr-4.0.0.zip</span><br><span class="line">ftp://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz</span><br><span class="line">ftp://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.gz</span><br><span class="line"># 一次下载所有需要软件</span><br><span class="line">wget -c -f filelist</span><br></pre></td></tr></table></figure></p>
-<p>安装m4,因为服务器是多用户操作，所以安装的这些软件全部都在单独指定的目录，为此需要新建多个目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设上面的压缩文件全部都在/home目录下的gcc目录下</span></span><br><span class="line"><span class="built_in">cd</span> ~/gcc</span><br><span class="line">tar xzf m4-1.4.18.tar.gz</span><br><span class="line"><span class="built_in">cd</span> xzf m4-1.4.18</span><br><span class="line">mkdir build </span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf m4-1.4.18</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装gmp-6-1-2"><a href="#安装gmp-6-1-2" class="headerlink" title="安装gmp-6.1.2"></a>安装gmp-6.1.2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建gmp-6.1.2文件夹更改用户,所有者和权限。之后的代码假设豌豆按照次操作创建了对应的安装文件夹</span></span><br><span class="line">mkdir /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">sudo chmod 755 /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">sudo chgrp bleedingfight /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">sudo chown bleedingfight /usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">tar xJf gmp-6.1.2.tar.xz</span><br><span class="line"><span class="built_in">cd</span> gmp-6.1.2</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf gmp-6.1.2</span><br></pre></td></tr></table></figure>
-<h2 id="安装mpfr-4-0-4-假设按照上面创建了-usr-local-mpfr-4-0-4"><a href="#安装mpfr-4-0-4-假设按照上面创建了-usr-local-mpfr-4-0-4" class="headerlink" title="安装mpfr-4.0.4(假设按照上面创建了/usr/local/mpfr-4.0.4)"></a>安装mpfr-4.0.4(假设按照上面创建了/usr/local/mpfr-4.0.4)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unzip mpfr-4.0.0.zip</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/mpfr-4.0.0/ --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2</span><br><span class="line">make -j4</span><br><span class="line">sudo make install </span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf mpfr-4.0.0</span><br></pre></td></tr></table></figure>
-<h2 id="安装-假设按照上面创建-usr-local-mpc-1-1-0"><a href="#安装-假设按照上面创建-usr-local-mpc-1-1-0" class="headerlink" title="安装(假设按照上面创建/usr/local/mpc-1.1.0)"></a>安装(假设按照上面创建/usr/local/mpc-1.1.0)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tar xjf mpc-1.1.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mpc-1.1.0</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/mpc-1.1.0 --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0</span><br><span class="line">make -j4</span><br><span class="line">sudo make install </span><br><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line">rm -rf mpc-1.1.0</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/mpc-1.1.0 --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0</span><br></pre></td></tr></table></figure>
-<h2 id="安装GCC（假设按照上面创建-usr-local-gcc7-2）"><a href="#安装GCC（假设按照上面创建-usr-local-gcc7-2）" class="headerlink" title="安装GCC（假设按照上面创建/usr/local/gcc7.2）"></a>安装GCC（假设按照上面创建/usr/local/gcc7.2）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar xzf gcc-7.2.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> gcc-7.2.0.tar.gz</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/mpfr-4.0.0/lib:/usr/<span class="built_in">local</span>/gmp-6.1.2/lib:/usr/<span class="built_in">local</span>/mpc-1.1.0/lib</span><br><span class="line">../configure --prefix=/usr/<span class="built_in">local</span>/gcc7.2 --<span class="built_in">enable</span>-threads=posix --<span class="built_in">disable</span>-checking --<span class="built_in">disable</span>-multilib --<span class="built_in">enable</span>-languages=c,c++ --with-gmp=/usr/<span class="built_in">local</span>/gmp-6.1.2 --with-mpfr=/usr/<span class="built_in">local</span>/mpfr-4.0.0 --with-mpc=/usr/<span class="built_in">local</span>/mpc-1.1.0</span><br><span class="line">sudo make install </span><br><span class="line">rm ../../</span><br><span class="line">rm -rf gcc</span><br></pre></td></tr></table></figure>
-<h2 id="配置gcc信息"><a href="#配置gcc信息" class="headerlink" title="配置gcc信息"></a>配置gcc信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将下面的内容添加到/etc/profile保证编译器新的库函数可用。</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/gcc7.2/lib:/usr/<span class="built_in">local</span>/gcc7.2/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="comment"># 两新的gcc和g++编译器连接到bin中，方便调用</span></span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/gcc7.2/bin/gcc /usr/<span class="built_in">local</span>/bin/gcc7.2</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/gcc7.2/bin/g++ /usr/<span class="built_in">local</span>/bin/g++7.2</span><br></pre></td></tr></table></figure>
-<h1 id="下载安装cmake3-9-6-假设按照上面创建了-usr-local-cmake3-9-6-安装3-10有错误，应该是boostrap脚本有问题。"><a href="#下载安装cmake3-9-6-假设按照上面创建了-usr-local-cmake3-9-6-安装3-10有错误，应该是boostrap脚本有问题。" class="headerlink" title="下载安装cmake3.9.6(假设按照上面创建了/usr/local/cmake3.9.6)安装3.10有错误，应该是boostrap脚本有问题。"></a>下载安装cmake3.9.6(假设按照上面创建了/usr/local/cmake3.9.6)安装3.10有错误，应该是boostrap脚本有问题。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz</span><br><span class="line">tar xzf cmake-3.9.6.tar.gz</span><br><span class="line"><span class="built_in">cd</span> cmake-3.9.6</span><br><span class="line">./bootstrap --prefix=/usr/<span class="built_in">local</span>/cmake3.9.6</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<h1 id="安装LLVM套装"><a href="#安装LLVM套装" class="headerlink" title="安装LLVM套装"></a>安装LLVM套装</h1><p>安装LLVM的时候需要预先从LLVM官网获取:</p>
-<ul>
-<li>llvm-5.0.0.src.tar.xz</li>
-<li>cfe-5.0.0.src.tar.xz</li>
-<li>compiler-rt-5.0.0.src.tar.xz</li>
-<li>lldb-5.0.0.src.tar.xz</li>
-<li>lld-5.0.0.src.tar.xz</li>
-<li>clang-tools-extra-5.0.0.src.tar.xz</li>
-<li>polly-5.0.0.src.tar.xz</li>
-<li>openmp-5.0.0.src.tar.xz<br>然后按照如下规则组织:<br>这里假设安装的LLVM源文件目录被重命名为了llvm,默认llvm-5.0.0.src(LLVM5.0)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mv cfe-5.0.0.src llvm-5.0.0.src/tools/clang</span><br><span class="line">mv compiler-rt-5.0.0.src llvm-5.0.0.src/projects/compiler-rt</span><br><span class="line">mv clang-tools-extra-5.0.0.src llvm-5.0.0.src/tools/clang/tools/extra</span><br><span class="line">mv lldb-5.0.0.src llvm-5.0.0.src/tools/lldb</span><br><span class="line">mv openmp-5.0.0.src llvm-5.0.0.src/projects/openmp</span><br><span class="line">mv lld-5.0.0.src llvm-5.0.0.src/tools/lld</span><br><span class="line">mv polly-5.0.0.src llvm-5.0.0.src/tools/polly</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="新建目录编译-LLVM要求的"><a href="#新建目录编译-LLVM要求的" class="headerlink" title="新建目录编译(LLVM要求的)"></a>新建目录编译(LLVM要求的)</h2><p>第一个cmake的时候出现第一个问题:安装<code>libncurses5-dev_5.9+20140118-1ubuntu1_amd64.deb</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake -DLLVM_TARGETS_TO_BUILD=&quot;X86&quot; -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLLVM_LIBDIR_SUFFIX=64  -DLLVM_INCLUDE_TESTS=OFF -DLLVM_INCLUDE_DOCS=OFF -DLLVM_ENABLE_FFI=ON -DLLVM_ENABLE_RTTI=ON -DLLVM_ENABLE_PEDANTIC=OFF -DLLVM_ENABLE_LLD=OFF -DLLVM_INSTALL_UTILS=ON ../llvm</span><br></pre></td></tr></table></figure></p>
-<p>编译出现fatal error: editline/readline.h: No such file or directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## 下载安装两个包</span><br><span class="line">wget http://launchpadlibrarian.net/170117860/libbsd-dev_0.6.0-2ubuntu1_amd64.deb</span><br><span class="line">wget  http://kr.archive.ubuntu.com/ubuntu/pool/main/r/readline6/libreadline-dev_6.3-4ubuntu2_amd64.deb</span><br></pre></td></tr></table></figure></p>
-<p>编译进程:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilFileStd.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilMapIdToVariant.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilString.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilThreadBaseStd.cpp.o</span><br><span class="line">[100%] Building CXX object tools/lldb/tools/lldb-mi/CMakeFiles/lldb-mi.dir/MIUtilVariant.cpp.o</span><br><span class="line">[100%] Linking CXX executable ../../../../bin/lldb-mi</span><br><span class="line">[100%] Built target lldb-mi</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><figcaption><span>xxx不存在</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/17/Ubuntu14安装clang/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-TensorFlowACD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/16/TensorFlowACD/">TensorFlowACD</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/16/TensorFlowACD/" class="archive-article-date">
-  	<time datetime="2018-01-16T07:55:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="TensorFlow-Android-cammera-Demo"><a href="#TensorFlow-Android-cammera-Demo" class="headerlink" title="TensorFlow Android cammera Demo"></a>TensorFlow Android cammera Demo</h1><p>这个文件夹包含一个使用TensorFlow为Android设备开发的例子。</p>
-<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>这个示例是使用TensorFlow在移动app上创建样本的例子。<br>推理使用<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android" target="_blank" rel="noopener"> TensorFlow Android Inference Interface</a>,如果你想一个单独的库添加到你存在的程序中，对象跟踪和高效的YUV-&gt;RGB通过libtensorflow_demo.so处理。</p>
-<p>要求运行在Android5.0(API21)或者更高的版本因为使用camera2 API，尽管本地库可以在API&gt;=14的设备上运行。</p>
-<h2 id="当前样例"><a href="#当前样例" class="headerlink" title="当前样例"></a>当前样例</h2><ol>
-<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/ClassifierActivity.java" target="_blank" rel="noopener">TF Classify</a>:使用<a href="https://arxiv.org/abs/1409.4842" target="_blank" rel="noopener">Google Inceptions</a>模型实时分类相机帧，显示在相机图像顶部结果。</li>
-<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/DetectorActivity.java" target="_blank" rel="noopener">TF Detect</a>:展示一个SSD-Mobilenet模型使用在<a href="https://arxiv.org/abs/1611.10012" target="_blank" rel="noopener">Speed/accuracy trade-offs for modern convolutional object detectors </a>中介绍的<a href="https://github.com/tensorflow/models/tree/master/research/object_detection/" target="_blank" rel="noopener">Tensorflow Object Detection API</a>在摄像头取景器中实时追踪目标。</li>
-<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/StylizeActivity.java" target="_blank" rel="noopener">TF Stylize</a>:使用一个基于<a href="https://arxiv.org/abs/1610.07629" target="_blank" rel="noopener">A Learned Representation For Artistic Style</a>中用不同的风格风格化摄像头取景器</li>
-<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/SpeechActivity.java" target="_blank" rel="noopener">TF Speech</a>:运行一个通过<a href="https://www.tensorflow.org/versions/master/tutorials/audio_recognition" target="_blank" rel="noopener">audio train tutorial</a>构建的简单的语音识别模型，听一个单词识别后在UI上高亮对应单词。<br><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/classify1.jpg" width="30%"><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/stylize1.jpg" width="30%"><img src="/2018/01/16/TensorFlowACD/../TensorFlowACD/detect1.jpg" width="30%"><h2 id="预编译组件"><a href="#预编译组件" class="headerlink" title="预编译组件"></a>预编译组件</h2>如果你想最快的尝试示例，你可以在<a href="https://ci.tensorflow.org/view/Nightly/job/nightly-android/" target="_blank" rel="noopener">这里</a>下载快速构建版本。展开”View”然后”out”在”Last Successful Artifacts”下的文件夹找到tensorflow_demo.apk。</li>
-</ol>
-<p>也可以在本地库预编译，一个jcenter包放入你的app中，查看<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/README.md" target="_blank" rel="noopener">tensorflow/contrib/android/README.md </a>获取更多详细信息。</p>
-<h2 id="运行Demo"><a href="#运行Demo" class="headerlink" title="运行Demo"></a>运行Demo</h2><p>当APP安装后可以通过”TF Classify”,”TF Detect”,”TF Styleize”和”TF Speech”图标启动，他们都有橙色的TensorFlow Logo图标。</p>
-<p>当运行激活后，按你的设备上的音量键将触发可视化调试on/off,对于开发者额外的显示在屏幕上的调试信息很有用。</p>
-<h2 id="使用来自JCenter的TensorFlow-AAR在Android-Studio构建"><a href="#使用来自JCenter的TensorFlow-AAR在Android-Studio构建" class="headerlink" title="使用来自JCenter的TensorFlow AAR在Android Studio构建"></a>使用来自JCenter的TensorFlow AAR在Android Studio构建</h2><p>最简单的编译demo程序的方法是尝试使用AndroidStudio改变工程代码。简单的设置android目录为你的工程的根目录即可。</p>
-<p>然后编辑<code>build.gradle</code>文件改变<code>bativeBuildSystem</code>为<code>none</code>因此工程用最简单的方式构建:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def nativeBuildSystem = <span class="string">'none'</span></span><br></pre></td></tr></table></figure></p>
-<p>尽管这个工程包含完整的TensorFlow构建，这个设置禁用它，使用来自JCenter的TensorFlow推理包。</p>
-<p>注意：当前在这个构建模式,YUV-&gt;RGB使用更少高效的java实现，目标追中在TF Detect活动体中不可用，设置构建系统为<code>cmake</code>当前仅仅构建<code>libtensorflow_demo.so</code>,提供快速的YUV-&gt;RGB转化和对象追踪，当通过下载AAR获取TensorFlow支持后，因此它也许轻量的使用这些特性。</p>
-<p>对于任何工程不包含通常的低级TensorFlow代码，这可能很高效。<br>更多的关于如何包含JCenter包到你的工程中的细节查看<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/README.md" target="_blank" rel="noopener">tensorflow/contrib/android/README.md</a></p>
-<h2 id="结合TensorFlow源代码构建Demo"><a href="#结合TensorFlow源代码构建Demo" class="headerlink" title="结合TensorFlow源代码构建Demo"></a>结合TensorFlow源代码构建Demo</h2><p>选择你愿意的方式，我们完全支持Bazel，部分支持gradle，cmake，make和Android Studio。</p>
-<p>构建的第一步是克隆TensorFlow仓库:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/tensorflow/tensorflow.git</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：–recurse-submodules是为了防止protobuf编译问题而必须的。</strong></p>
-<h2 id="Bazel"><a href="#Bazel" class="headerlink" title="Bazel"></a>Bazel</h2><p>注意:Bazel 当前不支持在Windows为Android设备构建，完全的支持gradle/cmake构建正在路上，但是这个时候我们建议Windows用户下载<a href="https://ci.tensorflow.org/view/Nightly/job/nightly-android/" target="_blank" rel="noopener">预编译的二进制</a></p>
-<h3 id="安装Bazel和要求的Android"><a href="#安装Bazel和要求的Android" class="headerlink" title="安装Bazel和要求的Android"></a>安装Bazel和要求的Android</h3><p>Bazel是一个用于TensorFlow的高级构建系统，为了结合Bazel构建，需要有Android NDK和SDK安装在你的系统上。</p>
-<ol>
-<li>按照<a href="https://bazel.build/versions/master/docs/install.html" target="_blank" rel="noopener">Bazel网站</a>说明安装最新的Bazel</li>
-<li>Android NDK要求构建本地的(C/C++) TensorFlow 代码，当前推荐版本为14b,可以在<a href="https://developer.android.com/ndk/downloads/older_releases.html#ndk-14b-downloads" target="_blank" rel="noopener">这里</a>找到</li>
-</ol>
-<ul>
-<li>NDK16是2017年11月份版本，和bazel不兼容，查看<a href="https://github.com/tensorflow/tensorflow/issues/14918" target="_blank" rel="noopener">这里</a></li>
-</ul>
-<ol>
-<li>要求的Android SDK和构建工具可以再<a href="https://developer.android.com/tools/revisions/build-tools.html" target="_blank" rel="noopener">这里</a>获得，或者作为<a href="https://developer.android.com/studio/index.html" target="_blank" rel="noopener">Android Studio</a>的一部分，对于TensorFlow Android demo构建工具API&gt;=23（尽管它将在API&gt;=21的设备上运行）</li>
-</ol>
-<ul>
-<li>Android Studio SDK管理的NDK安装器将安装最新的NDK，这和Bazel不兼容。你将需要下载2建议的老版本<h3 id="编辑WORKSPACE"><a href="#编辑WORKSPACE" class="headerlink" title="编辑WORKSPACE"></a>编辑WORKSPACE</h3>注意:只要你有SDK和NDK安装，<code>./configure</code>脚本将为你创建规则。当脚本要求自动配置<code>./WORKSPACE</code>的时候回答”Yes”。</li>
-</ul>
-<p>Android入口在<a href="https://github.com/tensorflow/tensorflow/blob/master/WORKSPACE#L19-L36" target="_blank" rel="noopener"><workspace_root>/WORKSPACE</workspace_root></a>中必须被反注释掉NDK和SDK指定安装位置。否则将出现类似”The external label ‘//external:android/sdk’”的错误。</p>
-<p>编辑API级别用于在WORKSPACE中的SDK高亮你想安装在你的SDK的级别。这必须&gt;=23(这是demo完整的依赖，它定义在AndroidManifest.xml).NDK API level也许保留为14。</p>
-<h3 id="安装模型文件-可选"><a href="#安装模型文件-可选" class="headerlink" title="安装模型文件(可选)"></a>安装模型文件(可选)</h3><p>TensorFlow<code>GraphDef</code>包含模型定义和定义在仓库中没有打包的权重因为他的尺寸问题。他们通过在构建过程中定义在WORKSPACE中的new_http_archive被自动下载通过Bazel结合APK打包。</p>
-<p>可选:如果你希望手动放置模型在你的assets，从<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/BUILD#L92" target="_blank" rel="noopener">BUILD</a>文件中的Tensorflow_demo移除models_files入口。然后下载解压压缩文件到源文件树中的assets目录:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BASE_URL=https://storage.googleapis.com/download.tensorflow.org/models</span><br><span class="line"><span class="keyword">for</span> MODEL_ZIP <span class="keyword">in</span> inception5h.zip ssd_mobilenet_v1_android_export.zip stylize_v1.zip</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  curl -L <span class="variable">$&#123;BASE_URL&#125;</span>/<span class="variable">$&#123;MODEL_ZIP&#125;</span> -o /tmp/<span class="variable">$&#123;MODEL_ZIP&#125;</span></span><br><span class="line">  unzip /tmp/<span class="variable">$&#123;MODEL_ZIP&#125;</span> -d tensorflow/examples/android/assets/</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
-<p>这将解压模型和他们的metadata文件到assets/目录。</p>
-<p>如果你使用Gradle，确保你手动下载模型后从build.gradle中移除download-models.gradle；否则gradle也许再次下载模型覆盖你的模型。</p>
-<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>在编辑你的WORKSPACE文件后更新SDK/NDK配置，你也许构建APK。然后从你的workspace根目录运行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt //tensorflow/examples/android:tensorflow_demo</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>确保adb调试在你的Android5.0(API21)或者更新的设备上被打开，然后使用下面的命令在你的workspace根目录中安装APK:<br><code>adb install -r bazel-bin/tensorflow/examples/android/tensorflow_demo.apk</code></p>
-<h2 id="使用Android-Studio结合bazel"><a href="#使用Android-Studio结合bazel" class="headerlink" title="使用Android Studio结合bazel"></a>使用Android Studio结合bazel</h2><p>Android Studio也可以结合Bazel用于构建demo。首先确保你可以使用上面的目录构建Bazel。然后在<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/build.gradle" target="_blank" rel="noopener">build.gradle</a>确保Bazel路径和你的系统匹配。</p>
-<h2 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h2><p>完整的CMake支持正在路上，但是现在使用<a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/cmake" target="_blank" rel="noopener">tensorflow/contrib/android/cmake</a>构建TensorFlow Android Inference库是可能的。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">TensorFlow for android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/16/TensorFlowACD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bazel-share-variable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/12/bazel-share-variable/">bazel-share-variable</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/12/bazel-share-variable/" class="archive-article-date">
-  	<time datetime="2018-01-12T02:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="共享变量"><a href="#共享变量" class="headerlink" title="共享变量"></a>共享变量</h1><p>BUILD文件试图简单声明。他们将由一系列目标声明组成。当你的代码和你的BUILD变得很大的时候你将可能注意到一些重复，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cc_library(</span><br><span class="line">  name = &quot;foo&quot;,</span><br><span class="line">  copts = [&quot;-DVERSION=5&quot;],</span><br><span class="line">  srcs = [&quot;foo.cc&quot;],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = &quot;bar&quot;,</span><br><span class="line">  copts = [&quot;-DVERSION=5&quot;],</span><br><span class="line">  srcs = [&quot;bar.cc&quot;],</span><br><span class="line">  deps = [&quot;:foo&quot;],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>在BUILD文件中代码重复通常很好。这可以使得文件更易读：每个声明在没有上下文的情况可以被读和理解。例如，一个工具能读和更新BUILD文件添加缺失的依赖。代码重构和代码重用可能预防这种自动修改。</p>
-<p>记住，这可能共享变量，如果你想它将被使用(例如值必须被同步)你可以更新之前的例子引进变量:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">COPTS = [<span class="string">"-DVERSION=5"</span>]</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"foo"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"foo.cc"</span>],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"bar"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"bar.cc"</span>],</span><br><span class="line">  deps = [<span class="string">":foo"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p><code>COPTS</code>值现在被多次声明使用。通常我们用大写的关键字作为全局常数。</p>
-<h2 id="共享的变量通过多BUILD文件"><a href="#共享的变量通过多BUILD文件" class="headerlink" title="共享的变量通过多BUILD文件"></a>共享的变量通过多BUILD文件</h2><p>如果你需要通过多BUILD共享变量，你必须放在<code>.bzl</code>文件中，<code>.bzl</code>文件包含BUILD文件可以使用的定哟(变量和函数)</p>
-<p>在path/to/variables.bzl,写:<br><code>COPTS = [&quot;-DVERSION=5&quot;]</code><br>当你更新你的BUILD文件到访问变量时:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">"//path/to:variables.bzl"</span>, <span class="string">"COPTS"</span>)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"foo"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"foo.cc"</span>],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"bar"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"bar.cc"</span>],</span><br><span class="line">  deps = [<span class="string">":foo"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<h1 id="创建宏"><a href="#创建宏" class="headerlink" title="创建宏"></a>创建宏</h1><p>让我们假设你需要运行一个工具作为你的构建的一部分。例如，一也许想生成或者预处理带文件或者压缩一个二进制。在这个导航中，我们将resize一张图片。</p>
-<p>一个简单的方法是使用<code>genrule</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">genrule(</span><br><span class="line">    name = <span class="string">"logo_miniature"</span>,</span><br><span class="line">    srcs = [<span class="string">"logo.png"</span>],</span><br><span class="line">    outs = [<span class="string">"small_logo.png"</span>],</span><br><span class="line">    cmd = <span class="string">"convert $&lt; -resize 100x100 <span class="variable">$@</span>"</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_binary(</span><br><span class="line">    name = <span class="string">"my_app"</span>,</span><br><span class="line">    srcs = [<span class="string">"my_app.cc"</span>],</span><br><span class="line">    data = [<span class="string">":logo_miniature"</span>],</span><br><span class="line">)<span class="string">"&gt;"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>如果你需要resize更多的图像，你可能想重用代码。为了做这件事，我们将定义一个函数作为一个.bzl文件。让我们称这个文件是<code>miniature.bzl</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def miniature(name, src, size=&quot;100x100&quot;, **kwargs):</span><br><span class="line">  &quot;&quot;Create a miniature of the src image.</span><br><span class="line"></span><br><span class="line">  The generated file is prefixed with &apos;small_&apos;.</span><br><span class="line">  &quot;&quot;</span><br><span class="line">  native.genrule(</span><br><span class="line">    name = name,</span><br><span class="line">    srcs = [src],</span><br><span class="line">    outs = [&quot;small_&quot; + src],</span><br><span class="line">    cmd = &quot;convert $&lt; -resize 100x100 $@&quot;,</span><br><span class="line">    **kwargs</span><br><span class="line">  )</span><br><span class="line">&quot;&gt;)&quot;</span><br></pre></td></tr></table></figure></p>
-<p>一些remark:</p>
-<ul>
-<li>按照惯例，宏有一个<code>name</code>参数，就像一个规则</li>
-<li>我们通过用一个<a href="https://www.python.org/dev/peps/pep-0257/" target="_blank" rel="noopener">像Python的docstring</a>记录宏的行为</li>
-<li>为了调用<code>genrule</code>,或者任何其他本地规则，使用<code>native</code></li>
-<li><code>**kargs</code> 用于添加额外的参数到<code>genrule</code>(他像Python)。这很有用，因此一个用户能使用标准的像<code>visibility</code>或者<code>tags</code>属性。</li>
-</ul>
-<p>现在你可以使用BUILD文件的宏文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">"//path/to:miniature.bzl"</span>, <span class="string">"miniature"</span>)</span><br><span class="line"></span><br><span class="line">miniature(</span><br><span class="line">    name = <span class="string">"logo_miniature"</span>,</span><br><span class="line">    src = <span class="string">"image.png"</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_binary(</span><br><span class="line">    name = <span class="string">"my_app"</span>,</span><br><span class="line">    srcs = [<span class="string">"my_app.cc"</span>],</span><br><span class="line">    data = [<span class="string">":logo_miniature"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>宏文件对简单的任务很适用。如果你想做一些复杂的事情，例如为新的程序语言添加支持，考虑创建一个<a href="https://docs.bazel.build/versions/master/skylark/rules.html" target="_blank" rel="noopener">rule</a>。Rule将给你更多控制和灵活度。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">bazel基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/12/bazel-share-variable/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bazel-android-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/bazel-android-md/">bazel_android.md</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/bazel-android-md/" class="archive-article-date">
-  	<time datetime="2018-01-10T13:15:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用Bazel构建一个Android程序"><a href="#使用Bazel构建一个Android程序" class="headerlink" title="使用Bazel构建一个Android程序"></a>使用Bazel构建一个Android程序</h1><h2 id="建立你的环境"><a href="#建立你的环境" class="headerlink" title="建立你的环境"></a>建立你的环境</h2><p>安装Bazel和Android Studio，获取样例工程。</p>
-<h2 id="安装Bazel"><a href="#安装Bazel" class="headerlink" title="安装Bazel"></a>安装Bazel</h2><p>按照<a href="https://docs.bazel.build/versions/master/install.html" target="_blank" rel="noopener">安装说明</a>安装Bazel和他的依赖。</p>
-<h2 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h2><p>按照<a href="https://developer.android.com/sdk/index.html" target="_blank" rel="noopener">安装Android Studio</a>下载安装Android Studio<br>安装器不自动设置ANDROID_HOME变量。设置Android SDK的位置，默认设置为<code>$HIME/Android/Sdk</code><br>例如:<br><code>export ANDROID_HOME=$HOME/Android/Sdk/</code><br>为了方便，添加上面的代码到你的<code>~/.bashrc</code>文件中。</p>
-<h2 id="获取样例程序"><a href="#获取样例程序" class="headerlink" title="获取样例程序"></a>获取样例程序</h2><p>你需要从Github获取样例工程。repo有两个分支:<code>source-only</code>和<code>master</code>。<code>source-only</code>分支包含源文件。你将需要在这个导航中使用文件。<code>master</code>分支包含源代码和完整的Bazel WORKSPACE和BUILD文件。当你完成导航时可以在这个分支使用文件检查你的工作。</p>
-<p>输入下面的命令行获取source-only分支:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></span><br><span class="line">git <span class="built_in">clone</span> -b <span class="built_in">source</span>-only https://github.com/bazelbuild/examples</span><br></pre></td></tr></table></figure></p>
-<p><code>git clone</code>命令创建一个名字<code>$HOME/examples/</code>。目录包含一些Bazel的样例工程。这个导航的工程文件在<code>$HOME/examples/tutorial/android</code></p>
-<h2 id="设置一个workspace"><a href="#设置一个workspace" class="headerlink" title="设置一个workspace"></a>设置一个workspace</h2><p>一个<a href="https://docs.bazel.build/versions/master/build-ref.html#workspaces" target="_blank" rel="noopener">workspace</a>是一个包含一个或者更多软件工程的源文件，只要一个WORKSPACE文件和BUILD文件包含Bazel构建软件的说明。工作空间也包含符号链接输出目录。一个workspace目录可以是你的文件系统上的任何位置，在这个导航中你的workspace目录是<code>$HOME/examples/tutorial/</code>,那个从GitHub仓库克隆的包含样例工程文件。</p>
-<p>注意Bazel本身没有任何要求你的在你的workspace组织源代码。在导航中的源文件根据目标组织。为了方便设置<code>$WORKSPACE</code>环境变量查找你的workspace目录。在命令行中输入:<br><code>export WORKSPACE=$HOME/examples/tutorial</code></p>
-<h2 id="创建一个WORKSPACE文件"><a href="#创建一个WORKSPACE文件" class="headerlink" title="创建一个WORKSPACE文件"></a>创建一个WORKSPACE文件</h2><p>每个workspace必须有<br>WORKSPACE文件在顶层的workspace目录。这文件必须是空或者包含<a href="https://docs.bazel.build/versions/master/external.html" target="_blank" rel="noopener">外部依赖</a>。</p>
-<p>现在你将创建一个空的WORKSPACE文件服务于workspace目录。在之后的步骤，你将更新文件添加外部依赖信息。<br>输入下面的命令行:<br><code>touch $WORKSPACE/WORKSPACE</code><br>创建空的WORKSPACE文件。</p>
-<h2 id="更新WORKSPACE文件"><a href="#更新WORKSPACE文件" class="headerlink" title="更新WORKSPACE文件"></a>更新WORKSPACE文件</h2><p>Bazel需要运行Android SDK<a href="https://developer.android.com/tools/revisions/build-tools.html" target="_blank" rel="noopener">构建工具</a>。这一位置你需要添加一些信息到你的WORKSPACE文件以至于Bazel知道到哪里找到他们。注意这个步骤当你构建其他的平台时是不要求。例如，Bazel从你设置的环境中自动检测Java，C++和Objective-C编译。</p>
-<p>添加下面的行到你的WORKSPACE文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android_sdk_repository(</span><br><span class="line">    name = <span class="string">"androidsdk"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>这将通过ANDROID_HOME环境变量使用Android SDK，自动检测这个位置的高级API和最新的构建工具版本。</p>
-<p>你也可以明确指定Android SDK的目录，API等级和最新的构建工具。，构建工具的版本在<code>path</code>,<code>api_level</code>和<code>build_tools_version</code>属性。你可以指定这些属性的任何子属性:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android_sdk_repository(</span><br><span class="line">    name = <span class="string">"androidsdk"</span>,</span><br><span class="line">    path = <span class="string">"/path/to/Android/sdk"</span>,</span><br><span class="line">    api_level = 25,</span><br><span class="line">    build_tools_version = <span class="string">"26.0.1"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>可选:这在这个导航不要求，但是如果你想编译本地代码进你的Android app，你也需要下载<a href="https://developer.android.com/ndk/downloads/index.html" target="_blank" rel="noopener">Android NDK</a>和告诉Bazel通过添加下面的规则到你的WORKSPACE文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android_ndk_repository(</span><br><span class="line">    name = &quot;androidndk&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p><code>api_level</code>是Android API SDK和NDK目标的版本（例如23对应Android6.0,25对于Android7.1）.如果没有明确的设置,<code>api_level</code>将为android_sdk_repository和android_ndk_repository定义最高的API级别。这不需要为SDK和NDK设置API级别。<a href="https://developer.android.com/ndk/guides/stable_apis.html" target="_blank" rel="noopener">网页</a>包含从Android到NDK支持的API级别的映射。</p>
-<p>类似android_sdk_repository,Android NDK从ANDROID_NDK_HOME环境变量中设置。路径可以通过<code>path</code>属性明确指定<code>android_ndk_repository</code>。</p>
-<h2 id="查看源代码"><a href="#查看源代码" class="headerlink" title="查看源代码"></a>查看源代码</h2><p>查看app的源代码，位置在<code>$WORKSPACE/android/</code><br>关键的文件和目录是:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">位置</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Manifest file</td>
-<td style="text-align:center">src/main/java/com/google/bazel/example/android/AndroidManifest.xml</td>
-</tr>
-<tr>
-<td style="text-align:center">Activity source file</td>
-<td style="text-align:center">src/main/java/com/google/bazel/example/android/activities/MainActivity.java</td>
-</tr>
-<tr>
-<td style="text-align:center">Resource file directory</td>
-<td style="text-align:center">src/main/java/com/google/bazel/example/android/res/</td>
-</tr>
-</tbody>
-</table>
-<p>注意你将查看这些文件熟悉app的结构。不用编辑任何源文件。</p>
-<h2 id="创建BUILD文件"><a href="#创建BUILD文件" class="headerlink" title="创建BUILD文件"></a>创建BUILD文件</h2><p>一个<a href="https://docs.bazel.build/versions/master/build-ref.html#BUILD_files" target="_blank" rel="noopener">BUILD file</a>是一个描述构建输出的集合的文本文件——例如，编译软件库或者执行文件添加他们的依赖。依赖也许是你的workspace的源文件或者其他构建输出。<code>BUILD</code>文件用<code>bazel language</code>写。</p>
-<p><code>BUILD</code>文件作为Bazel包管理层级组件。包层级结构是你的workspace之上的逻辑结果，每个<a href="https://docs.bazel.build/versions/master/build-ref.html#packages" target="_blank" rel="noopener">包</a>是一个包含相关源代码和构建文件的目录。包也包含子目录，子目录包含自己的BUILD文件。包名称是BUILD文件在的目录的名字。</p>
-<p>Java包层级结果对于你的Android程序注意包层级相互区别不能共存，例如简单的Android程序导航，我们将考虑所有在<code>$WORKSPACE/android/</code>中的源文件比较单个Bazel包。一个更复杂的工程有更多包。</p>
-<p>在命令行中打开BUILD文件用于编辑:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim $WORKSPACE/android/BUILD</span><br></pre></td></tr></table></figure></p>
-<h2 id="添加额外的android-library规则"><a href="#添加额外的android-library规则" class="headerlink" title="添加额外的android_library规则"></a>添加额外的android_library规则</h2><p>一个BUILD文件包含Bazel一些不同类型的说明。最重要的类型是<a href="https://docs.bazel.build/versions/master/build-ref.html#funcs" target="_blank" rel="noopener">构建规则</a>，它告诉Bazel如何从源代码或者其他的依赖构建一个中间或者最终的软件。</p>
-<p>Bazel提供两个构建规则，android_library和android_binary,你可以使用构建Android app。对于这个导航，你将首先使用android_library规则告诉bazel如何从app源代码和资源文件构建一个<a href="http://developer.android.com/tools/projects/index.html#LibraryProjects" target="_blank" rel="noopener">Andoroid库模型</a>。然后你将使用android_library规则告诉他如何构建Android应用包。添加下面到你的BUILD文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">android_library(</span><br><span class="line">  name = <span class="string">"activities"</span>,</span><br><span class="line">  srcs = glob([<span class="string">"src/main/java/com/google/bazel/example/android/activities/*.java"</span>]),</span><br><span class="line">  custom_package = <span class="string">"com.google.bazel.example.android.activities"</span>,</span><br><span class="line">  manifest = <span class="string">"src/main/java/com/google/bazel/example/android/activities/AndroidManifest.xml"</span>,</span><br><span class="line">  resource_files = glob([<span class="string">"src/main/java/com/google/bazel/example/android/activities/res/**"</span>]),</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>正如你所见，android_library构建规则包含一些属性指定Bazel从源文件需要构建一个库模块的信息。注意规则的名字是activities。你将在android_binary规则使用这个名字作为一个依赖访问这个规则。</p>
-<h2 id="添加一个android——binary规则"><a href="#添加一个android——binary规则" class="headerlink" title="添加一个android——binary规则"></a>添加一个android——binary规则</h2><p>android_binary为你的app规则构建Android应用包(.apk文件)。添加下面到你的构建文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">android_binary(</span><br><span class="line">    name = <span class="string">"android"</span>,</span><br><span class="line">    custom_package = <span class="string">"com.google.bazel.example.android"</span>,</span><br><span class="line">    manifest = <span class="string">"src/main/java/com/google/bazel/example/android/AndroidManifest.xml"</span>,</span><br><span class="line">    resource_files = glob([<span class="string">"src/main/java/com/google/bazel/example/android/res/**"</span>]),</span><br><span class="line">    deps = [<span class="string">":activities"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>这里的<code>deps</code>属性访问你上面添加的BUILD文件中的activities规则输出。这意味着，当Bazel使用这个规则输出时，它首先检查是否输出activatibes库规则已经被构建而且是最新的。如果是它构建它然后使用输出构建应用程序包文件。</p>
-<h2 id="构建app"><a href="#构建app" class="headerlink" title="构建app"></a>构建app</h2><p>你必须使用bazel命令行工具运行构建，执行单元测试在平台的其他操作。这个工具定位在你安装bazel的output子目录。在<a href="https://docs.bazel.build/versions/master/install.html" target="_blank" rel="noopener">安装</a>的时候，你可能添加这个位置到你的路径中了。在你构建同样的app之前，确保当前的工作目录在你的bazel workspace中:<br><code>cd $WORKSPACE</code></p>
-<p>现在输入下面构建同样的app:</p>
-<p><code>bazel build //android:android</code></p>
-<p><a href="https://docs.bazel.build/versions/master/bazel-user-manual.html#build" target="_blank" rel="noopener">build</a>子命令指示Bazel构建下面的目标。目标是被按照BUILD文件中的规则中指定build 规则，沿着和你的workspace目录相关的包。注意你可能有时候忽略包路径或者目标的名称。依赖于你当前的命令行和目标名称。查看<a href="https://docs.bazel.build/versions/master/build-ref.html#labels" target="_blank" rel="noopener">label</a>和属于页面获取更多的目标标记和路径的信息。</p>
-<p>bazel现在启动构建样本app。在构建处理中，他的输出将类似如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INFO: Found 1 target...</span><br><span class="line">Target //android:android up-to-date:</span><br><span class="line">  bazel-bin/android/android_deploy.jar</span><br><span class="line">  bazel-bin/android/android_unsigned.apk</span><br><span class="line">  bazel-bin/android/android.apk</span><br><span class="line">INFO: Elapsed time: 7.237s, Critical Path: 5.81s</span><br></pre></td></tr></table></figure></p>
-<h2 id="找的构建的输出"><a href="#找的构建的输出" class="headerlink" title="找的构建的输出"></a>找的构建的输出</h2><p>Bazel存储中间和最终的构建操作输出在一个per-user,per-workspace输出目录。这目录从下面的目录连接:</p>
-<ul>
-<li>$WORKSPACE/bazel-bin,存储二进制执行和其他的可执行的构建输出</li>
-<li>$WORKSPACE/bazel-genfile,存储Bazel规则生成的中间源文件</li>
-<li>$WORKSPACE/bazel-out，存储构建输出的其他类型。<br>Bazel存储在bazel-bin/adnroid/目录android_binary规则Android<code>.apk</code>文件，这里组目录名称为从Bazel包名字派生的android。<br>在命令终端，显示目录的内容找到andoroid,apk文件:<br><code>ls $WORKSPACE/bazel-bin/android</code><h2 id="运行app"><a href="#运行app" class="headerlink" title="运行app"></a>运行app</h2>注意：app独立启动但是要求一个后端服务器生成输出。查看样例工程目录的README文件找到如何构建后端服务器。</li>
-</ul>
-<p>你现在可以连接Android设备或者仿真器使用bazel mobile-install目录部署app。这个目录使用Android Debug Bridge(adb)和设备通信。你按照必须<a href="http://developer.android.com/tools/help/adb.html" target="_blank" rel="noopener">Android Debug bridge</a>的说明设置你的设备。你可以选择在Android Studio安装软件到Android仿真器上。确保仿真器在下面命令之前运行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel mobile-install //android:android</span><br></pre></td></tr></table></figure></p>
-<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>在这个导航，你使用Bazel构建Android app。完成这个导航你:</p>
-<ul>
-<li>通过安装Bazel和Android设置环境，下载样本工程</li>
-<li>建立包含app源代码的Bazel<a href="https://docs.bazel.build/versions/master/tutorial/workspace.html" target="_blank" rel="noopener">workspace</a>和WORKSPACE文件确定顶层workspace目录</li>
-<li>更新WORKSPACE文件包含相关外部依赖的访问</li>
-<li>创建一个BUILD文件</li>
-<li>运行Bazel构建app</li>
-<li>步数运行app到Android仿真器或者设备上<br>构建app在$WORKSPACE/bazel-bin目录中。<br>注意对于这个导航完成WORKSPACE和BUILD文件在Github仓库的<a href="https://github.com/bazelbuild/examples/tree/master/tutorial" target="_blank" rel="noopener">主分支</a>。你可以比较你的工作和完整的文件获取额外信息和排错。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Bazel 构建Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/bazel-android-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tflite" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/tflite/">tflite</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/tflite/" class="archive-article-date">
-  	<time datetime="2018-01-10T08:49:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="TensorFlow-Lite-APIs"><a href="#TensorFlow-Lite-APIs" class="headerlink" title="TensorFlow Lite APIs"></a>TensorFlow Lite APIs</h1><p>TensorFlow Lite提供C++和Java编程API</p>
-<h1 id="TF-lite-Android-App"><a href="#TF-lite-Android-App" class="headerlink" title="TF lite Android App"></a>TF lite Android App</h1><h2 id="使用Bazel从源代码构建"><a href="#使用Bazel从源代码构建" class="headerlink" title="使用Bazel从源代码构建"></a>使用Bazel从源代码构建</h2><ul>
-<li>按照<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#bazel" target="_blank" rel="noopener">Bazel 构建TF Demo App步骤</a></li>
-<li><p><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install-bazel-and-android-prerequisites" target="_blank" rel="noopener">安装Bazel和Android要求环境</a>在Android Studio中很容易。</p>
-</li>
-<li><ul>
-<li>你需要SDK至少23</li>
-</ul>
-</li>
-<li><ul>
-<li>确保安装最新的Bazel，一些发行商传递的Bazel为0.5.4，太旧了</li>
-</ul>
-</li>
-<li><ul>
-<li>Bazel要求Android Build工具26.0.1或者更高</li>
-</ul>
-</li>
-<li><ul>
-<li>Bazel 和NDK15及以上不兼容，16正在编译以改变兼容<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install-bazel-and-android-prerequisites" target="_blank" rel="noopener">使用SDK管理器手动下载</a></li>
-</ul>
-</li>
-<li><ul>
-<li>你也需要安装Android支持仓库，可用的Android Studio在Android SDK Manager-&gt;SDK Tools-&gt;Android Support Repository。</li>
-</ul>
-</li>
-<li><p>编辑你的WORKSPACE添加SDK和NDK<br>注意：只要你有SDK和NDK安装了，./configure脚本将为你创建规则。当脚本询问自动配置./WORKSPACE的时候回答YES</p>
-</li>
-<li><ul>
-<li>确保API_level在WORKSPACE中被设置为一个你安装的SDK版本</li>
-</ul>
-</li>
-<li><ul>
-<li>默认，Android Studio将安装SDK到~/Android/Sdk中，DNK到~/Android/Sdk/ndk-bundle中(但是NDK应该手动下载直到Bazel支持NDK16)</li>
-</ul>
-</li>
-<li><p>使用Bazel构建app，实例需要C++11:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt --cxxopt=<span class="string">'--std=c++11'</span> \</span><br><span class="line">  //tensorflow/contrib/lite/java/demo/app/src/main:TfLiteCameraDemo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装demo到<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install" target="_blank" rel="noopener">打开usb调试的设备上</a><br><code>adb install bazel-bin/tensorflow/contrib/lite/java/demo/app/src/main/TfLiteCameraDemo.apk</code></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow lite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/TensorFlow//" class="article-tag-list-link color1">TensorFlow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/tflite/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tensorflow-gpu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/tensorflow-gpu/">tensorflow-gpu</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/tensorflow-gpu/" class="archive-article-date">
-  	<time datetime="2018-01-10T02:30:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="通过TensorFlow源代码安装编译安装TensorFlow"><a href="#通过TensorFlow源代码安装编译安装TensorFlow" class="headerlink" title="通过TensorFlow源代码安装编译安装TensorFlow"></a>通过TensorFlow源代码安装编译安装TensorFlow</h1><p>本地机器配置:GTX1080x2,Ubuntu14.06 LTS 64bit<br>安装前本地确认的软件有:</p>
-<ul>
-<li>Bazel 0.9.0,git，cuda8.0<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2>按照需要computecpp,到<a href="https://www.codeplay.com/products/computesuite/computecpp" target="_blank" rel="noopener">这里</a>注册下载computercpp，然后将文件方位TensorFlow制定的目录(这里下载文件为ComputeCpp-CE-0.5.0-Ubuntu.14.04-64bit.tar.gz):<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf  ComputeCpp-CE-0.5.0-Ubuntu.14.04-64bit.tar.gz</span><br><span class="line">mv ComputeCpp-CE-0.5.0-Ubuntu.14.04-64bit.tar.gz /usr/local/computecpp</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="安装cudnn9-这里下载版本为cudnn-9-0-linux-x64-v7-tgz"><a href="#安装cudnn9-这里下载版本为cudnn-9-0-linux-x64-v7-tgz" class="headerlink" title="安装cudnn9(这里下载版本为cudnn-9.0-linux-x64-v7.tgz)"></a>安装cudnn9(这里下载版本为cudnn-9.0-linux-x64-v7.tgz)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>下载TensorFlow源代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:tensorflow/tensorflow.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置TensorFlow</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> tensorflow</span><br><span class="line">./configure</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装TensorFlow GPU版</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/tensorflow-gpu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1346,8 +351,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
