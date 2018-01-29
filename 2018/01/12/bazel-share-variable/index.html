@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bleedingfight的技术博客">
 <meta property="og:description" content="共享变量BUILD文件试图简单声明。他们将由一系列目标声明组成。当你的代码和你的BUILD变得很大的时候你将可能注意到一些重复，例如123456789101112cc_library(  name = &amp;quot;foo&amp;quot;,  copts = [&amp;quot;-DVERSION=5&amp;quot;],  srcs = [&amp;quot;foo.cc&amp;quot;],)cc_library(  nam">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T03:17:31.713Z">
+<meta property="og:updated_time" content="2018-01-29T02:40:02.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bazel-share-variable">
 <meta name="twitter:description" content="共享变量BUILD文件试图简单声明。他们将由一系列目标声明组成。当你的代码和你的BUILD变得很大的时候你将可能注意到一些重复，例如123456789101112cc_library(  name = &amp;quot;foo&amp;quot;,  copts = [&amp;quot;-DVERSION=5&amp;quot;],  srcs = [&amp;quot;foo.cc&amp;quot;],)cc_library(  nam">
@@ -183,9 +183,9 @@
 <p>在BUILD文件中代码重复通常很好。这可以使得文件更易读：每个声明在没有上下文的情况可以被读和理解。例如，一个工具能读和更新BUILD文件添加缺失的依赖。代码重构和代码重用可能预防这种自动修改。</p>
 <p>记住，这可能共享变量，如果你想它将被使用(例如值必须被同步)你可以更新之前的例子引进变量:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">COPTS = [<span class="string">"-DVERSION=5"</span>]</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"foo"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"foo.cc"</span>],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"bar"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"bar.cc"</span>],</span><br><span class="line">  deps = [<span class="string">":foo"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
 <p><code>COPTS</code>值现在被多次声明使用。通常我们用大写的关键字作为全局常数。</p>
-<h2 id="共享的变量通过多BUILD文件"><a href="#共享的变量通过多BUILD文件" class="headerlink" title="共享的变量通过多BUILD文件"></a>共享的变量通过多BUILD文件</h2><p>如果你需要通过多BUILD共享变量，你必须放在<code>.bzl</code>文件中，<code>.bzl</code>文件包含BUILD文件可以使用的定哟(变量和函数)</p>
+<h2 id="共享的变量通过多BUILD文件"><a href="#共享的变量通过多BUILD文件" class="headerlink" title="共享的变量通过多BUILD文件"></a>共享的变量通过多BUILD文件</h2><p>如果你需要通过多BUILD共享变量，你必须放在<code>.bzl</code>文件中，<code>.bzl</code>文件包含BUILD文件可以使用的定义(变量和函数)</p>
 <p>在path/to/variables.bzl,写:<br><code>COPTS = [&quot;-DVERSION=5&quot;]</code><br>当你更新你的BUILD文件到访问变量时:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">"//path/to:variables.bzl"</span>, <span class="string">"COPTS"</span>)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"foo"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"foo.cc"</span>],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_library(</span><br><span class="line">  name = <span class="string">"bar"</span>,</span><br><span class="line">  copts = COPTS,</span><br><span class="line">  srcs = [<span class="string">"bar.cc"</span>],</span><br><span class="line">  deps = [<span class="string">":foo"</span>],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<h1 id="创建宏"><a href="#创建宏" class="headerlink" title="创建宏"></a>创建宏</h1><p>让我们假设你需要运行一个工具作为你的构建的一部分。例如，一也许想生成或者预处理带文件或者压缩一个二进制。在这个导航中，我们将resize一张图片。</p>
+<h1 id="创建宏"><a href="#创建宏" class="headerlink" title="创建宏"></a>创建宏</h1><p>让我们假设你需要运行一个工具作为你的构建的一部分。例如，你也许想生成或者预处理带文件或者压缩一个二进制。在这个导航中，我们将resize一张图片。</p>
 <p>一个简单的方法是使用<code>genrule</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">genrule(</span><br><span class="line">    name = <span class="string">"logo_miniature"</span>,</span><br><span class="line">    srcs = [<span class="string">"logo.png"</span>],</span><br><span class="line">    outs = [<span class="string">"small_logo.png"</span>],</span><br><span class="line">    cmd = <span class="string">"convert $&lt; -resize 100x100 <span class="variable">$@</span>"</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">cc_binary(</span><br><span class="line">    name = <span class="string">"my_app"</span>,</span><br><span class="line">    srcs = [<span class="string">"my_app.cc"</span>],</span><br><span class="line">    data = [<span class="string">":logo_miniature"</span>],</span><br><span class="line">)<span class="string">"&gt;"</span>)</span><br></pre></td></tr></table></figure></p>
 <p>如果你需要resize更多的图像，你可能想重用代码。为了做这件事，我们将定义一个函数作为一个.bzl文件。让我们称这个文件是<code>miniature.bzl</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def miniature(name, src, size=&quot;100x100&quot;, **kwargs):</span><br><span class="line">  &quot;&quot;Create a miniature of the src image.</span><br><span class="line"></span><br><span class="line">  The generated file is prefixed with &apos;small_&apos;.</span><br><span class="line">  &quot;&quot;</span><br><span class="line">  native.genrule(</span><br><span class="line">    name = name,</span><br><span class="line">    srcs = [src],</span><br><span class="line">    outs = [&quot;small_&quot; + src],</span><br><span class="line">    cmd = &quot;convert $&lt; -resize 100x100 $@&quot;,</span><br><span class="line">    **kwargs</span><br><span class="line">  )</span><br><span class="line">&quot;&gt;)&quot;</span><br></pre></td></tr></table></figure></p>
 <p>一些remark:</p>
@@ -479,15 +479,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
+                <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,15 +503,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
               </li>
             
             <div class="clearfix"></div>
