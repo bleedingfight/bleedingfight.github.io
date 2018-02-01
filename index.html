@@ -159,6 +159,160 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tensorflow_classify" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/01/tensorflow_classify/">TensorFlow classify for mobile</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/01/tensorflow_classify/" class="archive-article-date">
+  	<time datetime="2018-02-01T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="创建花分类器"><a href="#创建花分类器" class="headerlink" title="创建花分类器"></a>创建花分类器</h1><h2 id="clone-Tensorflow仓库"><a href="#clone-Tensorflow仓库" class="headerlink" title="clone Tensorflow仓库"></a>clone Tensorflow仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/googlecodelabs/tensorflow-for-poets-2</span><br><span class="line">cd tensorflow-for-poets-2</span><br></pre></td></tr></table></figure>
+<h2 id="使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的-flower-photos。"><a href="#使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的-flower-photos。" class="headerlink" title="使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的~/flower_photos。"></a>使用MobileNet创建分类器分类花，下载的<a href="http://download.tensorflow.org/example_images/flower_photos.tgz" target="_blank" rel="noopener">flower</a>压缩后的文件在当前目录下的~/flower_photos。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">IMAGE_SIZE=224</span><br><span class="line">ARCHITECTURE=<span class="string">"mobilenet_0.50_<span class="variable">$&#123;IMAGE_SIZE&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"启动TensorBoard监控训练过程"</span></span><br><span class="line">pkill tensorboard</span><br><span class="line">tensorboard --logdir tf_files/training_summaries &amp;</span><br><span class="line"><span class="keyword">if</span> [ $? == 0 ];<span class="keyword">then</span> </span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"成功开启TensorBoard监控"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"开启失败，正在尝试终止tensorboard进程"</span></span><br><span class="line">	pkill tensorboard </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 开始训练</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"开始重新训练化分类器"</span></span><br><span class="line">python -m scripts.retrain \</span><br><span class="line">  --bottleneck_dir=tf_files/bottlenecks \</span><br><span class="line">  --how_many_training_steps=500 \</span><br><span class="line">  --model_dir=tf_files/models/ \</span><br><span class="line">  --summaries_dir=tf_files/training_summaries/<span class="string">"<span class="variable">$&#123;ARCHITECTURE&#125;</span>"</span> \</span><br><span class="line">  --output_graph=tf_files/retrained_graph.pb \</span><br><span class="line">  --output_labels=tf_files/retrained_labels.txt \</span><br><span class="line">  --architecture=<span class="string">"<span class="variable">$&#123;ARCHITECTURE&#125;</span>"</span> \</span><br><span class="line">  --image_dir=/home/liushuai/flower_photos</span><br></pre></td></tr></table></figure>
+<p>训练过程如下:<br><img src="/2018/02/01/tensorflow_classify/" alt=""></p>
+<h2 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">    --graph=tf_files/retrained_graph.pb  \</span><br><span class="line">    --image=/home/liushuai/flower_photos/daisy/21652746_cc379e0eea_m.jpg</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/02/01/tensorflow_classify/tensorflow-classify/21652746_cc379e0eea_m.jpg" alt="分类图像"><br>结果如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Evaluation time (1-image): 0.532s</span><br><span class="line"></span><br><span class="line">daisy 0.994132</span><br><span class="line">sunflowers 0.00433137</span><br><span class="line">dandelion 0.00153304</span><br><span class="line">roses 2.23684e-06</span><br><span class="line">tulips 1.41185e-06</span><br></pre></td></tr></table></figure></p>
+<h2 id="优化同时查看"><a href="#优化同时查看" class="headerlink" title="优化同时查看"></a>优化同时查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;#############开始优化###################&quot;</span><br><span class="line">if test -e tf_files/optimized_graph.pb;then </span><br><span class="line">	echo &quot;############已经优化完成了###########&quot;</span><br><span class="line">else</span><br><span class="line">	echo &quot;############开始优化##############&quot;</span><br><span class="line">	python -m tensorflow.python.tools.optimize_for_inference \</span><br><span class="line">	  --input=tf_files/retrained_graph.pb \</span><br><span class="line">	  --output=tf_files/optimized_graph.pb \</span><br><span class="line">	  --input_names=&quot;input&quot; \</span><br><span class="line">	  --output_names=&quot;final_result&quot;</span><br><span class="line"></span><br><span class="line">fi</span><br><span class="line">##################验证优化模型###########################</span><br><span class="line">echo &quot;##############验证优化1###########################&quot;</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">  --graph=tf_files/retrained_graph.pb\</span><br><span class="line">  --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg</span><br><span class="line">echo “##############验证优化2##########################”</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">    --graph=tf_files/optimized_graph.pb \</span><br><span class="line">    --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg</span><br><span class="line">########################观察优化图#########################</span><br><span class="line">echo &quot;####################观察优化图########################&quot;</span><br><span class="line">pkill -f tensorboard</span><br><span class="line">tensorboard --logdir tf_files/training_summaries &amp;</span><br><span class="line">echo “###################添加两张图到TenorBoard#############”</span><br><span class="line">python -m scripts.graph_pb2tb tf_files/training_summaries/retrained \</span><br><span class="line">  tf_files/retrained_graph.pb </span><br><span class="line"></span><br><span class="line">python -m scripts.graph_pb2tb tf_files/training_summaries/optimized \</span><br><span class="line">  tf_files/optimized_graph.pb</span><br></pre></td></tr></table></figure>
+<h2 id="优化测试"><a href="#优化测试" class="headerlink" title="优化测试"></a>优化测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">gzip -c tf_files/optimized_graph.pb &gt; tf_files/optimized_graph.pb.gz</span><br><span class="line">echo &quot;pb文件压缩后信息&quot;</span><br><span class="line">gzip -l tf_files/optimized_graph.pb.gz</span><br><span class="line">echo &quot;原始文件大小&quot;</span><br><span class="line">du -h tf_files/retrained_graph.pb</span><br><span class="line">echo &quot;优化后文件大小&quot;</span><br><span class="line">du -h tf_files/optimized_graph.pb</span><br><span class="line">echo &quot;将输出的优化过的pb文件再次优化&quot;</span><br><span class="line">python -m scripts.quantize_graph \</span><br><span class="line">  --input=tf_files/optimized_graph.pb \</span><br><span class="line">  --output=tf_files/rounded_graph.pb \</span><br><span class="line">  --output_node_names=final_result \</span><br><span class="line">  --mode=weights_rounded</span><br><span class="line">echo &quot;再次压缩&quot;</span><br><span class="line">gzip -c tf_files/rounded_graph.pb &gt; tf_files/rounded_graph.pb.gz</span><br><span class="line">echo “压缩后信息”</span><br><span class="line">gzip -l tf_files/rounded_graph.pb.gz </span><br><span class="line">echo &quot;在同样的图像上比较两个模型&quot;</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">  --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg \</span><br><span class="line">  --graph=tf_files/optimized_graph.pb</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">  --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg \</span><br><span class="line">  --graph=tf_files/rounded_graph.pb</span><br><span class="line"></span><br><span class="line">echo “优化的效果:”</span><br><span class="line">python -m scripts.evaluate  tf_files/optimized_graph.pb </span><br><span class="line">echo &quot;round性能&quot;</span><br><span class="line">python -m scripts.evaluate  tf_files/rounded_graph.pb</span><br></pre></td></tr></table></figure>
+<p>启动Android Studio3直接编译运行即可。按照教程修改pb文件后程序出现闪退。原因未知。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">TensorFlow,Classify,android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/01/tensorflow_classify/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-tensorflow-classify" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/01/tensorflow-classify/">tensorflow_classify</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/01/tensorflow-classify/" class="archive-article-date">
+  	<time datetime="2018-02-01T08:07:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/01/tensorflow-classify/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-frps" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1097,229 +1251,6 @@
 
 
   
-    <article id="post-tflite" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/tflite/">tflite</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/tflite/" class="archive-article-date">
-  	<time datetime="2018-01-10T08:49:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="TensorFlow-Lite-APIs"><a href="#TensorFlow-Lite-APIs" class="headerlink" title="TensorFlow Lite APIs"></a>TensorFlow Lite APIs</h1><p>TensorFlow Lite提供C++和Java编程API</p>
-<h1 id="TF-lite-Android-App"><a href="#TF-lite-Android-App" class="headerlink" title="TF lite Android App"></a>TF lite Android App</h1><h2 id="使用Bazel从源代码构建"><a href="#使用Bazel从源代码构建" class="headerlink" title="使用Bazel从源代码构建"></a>使用Bazel从源代码构建</h2><ul>
-<li>按照<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#bazel" target="_blank" rel="noopener">Bazel 构建TF Demo App步骤</a></li>
-<li><p><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install-bazel-and-android-prerequisites" target="_blank" rel="noopener">安装Bazel和Android要求环境</a>在Android Studio中很容易。</p>
-</li>
-<li><ul>
-<li>你需要SDK至少23</li>
-</ul>
-</li>
-<li><ul>
-<li>确保安装最新的Bazel，一些发行商传递的Bazel为0.5.4，太旧了</li>
-</ul>
-</li>
-<li><ul>
-<li>Bazel要求Android Build工具26.0.1或者更高</li>
-</ul>
-</li>
-<li><ul>
-<li>Bazel 和NDK15及以上不兼容，16正在编译以改变兼容<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install-bazel-and-android-prerequisites" target="_blank" rel="noopener">使用SDK管理器手动下载</a></li>
-</ul>
-</li>
-<li><ul>
-<li>你也需要安装Android支持仓库，可用的Android Studio在Android SDK Manager-&gt;SDK Tools-&gt;Android Support Repository。</li>
-</ul>
-</li>
-<li><p>编辑你的WORKSPACE添加SDK和NDK<br>注意：只要你有SDK和NDK安装了，./configure脚本将为你创建规则。当脚本询问自动配置./WORKSPACE的时候回答YES</p>
-</li>
-<li><ul>
-<li>确保API_level在WORKSPACE中被设置为一个你安装的SDK版本</li>
-</ul>
-</li>
-<li><ul>
-<li>默认，Android Studio将安装SDK到~/Android/Sdk中，DNK到~/Android/Sdk/ndk-bundle中(但是NDK应该手动下载直到Bazel支持NDK16)</li>
-</ul>
-</li>
-<li><p>使用Bazel构建app，实例需要C++11:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bazel build -c opt --cxxopt=<span class="string">'--std=c++11'</span> \</span><br><span class="line">  //tensorflow/contrib/lite/java/demo/app/src/main:TfLiteCameraDemo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装demo到<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android#install" target="_blank" rel="noopener">打开usb调试的设备上</a><br><code>adb install bazel-bin/tensorflow/contrib/lite/java/demo/app/src/main/TfLiteCameraDemo.apk</code></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow lite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/TensorFlow//" class="article-tag-list-link color1">TensorFlow</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/tflite/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tensorflow-gpu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/tensorflow-gpu/">tensorflow-gpu</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/tensorflow-gpu/" class="archive-article-date">
-  	<time datetime="2018-01-10T02:30:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="通过TensorFlow源代码安装编译安装TensorFlow"><a href="#通过TensorFlow源代码安装编译安装TensorFlow" class="headerlink" title="通过TensorFlow源代码安装编译安装TensorFlow"></a>通过TensorFlow源代码安装编译安装TensorFlow</h1><p>本地机器配置:GTX1080x2,Ubuntu14.06 LTS 64bit<br>安装前本地确认的软件有:</p>
-<ul>
-<li>Bazel 0.9.0,git，cuda8.0<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2>按照需要computecpp,到<a href="https://www.codeplay.com/products/computesuite/computecpp" target="_blank" rel="noopener">这里</a>注册下载computercpp，然后将文件方位TensorFlow制定的目录(这里下载文件为ComputeCpp-CE-0.5.0-Ubuntu.14.04-64bit.tar.gz):<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf  ComputeCpp-CE-0.5.0-Ubuntu.14.04-64bit.tar.gz</span><br><span class="line">mv ComputeCpp-CE-0.5.0-Ubuntu.14.04-64bit.tar.gz /usr/local/computecpp</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="安装cudnn9-这里下载版本为cudnn-9-0-linux-x64-v7-tgz"><a href="#安装cudnn9-这里下载版本为cudnn-9-0-linux-x64-v7-tgz" class="headerlink" title="安装cudnn9(这里下载版本为cudnn-9.0-linux-x64-v7.tgz)"></a>安装cudnn9(这里下载版本为cudnn-9.0-linux-x64-v7.tgz)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>下载TensorFlow源代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:tensorflow/tensorflow.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置TensorFlow</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> tensorflow</span><br><span class="line">./configure</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装TensorFlow GPU版</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/tensorflow-gpu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1442,35 +1373,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Android,TensorFlow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">代码高亮技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">引用文献</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1478,7 +1381,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">archlinux安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Bazel 构建Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">引用文献</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">TensorFlow,Classify,android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">代码高亮技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow lite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">bazel基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装TensorFlow GPU版</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">TensorFlow,Java</a>
               </li>
             
             <div class="clearfix"></div>

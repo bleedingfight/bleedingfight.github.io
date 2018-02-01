@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>frps | bleedingfight的技术博客</title>
+  <title>TensorFlow classify for mobile | bleedingfight的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="内网穿透frp工具使用使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后，配置本地客户端。然后就可以通过访问服务端访问本地设备。 本文主要用来配置frp穿透内网访问内网中的路由器。如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应的软件:  frps选择你的服务器对应的版本 opkg安装frps  配置服务器1 服务器端配置如">
+  <meta name="description" content="创建花分类器clone Tensorflow仓库12git clone https://github.com/googlecodelabs/tensorflow-for-poets-2cd tensorflow-for-poets-2 使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的~/flower_photos。123456789101112131415161">
+<meta name="keywords" content="TensorFlow,Classify,android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="frps">
-<meta property="og:url" content="http://yoursite.com/2018/01/26/frps/index.html">
+<meta property="og:title" content="TensorFlow classify for mobile">
+<meta property="og:url" content="http://yoursite.com/2018/02/01/tensorflow_classify/index.html">
 <meta property="og:site_name" content="bleedingfight的技术博客">
-<meta property="og:description" content="内网穿透frp工具使用使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后，配置本地客户端。然后就可以通过访问服务端访问本地设备。 本文主要用来配置frp穿透内网访问内网中的路由器。如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应的软件:  frps选择你的服务器对应的版本 opkg安装frps  配置服务器1 服务器端配置如">
+<meta property="og:description" content="创建花分类器clone Tensorflow仓库12git clone https://github.com/googlecodelabs/tensorflow-for-poets-2cd tensorflow-for-poets-2 使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的~/flower_photos。123456789101112131415161">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T08:34:33.811Z">
+<meta property="og:image" content="http://yoursite.com/2018/02/01/tensorflow_classify/">
+<meta property="og:image" content="http://yoursite.com/2018/02/01/tensorflow_classify/tensorflow-classify/21652746_cc379e0eea_m.jpg">
+<meta property="og:updated_time" content="2018-02-01T13:35:06.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="frps">
-<meta name="twitter:description" content="内网穿透frp工具使用使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后，配置本地客户端。然后就可以通过访问服务端访问本地设备。 本文主要用来配置frp穿透内网访问内网中的路由器。如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应的软件:  frps选择你的服务器对应的版本 opkg安装frps  配置服务器1 服务器端配置如">
+<meta name="twitter:title" content="TensorFlow classify for mobile">
+<meta name="twitter:description" content="创建花分类器clone Tensorflow仓库12git clone https://github.com/googlecodelabs/tensorflow-for-poets-2cd tensorflow-for-poets-2 使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的~/flower_photos。123456789101112131415161">
+<meta name="twitter:image" content="http://yoursite.com/2018/02/01/tensorflow_classify/">
   
     <link rel="alternative" href="/atom.xml" title="bleedingfight的技术博客" type="application/atom+xml">
   
@@ -158,44 +162,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-frps" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-tensorflow_classify" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      frps
+      TensorFlow classify for mobile
     </h1>
   
 
         
-        <a href="/2018/01/26/frps/" class="archive-article-date">
-  	<time datetime="2018-01-26T08:29:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-26</time>
+        <a href="/2018/02/01/tensorflow_classify/" class="archive-article-date">
+  	<time datetime="2018-02-01T08:08:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="内网穿透frp工具使用"><a href="#内网穿透frp工具使用" class="headerlink" title="内网穿透frp工具使用"></a>内网穿透frp工具使用</h1><p>使用frps穿透内网的时候需要一台能通过公网访问的服务器或者vps。在服务器端配置好后<br>，配置本地客户端。然后就可以通过访问服务端访问本地设备。</p>
-<h2 id="本文主要用来配置frp穿透内网访问内网中的路由器。"><a href="#本文主要用来配置frp穿透内网访问内网中的路由器。" class="headerlink" title="本文主要用来配置frp穿透内网访问内网中的路由器。"></a>本文主要用来配置frp穿透内网访问内网中的路由器。</h2><p>如果你已经了解frps，同时安装了frp，你可以直接跳过这一步。否则先按照下面安装对应<br>的软件:</p>
-<ul>
-<li><a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">frps</a>选择你的服务器对应的版本</li>
-<li>opkg安装frps</li>
-</ul>
-<h2 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h2><p>1 服务器端配置如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frps.ini</span></span><br><span class="line">bind_port = 7000 <span class="comment"># 服务器绑定端口</span></span><br><span class="line">dashboard_port = 7050 <span class="comment"># dash 可视化端口</span></span><br><span class="line">vhost_http_port = 7741 <span class="comment"># 访问服务器映射端口</span></span><br><span class="line">privilege_mode = <span class="literal">true</span> <span class="comment"># 安全加密</span></span><br><span class="line">privilege_token = 12345 <span class="comment"># 安全密码</span></span><br><span class="line">max_pool_count = 50 <span class="comment"># 最大连接池数量</span></span><br><span class="line">log_file = ./frps.log</span><br><span class="line">log_level = info</span><br><span class="line">log_max_days = 3</span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps  -c frps.init</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># frpc.ini</span><br><span class="line">[common]</span><br><span class="line">server_addr = server&apos;s ip # 公网服务器ip</span><br><span class="line">server_port = 7000        # 公网服务器绑定端口</span><br><span class="line">privilege_token = 12345 # 安全密码</span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">privilege_mode = true     # 优先模式</span><br><span class="line">remote_port = 7741        # 远程服务器的映射ip</span><br><span class="line">type = http               # 通信协议http</span><br><span class="line">local_ip = 192.168.1.1  # 需要映射的内网ip,这里是路由器，所以设置为路由器网关</span><br><span class="line">local_port = 80           # 本地路由器的web端口</span><br><span class="line">use_gzip = true           # 可选</span><br><span class="line">#subdomain = test</span><br><span class="line">custom_domains = server&apos;s name            # 公网主机域名，穿透的时候使用主机域&gt;名:7741</span><br><span class="line">#host_header_rewrite = 实际你内网访问的域名，可以供公网的域名不一致，如果一致可</span><br><span class="line">以不写</span><br><span class="line">log_file = /dev/null      # 日志文件</span><br><span class="line">log_level = info          # 日志级别</span><br><span class="line">log_max_days = 3          # 日志记录天数</span><br></pre></td></tr></table></figure>
-<p>在浏览器上访问<code>server&#39;s name:7741</code>即可登录本地路由器。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
-<li>通常不能通过ip加端口访问不知道是不是设定了custom_domains的原因，必须使用serverv’s name:port访问。</li>
-<li>如果设定remote端口7741为80端口则不需要server’s name:port，直接输入server’s name即可访问，但是在服务器段需要用root权限绑定80端口。</li>
-</ol>
+        <h1 id="创建花分类器"><a href="#创建花分类器" class="headerlink" title="创建花分类器"></a>创建花分类器</h1><h2 id="clone-Tensorflow仓库"><a href="#clone-Tensorflow仓库" class="headerlink" title="clone Tensorflow仓库"></a>clone Tensorflow仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/googlecodelabs/tensorflow-for-poets-2</span><br><span class="line">cd tensorflow-for-poets-2</span><br></pre></td></tr></table></figure>
+<h2 id="使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的-flower-photos。"><a href="#使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的-flower-photos。" class="headerlink" title="使用MobileNet创建分类器分类花，下载的flower压缩后的文件在当前目录下的~/flower_photos。"></a>使用MobileNet创建分类器分类花，下载的<a href="http://download.tensorflow.org/example_images/flower_photos.tgz" target="_blank" rel="noopener">flower</a>压缩后的文件在当前目录下的~/flower_photos。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">IMAGE_SIZE=224</span><br><span class="line">ARCHITECTURE=<span class="string">"mobilenet_0.50_<span class="variable">$&#123;IMAGE_SIZE&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"启动TensorBoard监控训练过程"</span></span><br><span class="line">pkill tensorboard</span><br><span class="line">tensorboard --logdir tf_files/training_summaries &amp;</span><br><span class="line"><span class="keyword">if</span> [ $? == 0 ];<span class="keyword">then</span> </span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"成功开启TensorBoard监控"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"开启失败，正在尝试终止tensorboard进程"</span></span><br><span class="line">	pkill tensorboard </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 开始训练</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"开始重新训练化分类器"</span></span><br><span class="line">python -m scripts.retrain \</span><br><span class="line">  --bottleneck_dir=tf_files/bottlenecks \</span><br><span class="line">  --how_many_training_steps=500 \</span><br><span class="line">  --model_dir=tf_files/models/ \</span><br><span class="line">  --summaries_dir=tf_files/training_summaries/<span class="string">"<span class="variable">$&#123;ARCHITECTURE&#125;</span>"</span> \</span><br><span class="line">  --output_graph=tf_files/retrained_graph.pb \</span><br><span class="line">  --output_labels=tf_files/retrained_labels.txt \</span><br><span class="line">  --architecture=<span class="string">"<span class="variable">$&#123;ARCHITECTURE&#125;</span>"</span> \</span><br><span class="line">  --image_dir=/home/liushuai/flower_photos</span><br></pre></td></tr></table></figure>
+<p>训练过程如下:<br><img src="/2018/02/01/tensorflow_classify/" alt=""></p>
+<h2 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">    --graph=tf_files/retrained_graph.pb  \</span><br><span class="line">    --image=/home/liushuai/flower_photos/daisy/21652746_cc379e0eea_m.jpg</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/02/01/tensorflow_classify/tensorflow-classify/21652746_cc379e0eea_m.jpg" alt="分类图像"><br>结果如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Evaluation time (1-image): 0.532s</span><br><span class="line"></span><br><span class="line">daisy 0.994132</span><br><span class="line">sunflowers 0.00433137</span><br><span class="line">dandelion 0.00153304</span><br><span class="line">roses 2.23684e-06</span><br><span class="line">tulips 1.41185e-06</span><br></pre></td></tr></table></figure></p>
+<h2 id="优化同时查看"><a href="#优化同时查看" class="headerlink" title="优化同时查看"></a>优化同时查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;#############开始优化###################&quot;</span><br><span class="line">if test -e tf_files/optimized_graph.pb;then </span><br><span class="line">	echo &quot;############已经优化完成了###########&quot;</span><br><span class="line">else</span><br><span class="line">	echo &quot;############开始优化##############&quot;</span><br><span class="line">	python -m tensorflow.python.tools.optimize_for_inference \</span><br><span class="line">	  --input=tf_files/retrained_graph.pb \</span><br><span class="line">	  --output=tf_files/optimized_graph.pb \</span><br><span class="line">	  --input_names=&quot;input&quot; \</span><br><span class="line">	  --output_names=&quot;final_result&quot;</span><br><span class="line"></span><br><span class="line">fi</span><br><span class="line">##################验证优化模型###########################</span><br><span class="line">echo &quot;##############验证优化1###########################&quot;</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">  --graph=tf_files/retrained_graph.pb\</span><br><span class="line">  --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg</span><br><span class="line">echo “##############验证优化2##########################”</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">    --graph=tf_files/optimized_graph.pb \</span><br><span class="line">    --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg</span><br><span class="line">########################观察优化图#########################</span><br><span class="line">echo &quot;####################观察优化图########################&quot;</span><br><span class="line">pkill -f tensorboard</span><br><span class="line">tensorboard --logdir tf_files/training_summaries &amp;</span><br><span class="line">echo “###################添加两张图到TenorBoard#############”</span><br><span class="line">python -m scripts.graph_pb2tb tf_files/training_summaries/retrained \</span><br><span class="line">  tf_files/retrained_graph.pb </span><br><span class="line"></span><br><span class="line">python -m scripts.graph_pb2tb tf_files/training_summaries/optimized \</span><br><span class="line">  tf_files/optimized_graph.pb</span><br></pre></td></tr></table></figure>
+<h2 id="优化测试"><a href="#优化测试" class="headerlink" title="优化测试"></a>优化测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">gzip -c tf_files/optimized_graph.pb &gt; tf_files/optimized_graph.pb.gz</span><br><span class="line">echo &quot;pb文件压缩后信息&quot;</span><br><span class="line">gzip -l tf_files/optimized_graph.pb.gz</span><br><span class="line">echo &quot;原始文件大小&quot;</span><br><span class="line">du -h tf_files/retrained_graph.pb</span><br><span class="line">echo &quot;优化后文件大小&quot;</span><br><span class="line">du -h tf_files/optimized_graph.pb</span><br><span class="line">echo &quot;将输出的优化过的pb文件再次优化&quot;</span><br><span class="line">python -m scripts.quantize_graph \</span><br><span class="line">  --input=tf_files/optimized_graph.pb \</span><br><span class="line">  --output=tf_files/rounded_graph.pb \</span><br><span class="line">  --output_node_names=final_result \</span><br><span class="line">  --mode=weights_rounded</span><br><span class="line">echo &quot;再次压缩&quot;</span><br><span class="line">gzip -c tf_files/rounded_graph.pb &gt; tf_files/rounded_graph.pb.gz</span><br><span class="line">echo “压缩后信息”</span><br><span class="line">gzip -l tf_files/rounded_graph.pb.gz </span><br><span class="line">echo &quot;在同样的图像上比较两个模型&quot;</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">  --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg \</span><br><span class="line">  --graph=tf_files/optimized_graph.pb</span><br><span class="line">python -m scripts.label_image \</span><br><span class="line">  --image=/home/liushuai/flower_photos/daisy/3475870145_685a19116d.jpg \</span><br><span class="line">  --graph=tf_files/rounded_graph.pb</span><br><span class="line"></span><br><span class="line">echo “优化的效果:”</span><br><span class="line">python -m scripts.evaluate  tf_files/optimized_graph.pb </span><br><span class="line">echo &quot;round性能&quot;</span><br><span class="line">python -m scripts.evaluate  tf_files/rounded_graph.pb</span><br></pre></td></tr></table></figure>
+<p>启动Android Studio3直接编译运行即可。按照教程修改pb文件后程序出现闪退。原因未知。</p>
 
       
 
@@ -230,7 +224,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">TensorFlow,Classify,android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/开发//" class="article-tag-list-link color3">开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -280,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/26/frps/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/01/tensorflow_classify/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +310,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/01/tensorflow-classify/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          tensorflow_classify
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/19/reference/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">reference</div>
+    <a href="/2018/02/01/tensorflow-classify/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">tensorflow_classify</div>
       <i class="icon-circle-right"></i>
     </a>
   
