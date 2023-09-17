@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bleedingfight.com/"/>
-  <updated>2023-09-16T14:42:22.115Z</updated>
+  <updated>2023-09-17T14:28:10.374Z</updated>
   <id>https://bleedingfight.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rust三方库(并发)</title>
+    <link href="https://bleedingfight.com/2023/09/17/rust-san-fang-ku-bing-fa/"/>
+    <id>https://bleedingfight.com/2023/09/17/rust-san-fang-ku-bing-fa/</id>
+    <published>2023-09-17T22:27:33.000Z</published>
+    <updated>2023-09-17T14:28:10.374Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Rust三方库-actix-协议</title>
@@ -61,13 +84,23 @@
   </entry>
   
   <entry>
-    <title>[object Object]</title>
+    <title></title>
     <link href="https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/"/>
     <id>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/</id>
     <published>2023-09-16T14:48:16.629Z</published>
-    <updated>2023-09-16T15:04:15.304Z</updated>
+    <updated>2023-09-17T13:35:08.485Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;p&gt;title: rust三方库(rayon)&lt;br&gt;date:&lt;br&gt;top: false&lt;br&gt;cover: true&lt;br&gt;toc: true&lt;br&gt;mathjax: true&lt;br&gt;password:&lt;br&gt;summary:&lt;br&gt;tags:&lt;/p&gt;
+&lt;h2
+        
+      
     
     </summary>
     
@@ -115,7 +148,7 @@
     <link href="https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/"/>
     <id>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</id>
     <published>2023-09-13T08:09:17.000Z</published>
-    <updated>2023-09-14T15:12:33.360Z</updated>
+    <updated>2023-09-17T15:12:52.911Z</updated>
     
     <summary type="html">
     

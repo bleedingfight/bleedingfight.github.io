@@ -528,11 +528,11 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
 <li><code>create&lt;P: AsRef&lt;Path&gt;&gt;(&amp;self, path: P) -&gt; Result&lt;()&gt;</code>：创建一个特定的目录。目录存在则报错，除非开启了递归模式。<br>实现的trait包括：</li>
 <li><code>Debug</code>：用于格式化输出对象。</li>
 <li><code>DirBuilderExt</code>：用于unix系统下设置权限。<br>自动实现trait：</li>
-<li><code>RefUnwindSafe</code>：</li>
-<li><code>Send</code>：</li>
-<li><code>Sync</code>：</li>
-<li><code>Unpin</code>：</li>
-<li><code>UnwindSafe</code>：<br>使用示例：</li>
+<li><code>RefUnwindSafe</code></li>
+<li><code>Send</code></li>
+<li><code>Sync</code></li>
+<li><code>Unpin</code></li>
+<li><code>UnwindSafe</code><br>使用示例：</li>
 </ul>
 <pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">use</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>fs<span class="token punctuation">;</span>
 <span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -682,7 +682,7 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
 <li><code>create_new(&amp;mut self, create_new: bool) -&gt; &amp;mut OpenOptions</code>:设置打开选项为总是创建一个新文件，文件不应该存在。如果设置这个选项则cteate和truncate将被忽略。</li>
 <li><code>open&lt;P: AsRef&lt;Path&gt;&gt;(&amp;self, path: P) -&gt; Result&lt;File&gt;</code>:打开文件选项。</li>
 </ul>
-<h2 id="pPermissions"><a href="#pPermissions" class="headerlink" title="pPermissions"></a>pPermissions</h2><p>代表文件的权限。</p>
+<h2 id="Permissions"><a href="#Permissions" class="headerlink" title="Permissions"></a>Permissions</h2><p>代表文件的权限。</p>
 <ul>
 <li><code>readonly(&amp;self) -&gt; bool</code>:返回描述权限是否为只读。</li>
 <li><code>set_readonly(&amp;mut self, readonly: bool)</code>:修改文件的权限为只读。</li>
