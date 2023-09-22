@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bleedingfight.com/"/>
-  <updated>2023-09-17T14:28:10.374Z</updated>
+  <updated>2023-09-20T01:37:59.848Z</updated>
   <id>https://bleedingfight.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://bleedingfight.com/2023/09/17/rust-san-fang-ku-bing-fa/"/>
     <id>https://bleedingfight.com/2023/09/17/rust-san-fang-ku-bing-fa/</id>
     <published>2023-09-17T22:27:33.000Z</published>
-    <updated>2023-09-17T14:28:10.374Z</updated>
+    <updated>2023-09-20T01:37:59.848Z</updated>
     
     <summary type="html">
     
@@ -29,13 +29,16 @@
       
         
         
-          &lt;p&gt;#&lt;/p&gt;
-
+          &lt;h1 id=&quot;thread&quot;&gt;&lt;a href=&quot;#thread&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
+      <category term="rust、parallel" scheme="https://bleedingfight.com/categories/rust%E3%80%81parallel/"/>
+    
+    
+      <category term="rust编程、并发" scheme="https://bleedingfight.com/tags/rust%E7%BC%96%E7%A8%8B%E3%80%81%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
@@ -84,11 +87,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>rust三方库(rayon)</title>
     <link href="https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/"/>
     <id>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/</id>
     <published>2023-09-16T14:48:16.629Z</published>
-    <updated>2023-09-17T13:35:08.485Z</updated>
+    <updated>2023-09-22T01:40:07.290Z</updated>
     
     <summary type="html">
     
@@ -96,9 +99,7 @@
       
         
         
-          &lt;hr&gt;
-&lt;p&gt;title: rust三方库(rayon)&lt;br&gt;date:&lt;br&gt;top: false&lt;br&gt;cover: true&lt;br&gt;toc: true&lt;br&gt;mathjax: true&lt;br&gt;password:&lt;br&gt;summary:&lt;br&gt;tags:&lt;/p&gt;
-&lt;h2
+          &lt;h1 id=&quot;Rayon&quot;&gt;&lt;a href=&quot;#Rayon&quot; class=&quot;headerlink&quot; title=&quot;Rayon&quot;&gt;&lt;/a&gt;Rayon&lt;/h1&gt;&lt;h2 id=&quot;子模块&quot;&gt;&lt;a href=&quot;#子模块&quot; class=&quot;headerlink&quot;
         
       
     
@@ -174,7 +175,7 @@
     <link href="https://bleedingfight.com/2023/09/12/rust-ji-chu-chang-jian-de-biao-zhun-hong/"/>
     <id>https://bleedingfight.com/2023/09/12/rust-ji-chu-chang-jian-de-biao-zhun-hong/</id>
     <published>2023-09-12T09:18:31.000Z</published>
-    <updated>2023-09-12T14:15:59.958Z</updated>
+    <updated>2023-09-19T15:25:07.567Z</updated>
     
     <summary type="html">
     

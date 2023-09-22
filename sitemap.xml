@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</loc>
+    <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/</loc>
     
-    <lastmod>2023-09-17T15:12:52.911Z</lastmod>
+    <lastmod>2023-09-22T01:40:07.290Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://bleedingfight.com/2023/09/17/rust-san-fang-ku-bing-fa/</loc>
     
-    <lastmod>2023-09-17T14:28:10.374Z</lastmod>
+    <lastmod>2023-09-20T01:37:59.848Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/</loc>
+    <loc>https://bleedingfight.com/2023/09/12/rust-ji-chu-chang-jian-de-biao-zhun-hong/</loc>
     
-    <lastmod>2023-09-17T13:35:08.485Z</lastmod>
+    <lastmod>2023-09-19T15:25:07.567Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</loc>
+    
+    <lastmod>2023-09-17T15:12:52.911Z</lastmod>
     
   </url>
   
@@ -61,13 +68,6 @@
     <loc>https://bleedingfight.com/2023/09/10/rust-ji-chu-zi-fu-chuan/</loc>
     
     <lastmod>2023-09-13T00:09:04.012Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://bleedingfight.com/2023/09/12/rust-ji-chu-chang-jian-de-biao-zhun-hong/</loc>
-    
-    <lastmod>2023-09-12T14:15:59.958Z</lastmod>
     
   </url>
   

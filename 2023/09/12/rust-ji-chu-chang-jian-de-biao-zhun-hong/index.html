@@ -340,7 +340,7 @@ concat_bytes
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -495,14 +495,14 @@ concat_bytes
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    13 分
                 </div>
                 
                 
@@ -895,6 +895,199 @@ thread <span class="token string">'main'</span> panicked at 'assertion failed<sp
     <span class="token function">assert_eq!</span><span class="token punctuation">(</span><span class="token function">dbg!</span><span class="token punctuation">(</span>1usize<span class="token punctuation">,</span> <span class="token number">2u32</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//多参数将被当做tuple</span>
     <span class="token function">assert_eq!</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token function">dbg!</span><span class="token punctuation">(</span><span class="token number">1u32</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//tuple中单个参数依然被当做单个元素</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="debug-assert"><a href="#debug-assert" class="headerlink" title="debug_assert"></a>debug_assert</h2><p>表达式为真则断言bool，如果表达式不能计算则panic，类似于assert!，他也能提供自定义panic消息。其在debug代码中会出现</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">some_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> bool <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">debug_assert!</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">debug_assert!</span><span class="token punctuation">(</span><span class="token function">some_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">debug_assert!</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">"a = {} b = {} but add result = {}"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-rust"><code class="language-rust">thread <span class="token string">'main'</span> panicked at <span class="token string">'a = 1 b = 2 but add result = 3'</span><span class="token punctuation">,</span> src<span class="token operator">/</span>main<span class="token punctuation">.</span>rs<span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">:</span><span class="token number">5</span>
+note<span class="token punctuation">:</span> run with `RUST_BACKTRACE<span class="token operator">=</span><span class="token number">1</span>` environment variable to display a backtrace
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="debug-assert-eq"><a href="#debug-assert-eq" class="headerlink" title="debug_assert_eq"></a>debug_assert_eq</h2><p>断言两个表达式的值是否相等。如果生成的代码不是优化代码，则其输出。除非人为给编译器加上<code>-C debug-assertions</code>。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">vec!</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token function">vec!</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">debug_assert_eq!</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">fn main<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> vec<span class="token operator">!</span><span class="token punctuation">[</span>1, 2, 3<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> b <span class="token operator">=</span> vec<span class="token operator">!</span><span class="token punctuation">[</span>1, 2, 4<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    debug_assert_eq<span class="token operator">!</span><span class="token punctuation">(</span>a, b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="debug-assert-ne"><a href="#debug-assert-ne" class="headerlink" title="debug_assert_ne"></a>debug_assert_ne</h2><p>判断表达式是否不相等，如果生成的代码不是优化代码，则其输出，除非人为给编译器加上<code>-C debug-assertions</code></p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">vec!</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token function">vec!</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">debug_assert_ne!</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="env"><a href="#env" class="headerlink" title="env"></a>env</h2><p>编译时展开环境变量生成<code>&amp;&#39;static str</code>。如果你想获取其值，可以通过<code>std::env::var</code>获取，如果环境变量没有定义则会产生编译错误，除非使用<code>option_env!</code>。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> path<span class="token punctuation">:</span> <span class="token operator">&amp;</span>'<span class="token keyword">static</span> str <span class="token operator">=</span> <span class="token function">env!</span><span class="token punctuation">(</span><span class="token string">"HOME"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"Home is {path}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//let doc: &amp;'static str = env!("documentation", "what's that?!");//nightly支持自定义错误输出</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="eprint"><a href="#eprint" class="headerlink" title="eprint"></a>eprint</h2><p>和<code>print!</code>功能类似，但是她输出信息到标准错误流。一般仅仅用于输出错误的场景，输出失败会产生panic。。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">eprint!</span><span class="token punctuation">(</span><span class="token string">"错误产生：（标准错误流）"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"错误产生：（标准输出流）"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>默认grep获取标准输出流的结果，所以下面的操作并不会匹配错误留的<code>错误</code>:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">cargo run <span class="token operator">|</span><span class="token function">grep</span> 错误<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="eprintln"><a href="#eprintln" class="headerlink" title="eprintln"></a>eprintln</h2><p>和eprint功能相同，输出换行。</p>
+<h2 id="定位文件的宏"><a href="#定位文件的宏" class="headerlink" title="定位文件的宏"></a>定位文件的宏</h2><pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> filename <span class="token operator">=</span> <span class="token function">file!</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"Current file {filename}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">Current <span class="token function">file</span> src/main.rs
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="format"><a href="#format" class="headerlink" title="format"></a>format</h2><p>创建一个格式化的字符串，接受格式化的字符串字面量<code>{}</code>用对应的字符串替代。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> fname <span class="token operator">=</span> <span class="token string">"main"</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> mesg <span class="token operator">=</span> <span class="token function">format!</span><span class="token punctuation">(</span><span class="token string">"函数:{fname} cost time:{}s"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> mesg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">函数:main cost time:10s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="format-args"><a href="#format-args" class="headerlink" title="format_args"></a>format_args</h2><p>任何实现了<code>Display</code>的值都可以传入此宏。用于格式化字符串：</p>
+<pre><code>use std::fmt;
+fn main() {
+    let s = fmt::format(format_args!(&quot;hello {}&quot;, &quot;world&quot;));
+    assert_eq!(s, format!(&quot;hello {}&quot;, &quot;world&quot;));
+}</code></pre><h2 id="include"><a href="#include" class="headerlink" title="include"></a>include</h2><p>解析文件为表达式，对多文件的rust项目，此宏可能不查找文件，多文件使用modules。文件以相对路径的形式被定位，提供的路径在编译期被解释，windows下<code>\</code>在unix下将没有作用。其有两个关键作用：包含多个分开的文件和build.rs的包含。使用include宏的时候包含文件需要时可用的rust语法。例如:<code>#![doc = include_str!(&quot;...&quot;)]</code>和<code>[doc = include_str!(&quot;...&quot;)]</code>包含文档或者markdown文件。</p>
+<pre><code>fn main() {
+    let my_string = include!(&quot;test.in&quot;);
+    assert_eq!(&quot;22&quot;, my_string);
+    println!(&quot;{my_string}&quot;);
+}</code></pre><p>这里的<code>test.in</code>里面为</p>
+<pre><code>&#39;2&#39;+&#39;2&#39;</code></pre><p>这个表达式会被计算将结果返回给my_string。</p>
+<h2 id="include-bytes"><a href="#include-bytes" class="headerlink" title="include_bytes"></a>include_bytes</h2><p>和include类似，不同是文件是文件内容会被解释为bytes数组。生成的表达式为<code>&amp;static&#39; [u8,N]</code>。spanish.in文件</p>
+<pre><code>adiós</code></pre><pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> bytes <span class="token operator">=</span> <span class="token function">include_bytes!</span><span class="token punctuation">(</span><span class="token string">"spanish.in"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert_eq!</span><span class="token punctuation">(</span>bytes<span class="token punctuation">,</span> <span class="token string">b"adi\xc3\xb3s\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span> String<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">from_utf8_lossy</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="include-str"><a href="#include-str" class="headerlink" title="include_str"></a>include_str</h2><p>包含utf-8编码的文件转换为字符串。</p>
+<h2 id="line"><a href="#line" class="headerlink" title="line"></a>line</h2><p>返回当前的调用行。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> mesg <span class="token operator">=</span> <span class="token function">line!</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"调用行:{mesg}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">调用行:2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="matches"><a href="#matches" class="headerlink" title="matches"></a>matches</h2><p>返回两个表达式是否匹配。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token string">'f'</span><span class="token punctuation">;</span>
+    <span class="token function">assert!</span><span class="token punctuation">(</span><span class="token function">matches!</span><span class="token punctuation">(</span>foo<span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">..</span><span class="token operator">=</span><span class="token string">'Z'</span> <span class="token operator">|</span> <span class="token string">'a'</span><span class="token punctuation">..</span><span class="token operator">=</span><span class="token string">'z'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> bar <span class="token operator">=</span> <span class="token function">Some</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert!</span><span class="token punctuation">(</span><span class="token function">matches!</span><span class="token punctuation">(</span>bar<span class="token punctuation">,</span> <span class="token function">Some</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">if</span> x <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>扩展一个字符串表示当前mudule路径。</p>
+<pre><code>mod test {
+    pub fn foo() {
+        assert!(module_path!().ends_with(&quot;test&quot;));
+    }
+}
+
+fn main() {
+    test::foo();
+}</code></pre><h2 id="option-env"><a href="#option-env" class="headerlink" title="option_env"></a>option_env</h2><p>编译器获取环境变量为字符串，和env不同在于，环境变量不存在的时候返回None。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> key<span class="token punctuation">:</span> Option<span class="token operator">&lt;</span><span class="token operator">&amp;</span>'<span class="token keyword">static</span> str<span class="token operator">></span> <span class="token operator">=</span> <span class="token function">option_env!</span><span class="token punctuation">(</span><span class="token string">"SECRET_KEY"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"the secret key might be: {key:?}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出：</p>
+<pre><code>
+the secret key might be: None</code></pre><h2 id="panic"><a href="#panic" class="headerlink" title="panic"></a>panic</h2><p>终止当前程序提供错误信息。</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">panic!</span><span class="token punctuation">(</span><span class="token string">"this is a terrible mistake!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">panic!</span><span class="token punctuation">(</span><span class="token string">"this is a {} {message}"</span><span class="token punctuation">,</span> <span class="token string">"fancy"</span><span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">"message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>panic<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">panic_any</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// panic with the value of 4 to be collected elsewhere</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="print"><a href="#print" class="headerlink" title="print"></a>print</h2><p>输出信息到标准输出流，如果需要刷新流需要调用<code>io::stdout().flash()</code>，其每次调用的时候都会锁住标准输出流，循环输出的时候可能会成为性能瓶颈，为了避免这总情况可以使用<code>io::stdout().lock()</code></p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">use</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>io<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token keyword">self</span><span class="token punctuation">,</span> Write<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"this "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"will "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"be "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"on "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"the "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"same "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"line "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    io<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">stdout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">print!</span><span class="token punctuation">(</span><span class="token string">"this string has a newline, why not choose println! instead?\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    io<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">stdout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="println"><a href="#println" class="headerlink" title="println"></a>println</h2><p>和println一样，输出的时候包含换行符。</p>
+<h2 id="stringify"><a href="#stringify" class="headerlink" title="stringify"></a>stringify</h2><p>化简传入stringify的所有标记生成一个<code>&amp;&#39;static str</code>。</p>
+<h2 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h2><p>生成一个新的线程本地key。</p>
+<h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2><p>用于定义一段未实现的代码。运行未实现代码会产生panic。</p>
+<pre class="line-numbers language-rust"><code class="language-rust">thread <span class="token string">'main'</span> panicked at <span class="token string">'not yet implemented'</span><span class="token punctuation">,</span> src<span class="token operator">/</span>main<span class="token punctuation">.</span>rs<span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">:</span><span class="token number">9</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="unimplemented"><a href="#unimplemented" class="headerlink" title="unimplemented"></a>unimplemented</h2><p>表示未实现代码</p>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">trait</span> Foo <span class="token punctuation">{</span>
+    <span class="token keyword">fn</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">fn</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">struct</span> MyStruct<span class="token punctuation">;</span>
+<span class="token keyword">impl</span> Foo <span class="token keyword">for</span> MyStruct <span class="token punctuation">{</span>
+    <span class="token keyword">fn</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"foo implement"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">fn</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">unimplemented!</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> MyStruct<span class="token punctuation">;</span>
+    a<span class="token punctuation">.</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="unreachable"><a href="#unreachable" class="headerlink" title="unreachable"></a>unreachable</h2><p>用于决定某段代码是否能走到。例如：</p>
+<ol>
+<li>匹配条件分支</li>
+<li>循环的动态结束</li>
+<li>迭代器动态结束<br>如果目的代码没有走到则panic错误。</li>
+</ol>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function">divide_by_three</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> u32<span class="token punctuation">)</span> <span class="token punctuation">-></span> u32 <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// one of the poorest implementations of x/3</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">..</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token number">3</span> <span class="token operator">*</span> i <span class="token operator">&lt;</span> i <span class="token punctuation">{</span>
+            <span class="token function">panic!</span><span class="token punctuation">(</span><span class="token string">"u32 overflow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> x <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token operator">*</span> i <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">unreachable!</span><span class="token punctuation">(</span><span class="token string">"The loop should always return"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">divide_by_three</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="vec"><a href="#vec" class="headerlink" title="vec"></a>vec</h2><p>创建一个包含参数的向量</p>
+<h2 id="write"><a href="#write" class="headerlink" title="write"></a>write</h2><p>写格式化的数据到buffer。</p>
+<h2 id="writeln"><a href="#writeln" class="headerlink" title="writeln"></a>writeln</h2><p>一行行写入数据到buffer。</p>
 
             </div>
             <hr />
@@ -1387,7 +1580,7 @@ thread <span class="token string">'main'</span> panicked at 'assertion failed<sp
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="Rust基础(文件系统fs)">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Rust基础(文件系统fs)">
                         
                         <span class="card-title">Rust基础(文件系统fs)</span>
                     </div>
@@ -1440,7 +1633,7 @@ FileType：代表访问文件类型的结构。它由Metadata::fil
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Rust基础(Option)">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Rust基础(Option)">
                         
                         <span class="card-title">Rust基础(Option)</span>
                     </div>
@@ -1649,7 +1842,7 @@ fn divide(a: f32, b: f32) -> Option&lt;f32> {
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">24.7k</span>
+            <span class="white-color">33.7k</span>
             
 
             <br>
