@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bleedingfight.com/"/>
-  <updated>2023-09-20T01:37:59.848Z</updated>
+  <updated>2023-09-26T01:40:58.390Z</updated>
   <id>https://bleedingfight.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rust三方库(rataui)</title>
+    <link href="https://bleedingfight.com/2023/09/24/rust-san-fang-ku-rataui/"/>
+    <id>https://bleedingfight.com/2023/09/24/rust-san-fang-ku-rataui/</id>
+    <published>2023-09-24T09:11:19.000Z</published>
+    <updated>2023-09-26T01:40:58.390Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;TUI库&quot;&gt;&lt;a href=&quot;#TUI库&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Rust三方库(并发)</title>
