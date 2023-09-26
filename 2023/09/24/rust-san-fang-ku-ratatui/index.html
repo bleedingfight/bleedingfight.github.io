@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Rust三方库(rataui), Heterogeneous computing">
+    <meta name="keywords" content="Rust三方库(ratatui), Heterogeneous computing">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
@@ -21,7 +21,7 @@ style：给输入提供颜色等等属性。
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Rust三方库(rataui) | bleedingfight</title>
+    <title>Rust三方库(ratatui) | bleedingfight</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -334,13 +334,13 @@ style：给输入提供颜色等等属性。
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Rust三方库(rataui)
+                        Rust三方库(ratatui)
                     </div>
                 </div>
             </div>
@@ -476,14 +476,14 @@ style：给输入提供颜色等等属性。
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    12 分
                 </div>
                 
                 
@@ -980,6 +980,86 @@ terminal<span class="token punctuation">.</span><span class="token function">dra
 <li><code>scroll</code>:对给定的paragraph设置scroll偏移。</li>
 <li><code>alignment</code>:设置文本对齐方式。</li>
 </ul>
+<h2 id="Gauge"><a href="#Gauge" class="headerlink" title="Gauge"></a>Gauge</h2><p>常见方法：</p>
+<ul>
+<li><code>block</code>:</li>
+<li><code>percent</code>:设置进度条所占百分比。数字20表示占据进度条20%。</li>
+<li><code>ratio</code>:设置进度条所占比例，0.5表示占据进度条一半的位置。</li>
+<li><code>label</code>:设置进度条中显示的文字。</li>
+<li><code>style</code>:设置外观风格。</li>
+<li><code>gauge_style</code>:设置进度条风格。</li>
+<li><code>use_unicode</code>:使用unicode编码。<br>示例：</li>
+</ul>
+<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">use</span> crossterm<span class="token punctuation">:</span><span class="token punctuation">:</span>terminal<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+    disable_raw_mode<span class="token punctuation">,</span> enable_raw_mode<span class="token punctuation">,</span> EnterAlternateScreen<span class="token punctuation">,</span> LeaveAlternateScreen<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> crossterm<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>event<span class="token punctuation">,</span> event<span class="token punctuation">:</span><span class="token punctuation">:</span>Event<span class="token punctuation">,</span> event<span class="token punctuation">:</span><span class="token punctuation">:</span>KeyCode<span class="token punctuation">,</span> execute<span class="token punctuation">,</span> Command<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> ratatui<span class="token punctuation">:</span><span class="token punctuation">:</span>backend<span class="token punctuation">:</span><span class="token punctuation">:</span>CrosstermBackend<span class="token punctuation">;</span>
+<span class="token keyword">use</span> ratatui<span class="token punctuation">:</span><span class="token punctuation">:</span>prelude<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>Color<span class="token punctuation">,</span> Modifier<span class="token punctuation">,</span> Style<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> ratatui<span class="token punctuation">:</span><span class="token punctuation">:</span>widgets<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>Block<span class="token punctuation">,</span> Borders<span class="token punctuation">,</span> Gauge<span class="token punctuation">,</span> Paragraph<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> ratatui<span class="token punctuation">:</span><span class="token punctuation">:</span>Terminal<span class="token punctuation">;</span>
+<span class="token keyword">use</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>error<span class="token punctuation">:</span><span class="token punctuation">:</span>Error<span class="token punctuation">;</span>
+<span class="token keyword">use</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>io<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token keyword">self</span><span class="token punctuation">,</span> Stdout<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>time<span class="token punctuation">:</span><span class="token punctuation">:</span>Duration<span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Box<span class="token operator">&lt;</span>dyn Error<span class="token operator">>></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> terminal <span class="token operator">=</span> <span class="token function">setup_terminal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">run</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> terminal<span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">restore_terminal</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> terminal<span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">Ok</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">setup_terminal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> Result<span class="token operator">&lt;</span>Terminal<span class="token operator">&lt;</span>CrosstermBackend<span class="token operator">&lt;</span>Stdout<span class="token operator">>></span><span class="token punctuation">,</span> Box<span class="token operator">&lt;</span>dyn Error<span class="token operator">>></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> stdout <span class="token operator">=</span> io<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">stdout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">enable_raw_mode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">execute!</span><span class="token punctuation">(</span>stdout<span class="token punctuation">,</span> EnterAlternateScreen<span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">Ok</span><span class="token punctuation">(</span>Terminal<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span>CrosstermBackend<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span>stdout<span class="token punctuation">)</span><span class="token punctuation">)</span>?<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">restore_terminal</span><span class="token punctuation">(</span>
+    terminal<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">mut</span> Terminal<span class="token operator">&lt;</span>CrosstermBackend<span class="token operator">&lt;</span>Stdout<span class="token operator">>></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token punctuation">-></span> Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Box<span class="token operator">&lt;</span>dyn Error<span class="token operator">>></span> <span class="token punctuation">{</span>
+    <span class="token function">disable_raw_mode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">execute!</span><span class="token punctuation">(</span>terminal<span class="token punctuation">.</span><span class="token function">backend_mut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> LeaveAlternateScreen<span class="token punctuation">,</span><span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+    <span class="token function">Ok</span><span class="token punctuation">(</span>terminal<span class="token punctuation">.</span><span class="token function">show_cursor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>?<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fn</span> <span class="token function">run</span><span class="token punctuation">(</span>terminal<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">mut</span> Terminal<span class="token operator">&lt;</span>CrosstermBackend<span class="token operator">&lt;</span>Stdout<span class="token operator">>></span><span class="token punctuation">)</span> <span class="token punctuation">-></span> Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Box<span class="token operator">&lt;</span>dyn Error<span class="token operator">>></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> p <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token function">Ok</span><span class="token punctuation">(</span><span class="token keyword">loop</span> <span class="token punctuation">{</span>
+        terminal<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token closure-params"><span class="token punctuation">|</span>frame<span class="token punctuation">|</span></span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> g <span class="token operator">=</span> Gauge<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">block</span><span class="token punctuation">(</span>
+                    Block<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"Gauge Progress"</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">borders</span><span class="token punctuation">(</span>Borders<span class="token punctuation">:</span><span class="token punctuation">:</span>ALL<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">gauge_style</span><span class="token punctuation">(</span>
+                    Style<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">fg</span><span class="token punctuation">(</span>Color<span class="token punctuation">:</span><span class="token punctuation">:</span>Gray<span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">bg</span><span class="token punctuation">(</span>Color<span class="token punctuation">:</span><span class="token punctuation">:</span>LightRed<span class="token punctuation">)</span>
+                        <span class="token punctuation">.</span><span class="token function">add_modifier</span><span class="token punctuation">(</span>Modifier<span class="token punctuation">:</span><span class="token punctuation">:</span>ITALIC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">percent</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">label</span><span class="token punctuation">(</span><span class="token string">"Gauge Bar 0x22489"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">use_unicode</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            frame<span class="token punctuation">.</span><span class="token function">render_widget</span><span class="token punctuation">(</span>g<span class="token punctuation">,</span> frame<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>?<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> event<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">poll</span><span class="token punctuation">(</span>Duration<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">from_millis</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">)</span>? <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token keyword">let</span> Event<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Key</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">=</span> event<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span>? <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> KeyCode<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Char</span><span class="token punctuation">(</span><span class="token string">'q'</span><span class="token punctuation">)</span> <span class="token operator">==</span> key<span class="token punctuation">.</span>code <span class="token punctuation">{</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> KeyCode<span class="token punctuation">:</span><span class="token punctuation">:</span>Left <span class="token operator">==</span> key<span class="token punctuation">.</span>code <span class="token punctuation">{</span>
+                    p <span class="token operator">=</span> <span class="token punctuation">(</span>p <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">100</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> KeyCode<span class="token punctuation">:</span><span class="token punctuation">:</span>Right <span class="token operator">==</span> key<span class="token punctuation">.</span>code <span class="token punctuation">{</span>
+                    p <span class="token operator">=</span> <span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">100</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="gauge.png" alt="gauge展示效果"></p>
 
             </div>
             <hr />
@@ -1138,9 +1218,9 @@ terminal<span class="token punctuation">.</span><span class="token function">dra
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Rust三方库(rataui)》
+                    《Rust三方库(ratatui)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2023/09/24/rust-san-fang-ku-rataui/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2023/09/24/rust-san-fang-ku-ratatui/" property="cc:attributionName"
                rel="cc:attributionURL">
                 bleedingfight
             </a> 采用
@@ -1181,7 +1261,7 @@ terminal<span class="token punctuation">.</span><span class="token function">dra
         repo: 'bleedingfight.github.io',
         owner: 'bleedingfight',
         admin: "bleedingfight",
-        id: '2023/09/24/rust-san-fang-ku-rataui/',
+        id: '2023/09/24/rust-san-fang-ku-ratatui/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1469,13 +1549,13 @@ terminal<span class="token punctuation">.</span><span class="token function">dra
                 <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2023/09/24/rust-san-fang-ku-rataui/">
+                <a href="/2023/09/24/rust-san-fang-ku-ratatui/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Rust三方库(rataui)">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Rust三方库(ratatui)">
                         
-                        <span class="card-title">Rust三方库(rataui)</span>
+                        <span class="card-title">Rust三方库(ratatui)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1718,7 +1798,7 @@ style：给输入提供颜色等等属性。
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">36.2k</span>
+            <span class="white-color">36.5k</span>
             
 
             <br>
