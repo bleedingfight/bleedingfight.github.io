@@ -1,3 +1,4 @@
+https://bleedingfight.com/2025/06/18/cuda-bian-cheng-ji-chu-yi/
 https://bleedingfight.com/2025/04/11/rust-san-fang-ku-rayon/
 https://bleedingfight.com/2023/10/05/rust-ji-chu-chang-jian-wen-jian-de-du-qu-he-xu-lie-hua/
 https://bleedingfight.com/2023/09/29/rust-ji-chu-die-dai-qi/
@@ -10,8 +11,8 @@ https://bleedingfight.com/2023/09/14/rust-ji-chu-chang-jian-de-trait/
 https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/
 https://bleedingfight.com/2023/09/12/rust-ji-chu-chang-jian-de-biao-zhun-hong/
 https://bleedingfight.com/2023/09/11/rust-ji-chu-option/
-https://bleedingfight.com/2023/09/10/rust-ji-chu-zi-fu-chuan/
 https://bleedingfight.com/2023/09/10/rust-san-fang-ku-actix/
+https://bleedingfight.com/2023/09/10/rust-ji-chu-zi-fu-chuan/
 https://bleedingfight.com/2023/09/10/rust-ji-chu-du-xie-wen-jian/
 https://bleedingfight.com/2023/09/09/yi-gou-ji-suan-ji-chu/
 https://bleedingfight.com/2023/09/09/cuda-ji-chu/

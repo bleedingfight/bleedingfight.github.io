@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Rust三方库-actix-协议, Heterogeneous computing">
+    <meta name="keywords" content="CUDA编程基础(一), Heterogeneous computing">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="协议Websocketsactix web通过actix-web-actor支持websocket，转换请求的Payload到ws::Message然后使用流接合器处理实际的消息，但是对于处理 websocket 和 http actor ">
+    <meta name="description" content="CUDA编程基础(一) | bleedingfight">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Rust三方库-actix-协议 | bleedingfight</title>
+    <title>CUDA编程基础(一) | bleedingfight</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -329,13 +329,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Rust三方库-actix-协议
+                        CUDA编程基础(一)
                     </div>
                 </div>
             </div>
@@ -457,7 +457,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-16
+                    2025-06-18
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    350
+                    0
                 </div>
                 
 
@@ -494,76 +494,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h1><h2 id="Websockets"><a href="#Websockets" class="headerlink" title="Websockets"></a>Websockets</h2><p>actix web通过actix-web-actor支持websocket，转换请求的Payload到ws::Message然后使用流接合器处理实际的消息，但是对于处理 websocket 和 http actor 太简单了。</p>
-<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">use</span> actix<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>Actor<span class="token punctuation">,</span> StreamHandler<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">use</span> actix_web<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>web<span class="token punctuation">,</span> App<span class="token punctuation">,</span> Error<span class="token punctuation">,</span> HttpRequest<span class="token punctuation">,</span> HttpResponse<span class="token punctuation">,</span> HttpServer<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">use</span> actix_web_actors<span class="token punctuation">:</span><span class="token punctuation">:</span>ws<span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/// Define HTTP actor</span>
-<span class="token keyword">struct</span> MyWs<span class="token punctuation">;</span>
-
-<span class="token keyword">impl</span> Actor <span class="token keyword">for</span> MyWs <span class="token punctuation">{</span>
-    <span class="token keyword">type</span> Context <span class="token operator">=</span> ws<span class="token punctuation">:</span><span class="token punctuation">:</span>WebsocketContext<span class="token operator">&lt;</span>Self<span class="token operator">></span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/// Handler for ws::Message message</span>
-<span class="token keyword">impl</span> StreamHandler<span class="token operator">&lt;</span>Result<span class="token operator">&lt;</span>ws<span class="token punctuation">:</span><span class="token punctuation">:</span>Message<span class="token punctuation">,</span> ws<span class="token punctuation">:</span><span class="token punctuation">:</span>ProtocolError<span class="token operator">>></span> <span class="token keyword">for</span> MyWs <span class="token punctuation">{</span>
-    <span class="token keyword">fn</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> <span class="token keyword">self</span><span class="token punctuation">,</span> msg<span class="token punctuation">:</span> Result<span class="token operator">&lt;</span>ws<span class="token punctuation">:</span><span class="token punctuation">:</span>Message<span class="token punctuation">,</span> ws<span class="token punctuation">:</span><span class="token punctuation">:</span>ProtocolError<span class="token operator">></span><span class="token punctuation">,</span> ctx<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">mut</span> Self<span class="token punctuation">:</span><span class="token punctuation">:</span>Context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">match</span> msg <span class="token punctuation">{</span>
-            <span class="token function">Ok</span><span class="token punctuation">(</span>ws<span class="token punctuation">:</span><span class="token punctuation">:</span>Message<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Ping</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> ctx<span class="token punctuation">.</span><span class="token function">pong</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>msg<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token function">Ok</span><span class="token punctuation">(</span>ws<span class="token punctuation">:</span><span class="token punctuation">:</span>Message<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Text</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> ctx<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token function">Ok</span><span class="token punctuation">(</span>ws<span class="token punctuation">:</span><span class="token punctuation">:</span>Message<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Binary</span><span class="token punctuation">(</span>bin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> ctx<span class="token punctuation">.</span><span class="token function">binary</span><span class="token punctuation">(</span>bin<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            _ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-async <span class="token keyword">fn</span> <span class="token function">index</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span> HttpRequest<span class="token punctuation">,</span> stream<span class="token punctuation">:</span> web<span class="token punctuation">:</span><span class="token punctuation">:</span>Payload<span class="token punctuation">)</span> <span class="token punctuation">-></span> Result<span class="token operator">&lt;</span>HttpResponse<span class="token punctuation">,</span> Error<span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> resp <span class="token operator">=</span> ws<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">start</span><span class="token punctuation">(</span>MyWs <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>req<span class="token punctuation">,</span> stream<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">println!</span><span class="token punctuation">(</span><span class="token string">"{:?}"</span><span class="token punctuation">,</span> resp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    resp
-<span class="token punctuation">}</span>
-
-<span class="token attribute attr-name">#[actix_web::main]</span>
-async <span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>io<span class="token punctuation">:</span><span class="token punctuation">:</span>Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    HttpServer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token operator">||</span> App<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">route</span><span class="token punctuation">(</span><span class="token string">"/ws/"</span><span class="token punctuation">,</span> web<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span>?
-        <span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>await
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果可能actix-web自动更新连接到HTTP/2。</p>
-<h2 id="协商"><a href="#协商" class="headerlink" title="协商"></a>协商</h2><p>无论是<code>rustls</code>还是<code>openssl</code>特性开启，HttpServer提供了bind_restls方法和bind_openssl方法。</p>
-<pre class="line-numbers language-toml"><code class="language-toml">[dependencies]
-actix-web = { version = "4", features = ["openssl"] }
-openssl = { version = "0.10", features = ["v110"] }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-rust"><code class="language-rust"><span class="token keyword">use</span> actix_web<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>web<span class="token punctuation">,</span> App<span class="token punctuation">,</span> HttpRequest<span class="token punctuation">,</span> HttpServer<span class="token punctuation">,</span> Responder<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">use</span> openssl<span class="token punctuation">:</span><span class="token punctuation">:</span>ssl<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">{</span>SslAcceptor<span class="token punctuation">,</span> SslFiletype<span class="token punctuation">,</span> SslMethod<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-async <span class="token keyword">fn</span> <span class="token function">index</span><span class="token punctuation">(</span>_req<span class="token punctuation">:</span> HttpRequest<span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token keyword">impl</span> Responder <span class="token punctuation">{</span>
-    <span class="token string">"Hello."</span>
-<span class="token punctuation">}</span>
-
-<span class="token attribute attr-name">#[actix_web::main]</span>
-async <span class="token keyword">fn</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>io<span class="token punctuation">:</span><span class="token punctuation">:</span>Result<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// load TLS keys</span>
-    <span class="token comment" spellcheck="true">// to create a self-signed temporary cert for testing:</span>
-    <span class="token comment" spellcheck="true">// `openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365 -subj '/CN=localhost'`</span>
-    <span class="token keyword">let</span> <span class="token keyword">mut</span> builder <span class="token operator">=</span> SslAcceptor<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">mozilla_intermediate</span><span class="token punctuation">(</span>SslMethod<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">tls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    builder
-        <span class="token punctuation">.</span><span class="token function">set_private_key_file</span><span class="token punctuation">(</span><span class="token string">"key.pem"</span><span class="token punctuation">,</span> SslFiletype<span class="token punctuation">:</span><span class="token punctuation">:</span>PEM<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    builder<span class="token punctuation">.</span><span class="token function">set_certificate_chain_file</span><span class="token punctuation">(</span><span class="token string">"cert.pem"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    HttpServer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token operator">||</span> App<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">route</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> web<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">bind_openssl</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1:8080"</span><span class="token punctuation">,</span> builder<span class="token punctuation">)</span>?
-        <span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span>await
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>升级到HTTPS/2如<a href="https://httpwg.org/specs/rfc7540.html#rfc.section.3.2" target="_blank" rel="noopener">RFC7540</a>不支持。HTTP/2支持cleartex和TLS连接。</p>
-
+                
             </div>
             <hr />
 
@@ -721,9 +652,9 @@ async <span class="token keyword">fn</span> <span class="token function">main</s
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Rust三方库-actix-协议》
+                    《CUDA编程基础(一)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2023/09/16/rust-san-fang-ku-actix-xie-yi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2025/06/18/cuda-bian-cheng-ji-chu-yi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 bleedingfight
             </a> 采用
@@ -764,7 +695,7 @@ async <span class="token keyword">fn</span> <span class="token function">main</s
         repo: 'bleedingfight.github.io',
         owner: 'bleedingfight',
         admin: "bleedingfight",
-        id: '2023/09/16/rust-san-fang-ku-actix-xie-yi/',
+        id: '2025/06/18/cuda-bian-cheng-ji-chu-yi/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1047,49 +978,36 @@ async <span class="token keyword">fn</span> <span class="token function">main</s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/17/rust-san-fang-ku-bing-fa/">
+                <a href="/2025/06/18/cuda-bian-cheng-ji-chu-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Rust三方库(并发)">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CUDA编程基础(一)">
                         
-                        <span class="card-title">Rust三方库(并发)</span>
+                        <span class="card-title">CUDA编程基础(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            threadRust中的执行的程序由操作系统原生线程组成，每个线程由自己的栈和本地状态。线程可以命名、提供一些低级的同步支持。线程之间的通信可以通过channels完成。rust的传入的类型、其它形式的线程同步、共享内存数据结构。线程之间的
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2023-09-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2025-06-18
+                            </span>
                         <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/rust、parallel/" class="post-category" target="_blank">
-                                    rust、parallel
-                                </a>
-                            
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/rust编程、并发/" target="_blank">
-                        <span class="chip bg-color">rust编程、并发</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1100,24 +1018,28 @@ async <span class="token keyword">fn</span> <span class="token function">main</s
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/16/rust-san-fang-ku-actix-jin-jie/">
+                <a href="/2025/04/11/rust-san-fang-ku-rayon/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Rust三方库-actix-进阶">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="rust三方库(rayon)">
                         
-                        <span class="card-title">Rust三方库-actix-进阶</span>
+                        <span class="card-title">rust三方库(rayon)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            错误Actix Web 使用自己的actix_web::error::Error类型和actix_web::error::ResponseError trait 来处理来自 Web handler的错误。如果处理程序在也实现了Respons
+                            Rayon子模块
+array：对arrays ([T; N])并发迭代器。
+collections：针对 standard collections的并发迭代器
+iter：使用迭代器风格的并发程序trait。
+option： option类型
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2023-09-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2025-04-11
                             </span>
                         <span class="publish-author">
                             

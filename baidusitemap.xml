@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bleedingfight.com/2025/06/18/cuda-bian-cheng-ji-chu-yi/</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>  <url>
+    <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-actix-xie-yi/</loc>
+    <lastmod>2025-06-18</lastmod>
+  </url>  <url>
+    <loc>https://bleedingfight.com/2023/09/24/rust-san-fang-ku-ratatui/</loc>
+    <lastmod>2023-10-07</lastmod>
+  </url>  <url>
     <loc>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</loc>
     <lastmod>2023-10-07</lastmod>
   </url>  <url>
@@ -11,9 +20,6 @@
     <lastmod>2023-10-07</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/29/rust-ji-chu-die-dai-qi/</loc>
-    <lastmod>2023-10-07</lastmod>
-  </url>  <url>
-    <loc>https://bleedingfight.com/2023/09/24/rust-san-fang-ku-ratatui/</loc>
     <lastmod>2023-10-07</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2025/04/11/rust-san-fang-ku-rayon/</loc>
@@ -29,9 +35,6 @@
     <lastmod>2023-09-16</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-actix-jin-jie/</loc>
-    <lastmod>2023-09-16</lastmod>
-  </url>  <url>
-    <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-actix-xie-yi/</loc>
     <lastmod>2023-09-16</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/14/rust-ji-chu-chang-jian-de-trait/</loc>
