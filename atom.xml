@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bleedingfight.com/"/>
-  <updated>2023-09-26T15:43:55.735Z</updated>
+  <updated>2023-09-22T05:15:50.782Z</updated>
   <id>https://bleedingfight.com/</id>
   
   <author>
@@ -17,11 +17,85 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>rust三方库(rayon)</title>
+    <link href="https://bleedingfight.com/2025/04/11/rust-san-fang-ku-rayon/"/>
+    <id>https://bleedingfight.com/2025/04/11/rust-san-fang-ku-rayon/</id>
+    <published>2025-04-11T12:20:28.894Z</published>
+    <updated>2023-09-22T05:15:50.782Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Rayon&quot;&gt;&lt;a href=&quot;#Rayon&quot; class=&quot;headerlink&quot; title=&quot;Rayon&quot;&gt;&lt;/a&gt;Rayon&lt;/h1&gt;&lt;h2 id=&quot;子模块&quot;&gt;&lt;a href=&quot;#子模块&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>layout</title>
+    <link href="https://bleedingfight.com/2023/10/05/rust-ji-chu-chang-jian-wen-jian-de-du-qu-he-xu-lie-hua/"/>
+    <id>https://bleedingfight.com/2023/10/05/rust-ji-chu-chang-jian-wen-jian-de-du-qu-he-xu-lie-hua/</id>
+    <published>2023-10-05T08:05:21.000Z</published>
+    <updated>2023-10-07T05:39:30.483Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Rust序列化与反序列化&quot;&gt;&lt;a href=&quot;#Rust序列化与反序列化&quot; class=&quot;headerlink&quot; title=&quot;Rust序列化与反序列化&quot;&gt;&lt;/a&gt;Rust序列化与反序列化&lt;/h1&gt;&lt;h2 id=&quot;JSON序列化和反序列化&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="rust" scheme="https://bleedingfight.com/categories/rust/"/>
+    
+    
+      <category term="rust" scheme="https://bleedingfight.com/tags/rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>rust基础(迭代器)</title>
+    <link href="https://bleedingfight.com/2023/09/29/rust-ji-chu-die-dai-qi/"/>
+    <id>https://bleedingfight.com/2023/09/29/rust-ji-chu-die-dai-qi/</id>
+    <published>2023-09-29T00:46:55.000Z</published>
+    <updated>2023-10-07T05:39:30.483Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;迭代器&quot;&gt;&lt;a href=&quot;#迭代器&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="hpc、safe" scheme="https://bleedingfight.com/categories/hpc%E3%80%81safe/"/>
+    
+    
+      <category term="rust,iterator" scheme="https://bleedingfight.com/tags/rust-iterator/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Rust三方库(ratatui)</title>
     <link href="https://bleedingfight.com/2023/09/24/rust-san-fang-ku-ratatui/"/>
     <id>https://bleedingfight.com/2023/09/24/rust-san-fang-ku-ratatui/</id>
     <published>2023-09-24T09:11:19.000Z</published>
-    <updated>2023-09-26T15:43:55.735Z</updated>
+    <updated>2023-10-07T05:39:30.483Z</updated>
     
     <summary type="html">
     
@@ -109,33 +183,11 @@
   </entry>
   
   <entry>
-    <title>rust三方库(rayon)</title>
-    <link href="https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/"/>
-    <id>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/</id>
-    <published>2023-09-16T14:48:16.629Z</published>
-    <updated>2023-09-22T05:15:50.782Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Rayon&quot;&gt;&lt;a href=&quot;#Rayon&quot; class=&quot;headerlink&quot; title=&quot;Rayon&quot;&gt;&lt;/a&gt;Rayon&lt;/h1&gt;&lt;h2 id=&quot;子模块&quot;&gt;&lt;a href=&quot;#子模块&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Rust标准库(时间)</title>
     <link href="https://bleedingfight.com/2023/09/14/rust-biao-zhun-ku-shi-jian/"/>
     <id>https://bleedingfight.com/2023/09/14/rust-biao-zhun-ku-shi-jian/</id>
     <published>2023-09-14T23:16:53.000Z</published>
-    <updated>2023-09-15T14:07:19.565Z</updated>
+    <updated>2023-10-07T05:39:30.483Z</updated>
     
     <summary type="html">
     
@@ -149,6 +201,10 @@
     
     </summary>
     
+      <category term="rust,std" scheme="https://bleedingfight.com/categories/rust-std/"/>
+    
+    
+      <category term="rust" scheme="https://bleedingfight.com/tags/rust/"/>
     
   </entry>
   
@@ -171,7 +227,7 @@
     <link href="https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/"/>
     <id>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</id>
     <published>2023-09-13T08:09:17.000Z</published>
-    <updated>2023-09-17T15:12:52.911Z</updated>
+    <updated>2023-10-07T05:39:30.483Z</updated>
     
     <summary type="html">
     
@@ -246,28 +302,6 @@
   </entry>
   
   <entry>
-    <title>Rust三方库-actix</title>
-    <link href="https://bleedingfight.com/2023/09/10/rust-san-fang-ku-actix/"/>
-    <id>https://bleedingfight.com/2023/09/10/rust-san-fang-ku-actix/</id>
-    <published>2023-09-10T22:33:47.000Z</published>
-    <updated>2023-09-16T15:06:10.305Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Rust基础(字符串)</title>
     <link href="https://bleedingfight.com/2023/09/10/rust-ji-chu-zi-fu-chuan/"/>
     <id>https://bleedingfight.com/2023/09/10/rust-ji-chu-zi-fu-chuan/</id>
@@ -290,6 +324,28 @@
     
     
       <category term="rust编程、rust基础" scheme="https://bleedingfight.com/tags/rust%E7%BC%96%E7%A8%8B%E3%80%81rust%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rust三方库-actix</title>
+    <link href="https://bleedingfight.com/2023/09/10/rust-san-fang-ku-actix/"/>
+    <id>https://bleedingfight.com/2023/09/10/rust-san-fang-ku-actix/</id>
+    <published>2023-09-10T22:33:47.000Z</published>
+    <updated>2023-09-16T15:06:10.305Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
+        
+      
+    
+    </summary>
+    
     
   </entry>
   

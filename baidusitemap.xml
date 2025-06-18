@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bleedingfight.com/2023/09/24/rust-san-fang-ku-ratatui/</loc>
-    <lastmod>2023-09-26</lastmod>
+    <loc>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</loc>
+    <lastmod>2023-10-07</lastmod>
   </url>  <url>
-    <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-rayon/</loc>
+    <loc>https://bleedingfight.com/2023/09/14/rust-biao-zhun-ku-shi-jian/</loc>
+    <lastmod>2023-10-07</lastmod>
+  </url>  <url>
+    <loc>https://bleedingfight.com/2023/10/05/rust-ji-chu-chang-jian-wen-jian-de-du-qu-he-xu-lie-hua/</loc>
+    <lastmod>2023-10-07</lastmod>
+  </url>  <url>
+    <loc>https://bleedingfight.com/2023/09/29/rust-ji-chu-die-dai-qi/</loc>
+    <lastmod>2023-10-07</lastmod>
+  </url>  <url>
+    <loc>https://bleedingfight.com/2023/09/24/rust-san-fang-ku-ratatui/</loc>
+    <lastmod>2023-10-07</lastmod>
+  </url>  <url>
+    <loc>https://bleedingfight.com/2025/04/11/rust-san-fang-ku-rayon/</loc>
     <lastmod>2023-09-22</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/17/rust-san-fang-ku-bing-fa/</loc>
@@ -12,9 +24,6 @@
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/12/rust-ji-chu-chang-jian-de-biao-zhun-hong/</loc>
     <lastmod>2023-09-19</lastmod>
-  </url>  <url>
-    <loc>https://bleedingfight.com/2023/09/13/rust-ji-chu-wen-jian-xi-tong-fs/</loc>
-    <lastmod>2023-09-17</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/10/rust-san-fang-ku-actix/</loc>
     <lastmod>2023-09-16</lastmod>
@@ -24,9 +33,6 @@
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/16/rust-san-fang-ku-actix-xie-yi/</loc>
     <lastmod>2023-09-16</lastmod>
-  </url>  <url>
-    <loc>https://bleedingfight.com/2023/09/14/rust-biao-zhun-ku-shi-jian/</loc>
-    <lastmod>2023-09-15</lastmod>
   </url>  <url>
     <loc>https://bleedingfight.com/2023/09/14/rust-ji-chu-chang-jian-de-trait/</loc>
     <lastmod>2023-09-14</lastmod>

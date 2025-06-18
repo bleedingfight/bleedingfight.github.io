@@ -333,7 +333,7 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -488,14 +488,14 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    12 分
                 </div>
                 
                 
@@ -512,16 +512,16 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="文件系统中常见的包"><a href="#文件系统中常见的包" class="headerlink" title="文件系统中常见的包"></a>文件系统中常见的包</h1><ul>
-<li>DirBuilder:创建拥有丰富特性的目录的构建器。</li>
-<li>DirEntry:ReadDir迭代器返回的条目。</li>
-<li>File:访问文件系统上的文件的对象。</li>
-<li>FileType：代表访问文件类型的结构。它由Metadata::file_type方法返回。</li>
-<li>Metadata：文件的原始信息。</li>
-<li>OpenOptions：关于文件如何打开的选项和flags。</li>
-<li>Permissions：文件的权限。</li>
-<li>ReadDir:目录入口迭代器。</li>
+<li><code>DirBuilder</code>:创建拥有丰富特性的目录的构建器。</li>
+<li><code>DirEntry</code>:ReadDir迭代器返回的条目。</li>
+<li><code>File</code>:访问文件系统上的文件的对象。</li>
+<li><code>FileType</code>：代表访问文件类型的结构。它由<code>Metadata::file_type</code>方法返回。</li>
+<li><code>Metadata</code>：文件的原始信息。</li>
+<li><code>OpenOptions</code>：关于文件如何打开的选项和flags。</li>
+<li><code>Permissions</code>：文件的权限。</li>
+<li><code>ReadDir</code>:目录入口迭代器。</li>
 </ul>
-<h2 id="DirBuilder"><a href="#DirBuilder" class="headerlink" title="DirBuilder"></a>DirBuilder</h2><p>实现方法：</p>
+<h2 id="DirBuilder"><a href="#DirBuilder" class="headerlink" title="DirBuilder"></a>DirBuilder</h2><p>常见实现方法：</p>
 <ul>
 <li><code>new() -&gt; DirBuilder</code>：创建一个默认构造参数的DirBuilder。</li>
 <li><code>recursive(&amp;mut self, recursive: bool) -&gt; &amp;mut Self</code>：递归创建目录所有父目录，默认不开启。</li>
@@ -687,7 +687,28 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
 <li><code>readonly(&amp;self) -&gt; bool</code>:返回描述权限是否为只读。</li>
 <li><code>set_readonly(&amp;mut self, readonly: bool)</code>:修改文件的权限为只读。</li>
 </ul>
-<h2 id="ReadDir"><a href="#ReadDir" class="headerlink" title="ReadDir"></a>ReadDir</h2><p>目录条目的迭代器。</p>
+<h2 id="ReadDir"><a href="#ReadDir" class="headerlink" title="ReadDir"></a>ReadDir</h2><p>生成一个包含有<code>io::Result&lt;DirEntry&gt;</code>的迭代器。</p>
+<h2 id="fs下常见的方法"><a href="#fs下常见的方法" class="headerlink" title="fs下常见的方法"></a>fs下常见的方法</h2><ul>
+<li><code>try_exists&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;bool&gt;</code>:判断目录是否存在（实验）。</li>
+<li><code>canonicalize&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;PathBuf&gt;</code>:返回所有中间组件规范化和符号链接解析之后的绝对路径。</li>
+<li><code>copy&lt;P: AsRef&lt;Path&gt;, Q: AsRef&lt;Path&gt;&gt;(from: P, to: Q) -&gt; Result&lt;u64&gt;</code>:拷贝一个文件到另一个地方，这个函数将按位拷贝原始文件的权限，拷贝成功，文件的metadata的原始信息相同。</li>
+<li><code>create_dir&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;()&gt;</code>:创建一个新的空的目录。</li>
+<li><code>create_dir_all&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;()&gt;</code>:递归的创建所有的目录。如果指定目录不存在且无法创建则报错。</li>
+<li><code>hard_link&lt;P: AsRef&lt;Path&gt;, Q: AsRef&lt;Path&gt;&gt;(original: P,link: Q
+) -&gt; Result&lt;()&gt;</code>:在文件系统上创建一个新的硬链接。</li>
+<li><code>metadata&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;Metadata&gt;</code>：查询文件系统上文件或者目录的meta信息。</li>
+<li><code>read&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;Vec&lt;u8&gt;&gt;</code>:读取文件系统上文件的所有内容到向量中。</li>
+<li><code>read_dir&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;ReadDir&gt;</code>:返回目录入口迭代器。路径不存在、缺乏访问权限、指向非目录迭代器则会生成错误。</li>
+<li><code>read_link&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;PathBuf&gt;</code>:读取符号链接，返回文件的真实链接。路径不是符号链接或者路径不存在则则生成错误。</li>
+<li><code>read_to_string&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;String&gt;</code>:读取文件的所有内容为字符串。如果路径不存在或者产生OpenOption::open的错误返回。</li>
+<li><code>remove_dir&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;()&gt;</code>:移除一个空的目录。</li>
+<li><code>remove_dir_all&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;()&gt;</code>：移除路径下的所有内容。符号链接也会被移除，但是不会移除符号链接指向的真实文件。</li>
+<li><code>remove_file&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;()&gt;</code>：从文件系统中移除文件。</li>
+<li><code>rename&lt;P: AsRef&lt;Path&gt;, Q: AsRef&lt;Path&gt;&gt;(from: P, to: Q) -&gt; Result&lt;()&gt;</code>：重命名路径。from路径不存在、缺乏路径访问浏览权限、from和to文件系统不同都会导致错误。</li>
+<li><code>set_permissions&lt;P: AsRef&lt;Path&gt;&gt;(path: P, perm: Permissions) -&gt; Result&lt;()&gt;</code>:改变文件或者路径的权限，路径不存在或者缺乏改变文件属性的权限时产生错误。</li>
+<li><code>symlink_metadata&lt;P: AsRef&lt;Path&gt;&gt;(path: P) -&gt; Result&lt;Metadata&gt;</code>:查询文件的metadata。缺乏获取metadata权限或者path不存在。</li>
+<li><code>write&lt;P: AsRef&lt;Path&gt;, C: AsRef&lt;[u8]&gt;&gt;(path: P, contents: C) -&gt; Result&lt;()&gt;</code>:将contents的内容写入文件，路径不存在则报错。</li>
+</ul>
 
             </div>
             <hr />
@@ -1180,7 +1201,7 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Rust基础(常见的trait)">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="Rust基础(常见的trait)">
                         
                         <span class="card-title">Rust基础(常见的trait)</span>
                     </div>
@@ -1214,7 +1235,7 @@ FileType：代表访问文件类型的结构。它由Metadata::fil">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Rust基础(常见的标准宏)">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Rust基础(常见的标准宏)">
                         
                         <span class="card-title">Rust基础(常见的标准宏)</span>
                     </div>
@@ -1430,7 +1451,7 @@ concat_bytes
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">36.5k</span>
+            <span class="white-color">40.4k</span>
             
 
             <br>

@@ -334,7 +334,7 @@ TryFromFloatSecsError：转">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -450,11 +450,24 @@ TryFromFloatSecsError：转">
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/rust/" target="_blank">
+                            <span class="chip bg-color">rust</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/rust-std/" class="post-category" target="_blank">
+                            rust,std
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -476,14 +489,14 @@ TryFromFloatSecsError：转">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
                 
@@ -500,11 +513,11 @@ TryFromFloatSecsError：转">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="时间库常见的对象"><a href="#时间库常见的对象" class="headerlink" title="时间库常见的对象"></a>时间库常见的对象</h1><ul>
-<li>Duration:代表时间跨度的类型，通常的用法是超时统计。</li>
-<li>Instant：纳秒单位的时钟。</li>
-<li>SystemTime：系统时钟。</li>
-<li>SystemTimeErro：系统时钟错误。</li>
-<li>TryFromFloatSecsError：转换浮点数为Duration时的报错。</li>
+<li><code>Duration</code>:代表时间跨度的类型，通常的用法是超时统计。</li>
+<li><code>Instant</code>：纳秒单位的时钟。</li>
+<li><code>SystemTime</code>：系统时钟。</li>
+<li><code>SystemTimeErro</code>：系统时钟错误。</li>
+<li><code>TryFromFloatSecsError</code>：转换浮点数为Duration时的报错。</li>
 </ul>
 <h2 id="Duration时间"><a href="#Duration时间" class="headerlink" title="Duration时间"></a>Duration时间</h2><ul>
 <li><code>Duration = Duration::new(u64::MAX, NANOS_PER_SEC - 1)</code>:获取最大时间Duration。</li>
@@ -570,8 +583,18 @@ TryFromFloatSecsError：转">
 <li><code>elapsed(&amp;self) -&gt; Duration</code>：返回流失了多少时间。</li>
 <li><code>checked_add(&amp;self, duration: Duration) -&gt; Option&lt;Instant&gt;</code>：返回当前Instant+Instant之后的结果（越界则为None）。</li>
 <li><code>checked_sub(&amp;self, duration: Duration) -&gt; Option&lt;Instant&gt;</code>：返回当前Instant-Instan之后的结果（越界则为None）。</li>
-<li>``</li>
 </ul>
+<h2 id="SystemTime"><a href="#SystemTime" class="headerlink" title="SystemTime"></a>SystemTime</h2><p>系统时钟，linux下精确到纳秒，windows下精确到100纳秒。常见成员和方法：</p>
+<ul>
+<li><code>UNIX_EPOCH</code>:获取系统时钟。这个常量定义为：在所有的系统上<code>1970-01-01 00:00:00 UTC</code>时间戳。</li>
+<li><code>now()</code>:返回对应当前的系统时钟。</li>
+<li><code>duration_since(&amp;self,earlier: SystemTime) -&gt; Result&lt;Duration, SystemTimeError&gt;</code>:返回相比earlier时间点流失了多少时间。</li>
+<li><code>elapsed(&amp;self) -&gt; Result&lt;Duration, SystemTimeError&gt;</code>:返回自now开始到现在流失了多少时间。</li>
+<li><code>checked_add(&amp;self, duration: Duration) -&gt; Option&lt;SystemTime&gt;</code>:返回self+duration之后的时间，如果值没有越界则返回Some包装之后的时间，否则为None。</li>
+<li><code>checked_sub(&amp;self, duration: Duration) -&gt; Option&lt;SystemTime&gt;</code>:返回self-duration之后的时间，如果没有越界则返回Some包装之后的时间否则为None。</li>
+</ul>
+<h2 id="SystemTimeError"><a href="#SystemTimeError" class="headerlink" title="SystemTimeError"></a>SystemTimeError</h2><p><code>duration_since</code>和<code>elapse</code>方法返回的错误，常见方法<code>duration</code>用来计算反向消耗时间（产生此错误主要是起点比终点晚，反向计算就能得到时间差）。</p>
+<h2 id="TryFromFloatSecsError"><a href="#TryFromFloatSecsError" class="headerlink" title="TryFromFloatSecsError"></a>TryFromFloatSecsError</h2><p>转换一个浮点的秒数为Duration产生的错误。通常是<code>Duration::try_from_secs_f32</code>和<code>Duration::try_from_secs_f64</code>返回的错误。</p>
 
             </div>
             <hr />
@@ -1060,23 +1083,19 @@ TryFromFloatSecsError：转">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/09/16/rust-san-fang-ku-rayon/">
+                <a href="/2023/09/16/rust-san-fang-ku-actix-jin-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="rust三方库(rayon)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Rust三方库-actix-进阶">
                         
-                        <span class="card-title">rust三方库(rayon)</span>
+                        <span class="card-title">Rust三方库-actix-进阶</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Rayon子模块
-array：对arrays ([T; N])并发迭代器。
-collections：针对 standard collections的并发迭代器
-iter：使用迭代器风格的并发程序trait。
-option： option类型
+                            错误Actix Web 使用自己的actix_web::error::Error类型和actix_web::error::ResponseError trait 来处理来自 Web handler的错误。如果处理程序在也实现了Respons
                         
                     </div>
                     <div class="publish-info">
@@ -1102,7 +1121,7 @@ option： option类型
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Rust基础(常见的trait)">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="Rust基础(常见的trait)">
                         
                         <span class="card-title">Rust基础(常见的trait)</span>
                     </div>
@@ -1292,7 +1311,7 @@ option： option类型
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">36.5k</span>
+            <span class="white-color">40.4k</span>
             
 
             <br>
